@@ -1,0 +1,23 @@
+##### Starting Reconstruction Evaluation Stage #####
+Number of available GPUs: 1
+GPU 0: NVIDIA GeForce RTX 4090
+Using cuda:0 device
+The 'scipy' package is not imported, skipping scipy seed.
+Torch deterministic algorithms: True
+Creating the train dataset with db_path: data/processed/train
+Creating the test dataset with db_path: data/processed/test
+Creating the train dataloader with batch_size: 64
+Creating the test dataloader with batch_size: 64
+Length of train dataloader: 39
+Length of test dataloader: 4
+Number of instruments in train dataset: 104
+Creating the encodec model with model_name: facebook/encodec_24khz
+Loading the VAE model from: out/vae/checkpoints/vae_final_timid-orfe_epoch_15000.torch
+Loading the transformer model from: out/transformer/checkpoints/transformer_final_sonic-fond_epoch_5000.torch
+######## Evaluation ########
+Evaluating on train dataset
+mean loss vae: 0.001135271314221124 	 mean loss transformer: 4.896642451804394e-05
+gt pitch classification 0/1 accuracy: 1.0 	 vae pitch classification 0/1 accuracy: 0.11220533498759305 	 transformer pitch classification 0/1 accuracy: 1.0
+Evaluating on test dataset
+mean loss vae: 0.0010215742950094864 	 mean loss transformer: 0.001487572444602847
+gt pitch classification 0/1 accuracy: 0.7551081730769231 	 vae pitch classification 0/1 accuracy: 0.06911057692307693 	 transformer pitch classification 0/1 accuracy: 0.99609375
