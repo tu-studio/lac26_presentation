@@ -5,9 +5,14 @@ Lead of Computer Music and Neural Audio Systems Research Team<br>
 </div>
 
 <!-- .slide: data-state="no-header" -->
----
 
-# Introduction
+Notes:
+
+- Hello everyone
+- I will be presenting the history and latest advances of neural music production
+- My name is Fares Schulz
+- Researcher at Audio Communication Group, Technical University of Berlin (like my colleague Annika)
+- Lead of Computer Music and Neural Audio Systems Research Team
 
 ---
 
@@ -36,6 +41,14 @@ Lead of Computer Music and Neural Audio Systems Research Team<br>
 <div class="image-overlay fragment" style="position: absolute; width: 60%; padding: 60px; text-align: center;">
   <p><strong>Neural Music Production</strong> = Creative applications of<br>neural networks in the music production domain</p>
 </div>
+
+Notes:
+
+- Let's start with a quick overview of artificial intelligence
+- With AI, we refer to machines that can perform tasks that typically require human-like intelligence
+- Machine learning is a subset of AI that focuses on algorithms that can learn patterns from data without being explicitly programmed
+- Neural networks are a specific type of machine learning model inspired by the structure and function of biological neurons
+- Deep learning is a subset of neural networks that uses multiple layers to model complex patterns in data
 
 ---
 
@@ -120,28 +133,43 @@ Lead of Computer Music and Neural Audio Systems Research Team<br>
 
 <div class="fragment appear-vanish" data-fragment-index="1" style="text-align: center; margin-top: 60px;">
     <img src="assets/images/feedforward_network.png" alt="Deep Learning Era Timeline" style="width: 400px; height: auto; margin-top: 20px;">
+    <div class="reference" data-fragment-index="1" style="margin-top: 10px; text-align: center;">
+        https://www.cudocompute.com/topics/neural-networks/introduction-to-recurrent-neural-networks-rnns
+    </div>
 </div>
 
-<div class="reference fragment appear-vanish" data-fragment-index="1" style="margin-top: 10px; text-align: center;">
-    https://www.cudocompute.com/topics/neural-networks/introduction-to-recurrent-neural-networks-rnns
-</div>
 
 
 <div class="fragment appear-vanish" data-fragment-index="2" style="text-align: center; margin-top: 60px;">
     <img src="assets/images/recurrent_network.png" alt="Deep Learning Era Timeline" style="width: 400px; height: auto; margin-top: 20px;">
+    <div class="reference" data-fragment-index="2" style="margin-top: 10px; text-align: center;">
+        https://www.cudocompute.com/topics/neural-networks/introduction-to-recurrent-neural-networks-rnns
+    </div>
 </div>
 
-<div class="reference fragment appear-vanish" data-fragment-index="2" style="margin-top: 10px; text-align: center;">
-    https://www.cudocompute.com/topics/neural-networks/introduction-to-recurrent-neural-networks-rnns
-</div>
 
 
 <div class="fragment appear-vanish" data-fragment-index="3" style="text-align: center; margin-top: 60px;">
     <img src="assets/images/deep_neural_networks.png" alt="Deep Learning Era Timeline" style="width: 700px; height: auto; margin-top: 20px;">
+    <div class="reference" data-fragment-index="3" style="margin-top: 10px; text-align: center;">
+        https://www.geeksforgeeks.org/artificial-intelligence/artificial-neural-networks-and-its-applications/
+    </div>
 </div>
 
-<div class="reference fragment appear-vanish" data-fragment-index="3" style="margin-top: 10px; text-align: center;">
-    https://www.geeksforgeeks.org/artificial-intelligence/artificial-neural-networks-and-its-applications/
+Notes:
+
+<div style="font-size: 0.85em; margin-top: 20px;">
+
+- To understand the evolution of neural music production, I want to look first at the early history of neural networks
+- In 1957, the perceptron was introduced by Frank Rosenblatt, marking the beginning of neural network research
+- Later, the multi-layer perceptron (MLP) was developed, allowing for more complex representations of data
+- In 1979, convolutional neural networks (CNNs) were introduced - replacing the matrix multiplications with convolution operations
+- And two years later - Hopfield networks were proposed, introducing recurrent connections - temporal dynamics
+- Backpropagation algorithm enabled training of multi-layer networks - efficiently computing gradients
+- In 1989, a fancy version of RNNs called Long Short-Term Memory (LSTM) networks
+- Before the deep learning era, Deep Belief Networks (DBNs) were proposed as a way to pre-train deep networks layer by layer
+- Finally, in 2012, AlexNet demonstrated the power of large deep convolutional networks on image classification tasks - marking the beginning of the deep learning revolution
+
 </div>
 
 ---
@@ -149,13 +177,13 @@ Lead of Computer Music and Neural Audio Systems Research Team<br>
 ## Early History of Neural Music Production
 
 <div class="timeline-container" style="flex-direction: column; gap: 10px;">
-    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-top: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
         <div style="width: 20%;">
             <div class="timeline-title">Key Milestones</div>
             <div class="timeline-text">Significant developments in neural music production</div>
         </div>
         <div style="display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; width: 80%; gap: 20px;">
-            <div class="timeline timeline-secondary" style="width: 98%; --start-year: 1953; --end-year: 2012;">
+            <div class="timeline timeline-secondary" style="width: 98%; --start-year: 1957; --end-year: 2012;">
                 <div class="timeline-dot" style="--year: 1957;"></div>
                 <div class="timeline-item" style="--year: 1957;">
                     <div class="timeline-content">
@@ -213,16 +241,7 @@ Lead of Computer Music and Neural Audio Systems Research Team<br>
                 </div>
                 <div class="timeline-connector" style="--year: 2012;"></div>
             </div>
-            <div class="timeline timeline-purple" style="width: 98%; --start-year: 1953; --end-year: 2012;">
-                <div class="timeline-dot" style="--year: 1953;"></div>
-                <div class="timeline-item" style="--year: 1953;">
-                    <div class="timeline-content">
-                        <div class="timeline-year">1953</div>
-                        <div class="timeline-name">Stochastic Scores</div>
-                        <div class="timeline-author">Xennakis, I.</div>
-                    </div>
-                </div>
-                <div class="timeline-connector" style="--year: 1953;"></div>
+            <div class="timeline timeline-purple" style="width: 98%; --start-year: 1957; --end-year: 2012;">
                 <div class="timeline-dot" style="--year: 1960;"></div>
                 <div class="timeline-item" style="--year: 1960;">
                     <div class="timeline-content">
@@ -232,90 +251,129 @@ Lead of Computer Music and Neural Audio Systems Research Team<br>
                     </div>
                 </div> 
                 <div class="timeline-connector" style="--year: 1960;"></div>
-                <div class="timeline-dot" style="--year: 1982;"></div>
-                <div class="timeline-item" style="--year: 1982;">
+                <div class="timeline-dot" style="--year: 1987;"></div>
+                <div class="timeline-item" style="--year: 1987;">
                     <div class="timeline-content">
-                        <div class="timeline-year">1982</div>
-                        <div class="timeline-name">Recurrent Networks</div>
-                        <div class="timeline-author">Hopfield</div>
+                        <div class="timeline-year">1987</div>
+                        <div class="timeline-name">NN for Phoneme Recognition</div>
+                        <div class="timeline-author">Waibel et al.</div>
                     </div>
                 </div>
-                <div class="timeline-connector" style="--year: 1982;"></div>
-                <div class="timeline-dot" style="--year: 1986;"></div>
-                <div class="timeline-item" style="--year: 1986;">
-                    <div class="timeline-content">
-                        <div class="timeline-year">1986</div>
-                        <div class="timeline-name">Backpropagation</div>
-                        <div class="timeline-author">Hinton et al.</div>
-                    </div>
-                </div>
-                <div class="timeline-connector" style="--year: 1986;"></div>
+                <div class="timeline-connector" style="--year: 1987;"></div>
                 <div class="timeline-dot" style="--year: 1989;"></div>
                 <div class="timeline-item" style="--year: 1989;">
                     <div class="timeline-content">
                         <div class="timeline-year">1989</div>
-                        <div class="timeline-name">LSTM</div>
-                        <div class="timeline-author">Hochreiter & Schmidhuber</div>
+                        <div class="timeline-name">RNN for Symbolic Music Generation</div>
+                        <div class="timeline-author">Todd</div>
                     </div>
                 </div>
                 <div class="timeline-connector" style="--year: 1989;"></div>
-                <div class="timeline-dot" style="--year: 2006;"></div>
-                <div class="timeline-item" style="--year: 2006;">
+                <div class="timeline-dot" style="--year: 1989.2;"></div>
+                <div class="timeline-item" style="--year: 1989.2;">
                     <div class="timeline-content">
-                        <div class="timeline-year">2006</div>
-                        <div class="timeline-name">Deep Belief Networks</div>
-                        <div class="timeline-author">Hinton, G. et al.</div>
+                        <div class="timeline-year">1989</div>
+                        <div class="timeline-name">Gradient Descent for Musical DSP</div>
+                        <div class="timeline-author">Shynk & Moorer</div>
                     </div>
                 </div>
-                <div class="timeline-connector" style="--year: 2006;"></div>
-                <div class="timeline-dot positioned" style="--year: 2012;"></div>
-                <div class="timeline-item" style="--year: 2012;">
+                <div class="timeline-connector" style="--year: 1989.2;"></div>
+                <div class="timeline-dot" style="--year: 1997;"></div>
+                <div class="timeline-item" style="--year: 1997;">
                     <div class="timeline-content">
-                        <div class="timeline-year">2012</div>
-                        <div class="timeline-name">AlexNet</div>
-                        <div class="timeline-author">Krizhevsky et al.</div>
+                        <div class="timeline-year">1997</div>
+                        <div class="timeline-name">NN for Analog Effects Modeling</div>
+                        <div class="timeline-author">Zhang & Duhamel</div>
                     </div>
                 </div>
-                <div class="timeline-connector" style="--year: 2012;"></div>
+                <div class="timeline-connector" style="--year: 1997;"></div>
+                <div class="timeline-dot" style="--year: 1999;"></div>
+                <div class="timeline-item" style="--year: 1999;">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1999</div>
+                        <div class="timeline-name">NN for Piano Transcription</div>
+                        <div class="timeline-author">Matija Marolt</div>
+                    </div>
+                </div>
+                <div class="timeline-connector" style="--year: 1999;"></div>
+                <div class="timeline-dot" style="--year: 2009;"></div>
+                <div class="timeline-item" style="--year: 2009;">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2009</div>
+                        <div class="timeline-name">Audio features with DBN</div>
+                        <div class="timeline-author">Lee et al.</div>
+                    </div>
+                </div>
+                <div class="timeline-connector" style="--year: 2009;"></div>
             </div>
         </div>
     </div>
 </div>
 
-
-<div class="fragment appear-vanish" data-fragment-index="0" style="text-align: center; margin-top: 60px;">
-    <img src="assets/images/perceptron.svg" alt="Deep Learning Era Timeline" style="max-width: 50%; height: auto; margin-top: 20px;">
+<div class="fragment appear-vanish" data-fragment-index="0" style="margin-top: 60px;">
+    <h3>Least Mean Square Filtering<br>
+    <span style="font-weight: normal; font-size: 0.6em; font-height: 0.6em;">(Widrow & Hoff)</span></h3>
+    <ul>
+        <li>Adaptive filtering algorithm for noise cancellation and echo suppression</li>
+        <li>Uses <strong>stochastic gradient descent</strong> to minimize error between desired and actual output</li>
+        <li>SGD = Foundation for later neural network training methods</li>
+    </ul>
 </div>
 
-<div class="fragment appear-vanish" data-fragment-index="1" style="text-align: center; margin-top: 60px;">
-    <img src="assets/images/feedforward_network.png" alt="Deep Learning Era Timeline" style="width: 400px; height: auto; margin-top: 20px;">
+<div class="fragment" data-fragment-index="1"></div>
+
+<div class="fragment appear-vanish" data-fragment-index="2" style="text-align: center; margin-top: 20px;">
+    <img src="assets/images/rnn_symbolic_music_gen.png" alt="RNN for Symbolic Music Generation" style="width: 400px; height: auto; margin-top: 20px;">
+    <div class="reference" style="margin-top: 10px; text-align: center;">
+        Todd, P. M. (1989). A Connectionist Approach to Algorithmic Composition. Computer Music Journal, 13(4), 27–43.
+    </div>
 </div>
 
-<div class="reference fragment appear-vanish" data-fragment-index="1" style="margin-top: 10px; text-align: center;">
-    https://www.cudocompute.com/topics/neural-networks/introduction-to-recurrent-neural-networks-rnns
+<div class="fragment" data-fragment-index="3"></div>
+
+<div class="fragment appear-vanish" data-fragment-index="4" style="margin-top: 60px;">
+    <h3>Neural Networks for Piano Transcription
+    <br><span style="font-weight: normal;">(Matija Marolt)</span></h3>
+    <ul>
+        <li>Division of audio signals into frequency bands</li>
+        <li>One Multilayer Perceptron (MLP) for each band</li>
+    </ul>
 </div>
 
+<div class="fragment" data-fragment-index="5"></div>
 
-<div class="fragment appear-vanish" data-fragment-index="2" style="text-align: center; margin-top: 60px;">
-    <img src="assets/images/recurrent_network.png" alt="Deep Learning Era Timeline" style="width: 400px; height: auto; margin-top: 20px;">
+<div class="fragment appear-vanish" data-fragment-index="6" style="margin-top: 20px;">
+    <h3>Unsupervised Audio Feature Learning with Deep Belief Networks<br>
+    <span style="font-weight: normal;">(Lee et al.)</span></h3>
+    <ul>
+        <li>Learning Audio Features from Unsupervised Data</li>
+        <li>First deep CNN applied to audio data</li>
+        <li>Outperformed traditional hand-crafted features in many classification tasks</li>
+    </ul>
 </div>
 
-<div class="reference fragment appear-vanish" data-fragment-index="2" style="margin-top: 10px; text-align: center;">
-    https://www.cudocompute.com/topics/neural-networks/introduction-to-recurrent-neural-networks-rnns
-</div>
+Notes:
 
+<div style="font-size: 0.85em; margin-top: 20px;">
 
-<div class="fragment appear-vanish" data-fragment-index="3" style="text-align: center; margin-top: 60px;">
-    <img src="assets/images/deep_neural_networks.png" alt="Deep Learning Era Timeline" style="width: 700px; height: auto; margin-top: 20px;">
-</div>
-
-<div class="reference fragment appear-vanish" data-fragment-index="3" style="margin-top: 10px; text-align: center;">
-    https://www.geeksforgeeks.org/artificial-intelligence/artificial-neural-networks-and-its-applications/
-</div>
+- Now let's look at some key milestones in neural music production during this early history
+- Allready in 1960, Widrow and Hoff introduced the Least Mean Square filtering algorithm
+- Then 27 years later, neural networks were applied to phoneme recognition
+- In 1989, Peter Todd used RNNs for symbolic music generation
+- In the same year, there have been first attempts to use gradient descent for musical DSP
+- In 1997, neural networks were used the first time for modeling analog effects
+- Music transcription with neural networks dates back to 1999, with Matija Marolt's work on piano transcription
+- Finally in 2009, Lee et al. demonstrated the effectiveness of deep belief networks for learning audio features from unsupervised data
 
 ---
 
-## Foundations of Deep Learning
+## The Deep Learning Era
+
+Notes:
+
+<div style="font-size: 0.85em; margin-top: 20px;">
+
+- Now that we have the basics covered, let's move on to fun stuff - the deep learning era
 
 ---
 
