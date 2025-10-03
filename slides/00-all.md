@@ -96,15 +96,6 @@ Notes:
             </div>
         </div>
         <div class="timeline-connector" style="--year: 1986;"></div>
-        <div class="timeline-dot" style="--year: 1989;"></div>
-        <div class="timeline-item" style="--year: 1989;">
-            <div class="timeline-content">
-                <div class="timeline-year">1989</div>
-                <div class="timeline-name">LSTM</div>
-                <div class="timeline-author">Hochreiter & Schmidhuber</div>
-            </div>
-        </div>
-        <div class="timeline-connector" style="--year: 1989;"></div>
         <div class="timeline-dot" style="--year: 2006;"></div>
         <div class="timeline-item" style="--year: 2006;">
             <div class="timeline-content">
@@ -165,8 +156,7 @@ Notes:
 - Later, the multi-layer perceptron (MLP) was developed, allowing for more complex representations of data
 - In 1979, convolutional neural networks (CNNs) were introduced - replacing the matrix multiplications with convolution operations
 - And two years later - Hopfield networks were proposed, introducing recurrent connections - temporal dynamics
-- Backpropagation algorithm enabled training of multi-layer networks - efficiently computing gradients
-- In 1989, a fancy version of RNNs called Long Short-Term Memory (LSTM) networks
+- Then the backpropagation algorithm enabled training of multi-layer networks - efficiently computing gradients
 - Before the deep learning era, Deep Belief Networks (DBNs) were proposed as a way to pre-train deep networks layer by layer
 - Finally, in 2012, AlexNet demonstrated the power of large deep convolutional networks on image classification tasks - marking the beginning of the deep learning revolution
 
@@ -216,14 +206,6 @@ Notes:
                     </div>
                 </div>
                 <div class="timeline-connector" style="--year: 1986;"></div>
-                <div class="timeline-dot" style="--year: 1989;"></div>
-                <div class="timeline-item" style="--year: 1989;">
-                    <div class="timeline-content">
-                        <div class="timeline-year">1989</div>
-                        <div class="timeline-name">LSTM</div>
-                    </div>
-                </div>
-                <div class="timeline-connector" style="--year: 1989;"></div>
                 <div class="timeline-dot" style="--year: 2006;"></div>
                 <div class="timeline-item" style="--year: 2006;">
                     <div class="timeline-content">
