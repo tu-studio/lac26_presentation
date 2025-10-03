@@ -322,9 +322,9 @@ Notes:
 
 <div class="fragment" data-fragment-index="1"></div>
 
-<div class="fragment appear-vanish" data-fragment-index="2" style="text-align: center; margin-top: 20px;">
-    <img src="assets/images/rnn_symbolic_music_gen.png" alt="RNN for Symbolic Music Generation" style="width: 400px; height: auto; margin-top: 20px;">
-    <div class="reference" style="margin-top: 10px; text-align: center;">
+<div class="fragment appear-vanish image-overlay" data-fragment-index="2" style="text-align: center; top: 100%;">
+    <img src="assets/images/rnn_symbolic_music_gen.png" alt="RNN for Symbolic Music Generation" style="width: 700px; height: auto; margin-top: 20px;">
+    <div class="reference" style="margin: 10px; text-align: center;">
         Todd, P. M. (1989). A Connectionist Approach to Algorithmic Composition. Computer Music Journal, 13(4), 27–43.
     </div>
 </div>
@@ -369,11 +369,337 @@ Notes:
 
 ## The Deep Learning Era
 
+<div class="timeline-container" style="flex-direction: row;">
+    <div style="width: 20%;">
+        <div class="timeline-title">Deep architectures</div>
+        <div class="timeline-text">Deep architectures and generative models transforming AI capabilities</div>
+    </div>
+    <div class="timeline" style="width: 80%; --start-year: 2013; --end-year: 2023;">
+        <div class="timeline-dot" style="--year: 2013;"></div>
+        <div class="timeline-item" style="--year: 2013;">
+            <div class="timeline-content">
+                <div class="timeline-year">2013</div>
+                <div class="timeline-name">Variational Autoencoders</div>
+                <div class="timeline-author">Kingma & Welling</div>
+            </div>
+        </div>
+        <div class="timeline-connector" style="--year: 2013;"></div>
+        <div class="timeline-dot" style="--year: 2014;"></div>
+        <div class="timeline-item" style="--year: 2014;">
+            <div class="timeline-content">
+                <div class="timeline-year">2014</div>
+                <div class="timeline-name">Generative Adversarial Nets</div>
+                <div class="timeline-author">Goodfellow et al.</div>
+            </div>
+        </div>
+        <div class="timeline-connector" style="--year: 2014;"></div>
+        <div class="timeline-dot" style="--year: 2015;"></div>
+        <div class="timeline-item" style="--year: 2015;">
+            <div class="timeline-content">
+                <div class="timeline-year">2015</div>
+                <div class="timeline-name">Diffusion</div>
+                <div class="timeline-author">Sohl-Dickstein et al.</div>
+            </div>
+        </div>
+        <div class="timeline-connector" style="--year: 2015;"></div>
+        <div class="timeline-dot" style="--year: 2017;"></div>
+        <div class="timeline-item" style="--year: 2017;">
+            <div class="timeline-content">
+                <div class="timeline-year">2017</div>
+                <div class="timeline-name">Transformers</div>
+                <div class="timeline-author">Vaswani et al.</div>
+            </div>
+        </div>
+        <div class="timeline-connector" style="--year: 2017;"></div>
+        <div class="timeline-dot" style="--year: 2021;"></div>
+        <div class="timeline-item" style="--year: 2021;">
+            <div class="timeline-content">
+                <div class="timeline-year">2021</div>
+                <div class="timeline-name">CLIP</div>
+                <div class="timeline-author">Dosovitskiy & Radford</div>
+            </div>
+        </div>
+        <div class="timeline-connector" style="--year: 2021;"></div>
+        <div class="timeline-dot" style="--year: 2022;"></div>
+        <div class="timeline-item" style="--year: 2022;">
+            <div class="timeline-content">
+                <div class="timeline-year">2022</div>
+                <div class="timeline-name">Diffusion Transformer</div>
+                <div class="timeline-author">Peebles & Xie</div>
+            </div>
+        </div>
+        <div class="timeline-connector" style="--year: 2022;"></div>
+        <div class="timeline-dot" style="--year: 2023;"></div>
+        <div class="timeline-item" style="--year: 2023;">
+            <div class="timeline-content">
+                <div class="timeline-year">2023</div>
+                <div class="timeline-name">Mamba</div>
+                <div class="timeline-author">Gu & Dao</div>
+            </div>
+        </div>
+        <div class="timeline-connector" style="--year: 2023;"></div>
+    </div>
+</div>
+
+<div class="fragment appear-vanish" data-fragment-index="0" style="text-align: center; margin-top: 20px;">
+    <img src="assets/images/vae.png" alt="Variational Autoencoder" style="max-width: 800px; height: auto;">
+    <div class="reference" data-fragment-index="1" style="margin-top: 10px; text-align: center;">
+        https://theaisummer.com/Autoencoder/
+    </div>
+</div>
+
+<div class="fragment" data-fragment-index="1"></div>
+
+<div class="fragment appear-vanish" data-fragment-index="2" style="text-align: center; margin-top: 100px;">
+    <img src="assets/images/diffusion_networks.png" alt="Diffusion Networks" style="width: 1200px; height: auto;">
+    <div class="reference" data-fragment-index="1" style="margin-top: 10px; text-align: center;">
+        Ho, J., Jain, A., & Abbeel, P. (2020). Denoising diffusion probabilistic models. Advances in neural information processing systems, 33, 6840-6851.
+    </div>
+</div>
+
+<div class="fragment appear-vanish image-overlay" data-fragment-index="3" style="text-align: center; top: 130%;">
+    <img src="assets/images/transformer.png" alt="Transformer" style="max-width: 550px; height: auto;">
+    <div class="reference" data-fragment-index="1" style="margin: 10px; text-align: center;">
+        Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., ... & Polosukhin, I. (2017). Attention is all you need. Advances in neural information processing systems, 30.
+    </div>
+</div>
+
+<div class="fragment appear-vanish image-overlay" data-fragment-index="4" style="text-align: center; top: 130%;">
+    <img src="assets/images/clip.png" alt="CLIP" style="max-width: 1800px; height: auto;">
+    <div class="reference" data-fragment-index="1" style="margin: 10px; text-align: center;">
+        Radford, A., Kim, J. W., Hallacy, C., Ramesh, A., Goh, G., Agarwal, S., ... & Sutskever, I. (2021). Learning transferable visual models from natural language supervision. In International conference on machine learning (pp. 8748-8763). PmLR.
+    </div>
+</div>
+
+<div class="fragment appear-vanish" data-fragment-index="5" style="text-align: center; top: 120%;">
+    <img src="assets/images/diffusion-transformer.png" alt="Diffusion Transformer" style="max-width: 1800px; height: auto;">
+    <div class="reference" data-fragment-index="1" style="margin: 10px; text-align: center;">
+        https://digialps.com/stability-ais-new-open-source-ai-creation-stable-audio-2-0-takes-on-suno-ai/
+    </div>
+</div>
+
+<div class="fragment" data-fragment-index="6"></div>
+
 Notes:
 
 <div style="font-size: 0.85em; margin-top: 20px;">
 
 - Now that we have the basics covered, let's move on to fun stuff - the deep learning era
+- In 2013, Variational Autoencoders were introduced - ability to generate new data points by sampling from a learned distribution - the latent distribution
+- Learn in an unsupervised manner to encode input data into a compressed representation and then decode it back to the original input
+- Generation of new data points by sampling from the latent distribution
+- In 2014, Generative Adversarial Networks were proposed - two neural networks competing against each other
+- In 2015, Diffusion models were introduced - iterative denoising process to generate high-quality samples
+- In 2017, Transformers revolutionized sequence modeling with self-attention mechanisms
+- In 2021, CLIP demonstrated the power of multi-modal learning by connecting images and text
+- Two encoders that map images and text into a shared latent space - by using contrastive learning the images and text are mapped close to each other in the latent space
+- It could for example classify images, without ever being trained on that specific task
+- In 2022, Diffusion Transformers combined the strengths of diffusion models and transformers
+- And finally in 2023, Mamba was introduced - a new architecture for sequence modeling
+
+</div>
+
+---
+
+## Deep Neural Music Production
+
+<div class="timeline-container" style="flex-direction: column; gap: 10px;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+        <div style="width: 20%;">
+            <div class="timeline-title">Key Milestones</div>
+            <div class="timeline-text">Significant developments in deep neural music production</div>
+        </div>
+        <div style="display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; width: 80%; gap: 20px;">
+            <div class="timeline timeline-secondary" style="width: 98%; --start-year: 2013; --end-year: 2024;">
+                <div class="timeline-dot" style="--year: 2013;"></div>
+                <div class="timeline-item" style="--year: 2013;">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2013</div>
+                        <div class="timeline-name">VAE</div>
+                        <div class="timeline-author">Kingma & Welling</div>
+                    </div>
+                </div>
+                <div class="timeline-connector" style="--year: 2013;"></div>
+                <div class="timeline-dot" style="--year: 2014;"></div>
+                <div class="timeline-item" style="--year: 2014;">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2014</div>
+                        <div class="timeline-name">GAN</div>
+                        <div class="timeline-author">Goodfellow et al.</div>
+                    </div>
+                </div>
+                <div class="timeline-connector" style="--year: 2014;"></div>
+                <div class="timeline-dot" style="--year: 2015;"></div>
+                <div class="timeline-item" style="--year: 2015;">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2015</div>
+                        <div class="timeline-name">Diffusion</div>
+                        <div class="timeline-author">Sohl-Dickstein et al.</div>
+                    </div>
+                </div>
+                <div class="timeline-connector" style="--year: 2015;"></div>
+                <div class="timeline-dot" style="--year: 2017;"></div>
+                <div class="timeline-item" style="--year: 2017;">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2017</div>
+                        <div class="timeline-name">Transformers</div>
+                        <div class="timeline-author">Vaswani et al.</div>
+                    </div>
+                </div>
+                <div class="timeline-connector" style="--year: 2017;"></div>
+                <div class="timeline-dot" style="--year: 2021;"></div>
+                <div class="timeline-item" style="--year: 2021;">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2021</div>
+                        <div class="timeline-name">CLIP</div>
+                        <div class="timeline-author">Dosovitskiy & Radford</div>
+                    </div>
+                </div>
+                <div class="timeline-connector" style="--year: 2021;"></div>
+                <div class="timeline-dot" style="--year: 2022;"></div>
+                <div class="timeline-item" style="--year: 2022;">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2022</div>
+                        <div class="timeline-name">Diffusion Transformer</div>
+                        <div class="timeline-author">Peebles & Xie</div>
+                    </div>
+                </div>
+                <div class="timeline-connector" style="--year: 2022;"></div>
+                <div class="timeline-dot" style="--year: 2023;"></div>
+                <div class="timeline-item" style="--year: 2023;">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023</div>
+                        <div class="timeline-name">Mamba</div>
+                        <div class="timeline-author">Gu & Dao</div>
+                    </div>
+                </div>
+                <div class="timeline-connector" style="--year: 2023;"></div>
+            </div>
+            <div class="timeline timeline-purple" style="width: 98%; --start-year: 2013; --end-year: 2024;">
+                <div class="timeline-dot" style="--year: 2016;"></div>
+                <div class="timeline-item" style="--year: 2016;">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2016</div>
+                        <div class="timeline-name">WaveNet</div>
+                        <div class="timeline-author">Oord et al.</div>
+                    </div>
+                </div>
+                <div class="timeline-connector" style="--year: 2016;"></div>
+                <div class="timeline-dot" style="--year: 2017;"></div>
+                <div class="timeline-item" style="--year: 2017;">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2017</div>
+                        <div class="timeline-name">Neural Synthesis</div>
+                        <div class="timeline-author">Engel et al.</div>
+                    </div>
+                </div>
+                <div class="timeline-connector" style="--year: 2017;"></div>
+                <div class="timeline-dot" style="--year: 2019;"></div>
+                <div class="timeline-item" style="--year: 2019;">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2019</div>
+                        <div class="timeline-name">DDSP</div>
+                        <div class="timeline-author">Engel et al.</div>
+                    </div>
+                </div>
+                <div class="timeline-connector" style="--year: 2019;"></div>
+                <div class="timeline-dot" style="--year: 2020;"></div>
+                <div class="timeline-item" style="--year: 2020;">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020</div>
+                        <div class="timeline-name">Automatic Mixing</div>
+                        <div class="timeline-author">Steinmetz et al.</div>
+                    </div>
+                </div>
+                <div class="timeline-connector" style="--year: 2020;"></div>
+                <div class="timeline-dot" style="--year: 2021;"></div>
+                <div class="timeline-item" style="--year: 2021;">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2021</div>
+                        <div class="timeline-name">RAVE</div>
+                        <div class="timeline-author">Caillon & Esling</div>
+                    </div>
+                </div>
+                <div class="timeline-connector" style="--year: 2021;"></div>
+                <div class="timeline-dot" style="--year: 2022;"></div>
+                <div class="timeline-item" style="--year: 2022;">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2022</div>
+                        <div class="timeline-name">CLAP</div>
+                        <div class="timeline-author">Benjamin, et al.</div>
+                    </div>
+                </div>
+                <div class="timeline-connector" style="--year: 2022;"></div>
+                <div class="timeline-dot" style="--year: 2024;"></div>
+                <div class="timeline-item" style="--year: 2024;">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2024</div>
+                        <div class="timeline-name">Stable Audio</div>
+                        <div class="timeline-author">Evans et al.</div>
+                    </div>
+                </div>
+                <div class="timeline-connector" style="--year: 2024;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="fragment appear-vanish" data-fragment-index="0" style="text-align: center; margin-top: 20px;">
+    <img src="assets/images/wavenet_before.png" alt="WaveNet Before" style="width: 1200px; height: auto;">
+    <div class="reference" data-fragment-index="1" style="margin-top: 10px; text-align: center;">
+        Oord, A. van den, Dieleman, S., Zen, H., Simonyan, K., Vinyals, O., Graves, A., Kalchbrenner, N., Senior, A., & Kavukcuoglu, K. (2016). WaveNet: A Generative Model for Raw Audio (No. arXiv:1609.03499). https://doi.org/10.48550/arXiv.1609.03499
+    </div>
+</div>
+
+<div class="fragment appear-vanish" data-fragment-index="1" style="text-align: center; margin-top: 20px;">
+    <img src="assets/images/wavenet_after.png" alt="WaveNet Before" style="width: 1200px; height: auto;">
+    <div class="reference" data-fragment-index="1" style="margin-top: 10px; text-align: center;">
+        Oord, A. van den, Dieleman, S., Zen, H., Simonyan, K., Vinyals, O., Graves, A., Kalchbrenner, N., Senior, A., & Kavukcuoglu, K. (2016). WaveNet: A Generative Model for Raw Audio (No. arXiv:1609.03499). https://doi.org/10.48550/arXiv.1609.03499
+    </div>
+</div>
+
+<div class="fragment appear-vanish" data-fragment-index="2" style="text-align: center; top: 100%;">
+    <img src="assets/images/nsynth.png" alt="Neural Synthesis" style="width: 900px; height: auto;">
+        <div class="reference" data-fragment-index="1" style="margin: 10px; text-align: center;">
+            Engel, J., Resnick, C., Roberts, A., Dieleman, S., Norouzi, M., Eck, D., & Simonyan, K. (2017, July). Neural audio synthesis of musical notes with wavenet autoencoders. In International conference on machine learning (pp. 1068-1077). PMLR.
+        </div>
+</div>
+
+<div class="fragment appear-vanish" data-fragment-index="3" style="text-align: center; top: 100%;">
+    <img src="assets/images/ddsp.png" alt="Neural Synthesis" style="width: 1300px; height: auto;">
+        <div class="reference" data-fragment-index="1" style="margin: 10px; text-align: center;">
+            Engel, J., Hantrakul, L. (Hanoi), Gu, C., & Roberts, A. (2019, September 25). DDSP: Differentiable Digital Signal Processing. International Conference on Learning Representations.
+        </div>
+</div>
+
+<div class="fragment" data-fragment-index="4"></div>
+
+<div class="fragment appear-vanish image-overlay" data-fragment-index="5" style="text-align: center; top: 110%;">
+    <img src="assets/images/clap.png" alt="CLAP" style="max-width: 1800px; height: auto;">
+    <div class="reference" data-fragment-index="1" style="margin: 10px; text-align: center;">
+        Elizalde, B., Deshmukh, S., Al Ismail, M., & Wang, H. (2023, June). Clap learning audio concepts from natural language supervision. In ICASSP 2023-2023 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP) (pp. 1-5). IEEE.
+    </div>
+</div>
+
+<div class="fragment appear-vanish" data-fragment-index="6" style="text-align: center; top: 120%;">
+    <img src="assets/images/diffusion-transformer.png" alt="Diffusion Transformer" style="max-width: 1800px; height: auto;">
+    <div class="reference" data-fragment-index="1" style="margin: 10px; text-align: center;">
+        https://digialps.com/stability-ais-new-open-source-ai-creation-stable-audio-2-0-takes-on-suno-ai/
+    </div>
+</div>
+
+Notes:
+
+<div style="font-size: 0.85em; margin-top: 20px;">
+
+- Now let's look at some key milestones in neural music production during this early history
+- Allready in 1960, Widrow and Hoff introduced the Least Mean Square filtering algorithm
+- Then 27 years later, neural networks were applied to phoneme recognition
+- In 1989, Peter Todd used RNNs for symbolic music generation
+- In the same year, there have been first attempts to use gradient descent for musical DSP
+- In 1997, neural networks were used the first time for modeling analog effects
+- Music transcription with neural networks dates back to 1999, with Matija Marolt's work on piano transcription
+- Finally in 2009, Lee et al. demonstrated the effectiveness of deep belief networks for learning audio features from unsupervised data
 
 ---
 
