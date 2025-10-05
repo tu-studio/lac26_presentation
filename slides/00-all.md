@@ -13,9 +13,6 @@ Notes:
 - My name is Fares Schulz
 - Researcher at Audio Communication Group, Technical University of Berlin (like my colleague Annika)
 - Lead of Computer Music and Neural Audio Systems Research Team
-- With this talk, I will give an overview of the evolution of neural music production, highlighting key milestones and recent advancements
-- As the field is extremely broad and fast-moving and I will only be able to cover a small part of it
-- But I hope this talk will give you a good overview of the field and inspire you to explore further
 
 ---
 
@@ -52,6 +49,16 @@ Notes:
 - Machine learning is a subset of AI that focuses on algorithms that can learn patterns from data without being explicitly programmed
 - Neural networks are a specific type of machine learning model inspired by the structure and function of biological neurons
 - Deep learning is a subset of neural networks that uses multiple layers to model complex patterns in data
+
+---
+
+<h1 style="font-size: 1.5em; margin-block: 20% 10%;">HISTORY OF NEURAL MUSIC<br>PRODUCTION</h1>
+
+Notes:
+
+- Before showing some of our research I will give an overview of the evolution of neural music production, highlighting key milestones and recent advancements
+- As the field is extremely broad and fast-moving and I will only be able to cover a small part of it
+- But I hope this will give you a good overview of the field and inspire you to explore further
 
 ---
 
@@ -335,7 +342,9 @@ Notes:
 
 <div class="fragment" data-fragment-index="3"></div>
 
-<div class="fragment appear-vanish" data-fragment-index="4" style="margin-top: 20px;">
+<div class="fragment" data-fragment-index="4"></div>
+
+<div class="fragment appear-vanish" data-fragment-index="5" style="margin-top: 20px;">
     <h3>Neural Networks for Piano Transcription
     <br><span style="font-weight: normal;">(Matija Marolt)</span></h3>
     <ul>
@@ -344,12 +353,11 @@ Notes:
     </ul>
 </div>
 
-<div class="fragment appear-vanish" data-fragment-index="5" style="margin-top: 20px;">
+<div class="fragment appear-vanish" data-fragment-index="6" style="margin-top: 20px;">
     <h3>Unsupervised Audio Feature Learning with Deep Belief Networks<br>
     <span style="font-weight: normal;">(Lee et al.)</span></h3>
     <ul>
         <li>Learning Audio Features from Unsupervised Data</li>
-        <li>First deep CNN applied to audio data</li>
         <li>Outperformed traditional hand-crafted features in many classification tasks</li>
     </ul>
 </div>
@@ -437,20 +445,20 @@ Notes:
                         <div class="timeline-author">Widrow & Hoff</div>
                     </div>
                 </div>
-                <div class="timeline-connector fragment custom color-0" data-fragment-index="0" style="--year: 1960;"></div>
-                <div class="timeline-dot fragment custom color-2" data-fragment-index="2" style="--year: 1987;"></div>
+                <div class="timeline-connector" style="--year: 1960;"></div>
+                <div class="timeline-dot fragment custom color-1" data-fragment-index="1" style="--year: 1987;"></div>
                 <div class="timeline-item" style="--year: 1987;">
                     <div class="timeline-content">
-                        <div class="timeline-year fragment custom color-2" data-fragment-index="2">1987</div>
+                        <div class="timeline-year fragment custom color-1" data-fragment-index="1">1987</div>
                         <div class="timeline-name">NN for Phoneme Recognition</div>
                         <div class="timeline-author">Waibel et al.</div>
                     </div>
                 </div>
                 <div class="timeline-connector" style="--year: 1987;"></div>
-                <div class="timeline-dot fragment custom color-1" data-fragment-index="1" style="--year: 1989;"></div>
+                <div class="timeline-dot fragment custom color-2" data-fragment-index="2" style="--year: 1989;"></div>
                 <div class="timeline-item" style="--year: 1989;">
                     <div class="timeline-content">
-                        <div class="timeline-year fragment custom color-1" data-fragment-index="1">1989</div>
+                        <div class="timeline-year fragment custom color-2" data-fragment-index="2">1989</div>
                         <div class="timeline-name">RNN for Symbolic Music Generation</div>
                         <div class="timeline-author">Todd</div>
                     </div>
@@ -474,19 +482,19 @@ Notes:
                     </div>
                 </div>
                 <div class="timeline-connector" style="--year: 1997;"></div>
-                <div class="timeline-dot fragment custom color-2" data-fragment-index="2" style="--year: 1999;"></div>
+                <div class="timeline-dot fragment custom color-1" data-fragment-index="1" style="--year: 1999;"></div>
                 <div class="timeline-item" style="--year: 1999;">
                     <div class="timeline-content">
-                        <div class="timeline-year fragment custom color-2" data-fragment-index="2">1999</div>
+                        <div class="timeline-year fragment custom color-1" data-fragment-index="1">1999</div>
                         <div class="timeline-name">NN for Piano Transcription</div>
                         <div class="timeline-author">Matija Marolt</div>
                     </div>
                 </div>
                 <div class="timeline-connector" style="--year: 1999;"></div>
-                <div class="timeline-dot fragment custom color-2" data-fragment-index="2" style="--year: 2009;"></div>
+                <div class="timeline-dot fragment custom color-1" data-fragment-index="1" style="--year: 2009;"></div>
                 <div class="timeline-item" style="--year: 2009;">
                     <div class="timeline-content">
-                        <div class="timeline-year fragment custom color-2" data-fragment-index="2">2009</div>
+                        <div class="timeline-year fragment custom color-1" data-fragment-index="1">2009</div>
                         <div class="timeline-name">Audio features with DBN</div>
                         <div class="timeline-author">Lee et al.</div>
                     </div>
@@ -521,6 +529,14 @@ Notes:
 <div class="image-overlay fragment" data-fragment-index="3" style="position: absolute; width: 60%; padding: 60px; text-align: center;">
   <p>What about <strong>neural audio synthesis</strong>?</p>
 </div>
+
+Notes:
+
+- I would like to highlight that these early works can be categorised into three main areas.
+- First, gradient descent based digital signal processing - using gradient descent to optimize parameters of DSP algorithms
+- Second, feature extraction with neural networks - using neural networks to automatically learn and extract relevant features
+- And the third category is symbolic music generation with neural networks
+- But what about neural audio synthesis?
 
 ---
 
@@ -646,7 +662,7 @@ Notes:
 
 <div style="font-size: 0.85em; margin-top: 20px;">
 
-- Now that we have the basics covered, let's move on to fun stuff - the deep learning era
+- Well for neural audio synthesis we need the inventions of the deep learning era - first an overview of key milestones in deep learning in general
 - In 2013, Variational Autoencoders were introduced - ability to generate new data points by sampling from a learned distribution - the latent distribution
 - Learn in an unsupervised manner to encode input data into a compressed representation and then decode it back to the original input
 - Generation of new data points by sampling from the latent distribution
@@ -835,15 +851,16 @@ Notes:
 </div>
 
 <div class="fragment" data-fragment-index="3"></div>
+<div class="fragment" data-fragment-index="4"></div>
 
-<div class="fragment appear-vanish image-overlay" data-fragment-index="4" style="text-align: center; top: 110%;">
+<div class="fragment appear-vanish image-overlay" data-fragment-index="5" style="text-align: center; top: 110%;">
     <img src="assets/images/clap.png" alt="CLAP" style="max-width: 1800px; height: auto;">
     <div class="reference" data-fragment-index="1" style="margin: 10px; text-align: center;">
         Elizalde, B., Deshmukh, S., Al Ismail, M., & Wang, H. (2023, June). Clap learning audio concepts from natural language supervision. In ICASSP 2023-2023 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP) (pp. 1-5). IEEE.
     </div>
 </div>
 
-<div class="fragment appear-vanish" data-fragment-index="5" style="text-align: center; top: 120%;">
+<div class="fragment appear-vanish" data-fragment-index="6" style="text-align: center; top: 120%;">
     <img src="assets/images/diffusion-transformer.png" alt="Diffusion Transformer" style="max-width: 1800px; height: auto;">
     <div class="reference" data-fragment-index="1" style="margin: 10px; text-align: center;">
         https://digialps.com/stability-ais-new-open-source-ai-creation-stable-audio-2-0-takes-on-suno-ai/
@@ -864,9 +881,8 @@ Notes:
 - The key to this approach is that the synthesis process is differentiable, allowing for end-to-end training of the model
 - In 2020, Steinmetz et al. proposed an approach for automatic mixing basing on differentiable signal processing effects
 - In 2021, Caillon and Esling introduced RAVE - a real-time audio synthesis model using variational autoencoders
-- RAVE is capable of generating high-quality audio in real-time, making it suitable for live performances and interactive applications
 - What works for images and text, should also work for audio - in 2022, CLAP was introduced - a model that learns audio concepts from natural language supervision
-- And finally in 2024, Stable Audio was released - a model based on diffusion transformers for high-quality text-to-audio generation
+- And finally in 2024, Stable Audio Open was released - a model based on diffusion transformers for high-quality text-to-audio generation
 
 ---
 
