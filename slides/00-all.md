@@ -900,49 +900,6 @@ Notes:
 
 ---
 
-<h2>Anira <span style="color: rgba(88, 88, 88, 1); font-weight: 400; font-size: 0.8em">(Ackva, V. & Schulz, F.)</span></h2>
-
-<div style="font-size: 0.9em;">
-
-<strong>ANIRA: An Architecture for Neural Network Inference in Real-time Audio Applications<br>
--> C++ Library that Bridges the Gap between Neural Audio Research and Real-time Applications</strong>
-
-<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-top: 60px;">
-    <div style="flex: 1;">
-        <h4 style="margin: 0;">Real-Time Integration</h4>
-        <ul>
-            <li>Enables <strong>real-time safe</strong> neural network integration in DAWs and audio plugins</li>
-            <li>Supports major inference engines and custom backends</li>
-            <li>Web version with WebAssembly + WebAudio (coming soon)</li>
-        </ul>
-    </div>
-    <div style="flex: 1;">
-        <h4 style="margin: 0;">Performance Evaluation</h4>
-        <ul>
-            <li>Provides a framework for benchmarking neural networks in real-time scenarios</li>
-            <li>Paper: <strong>First benchmark</strong> of neural audio effects models with different backends in real-time audio contexts</li>
-        </ul>
-    </div>
-</div>
-
-<div class="highlight" style="text-align: center; padding: 20px; margin-top: 30px;">
-    <strong>Open-source • Extensive documentation • Permissive licensing</strong>
-</div>
-
-</div>
-
-Notes:
-
-- The first contribution is ANIRA - an architecture for neural network inference in real-time audio applications
-- Anira is a C++ library that tries to bridge the gap between neural audio research and real-time applications
-- It has two major focus areas - first the real-time integration of neural networks into digital audio workstations and audio plugins
-- It enables real-time safe neural network integration in DAWs and audio plugins
-- It supports major inference engines and custom backends
-- And at the moment we are working on a webassembly version, that will allow to run neural networks in web browsers using the WebAudio API
-- The second focus area is the performance evaluation of neural networks in real-time scenarios
-
----
-
 <h2>Anira <span style="color: var(--fs-text-muted-color); font-weight: 400; font-size: 0.8em">(Ackva, V.* & Schulz, F.*)</span></h2>
 
 <div style="font-size: 0.9em;">
