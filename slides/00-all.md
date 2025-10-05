@@ -369,6 +369,161 @@ Notes:
 
 ---
 
+## Early History of Neural Music Production
+
+<div class="timeline-container" style="flex-direction: column; gap: 10px;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+        <div style="width: 20%;">
+            <div class="timeline-title">Key Milestones</div>
+            <div class="timeline-text">Significant developments in neural music production</div>
+        </div>
+        <div style="display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; width: 80%; gap: 20px;">
+            <div class="timeline timeline-secondary" style="width: 98%; --start-year: 1957; --end-year: 2012;">
+                <div class="timeline-dot" style="--year: 1957;"></div>
+                <div class="timeline-item" style="--year: 1957;">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1957</div>
+                        <div class="timeline-name">Perceptron</div>
+                    </div>
+                </div>
+                <div class="timeline-connector" style="--year: 1957;"></div>
+                <div class="timeline-dot" style="--year: 1979;"></div>
+                <div class="timeline-item" style="--year: 1979;">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1979</div>
+                        <div class="timeline-name">CNN</div>
+                    </div>
+                </div> 
+                <div class="timeline-connector" style="--year: 1979;"></div>
+                <div class="timeline-dot" style="--year: 1982;"></div>
+                <div class="timeline-item" style="--year: 1982;">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1982</div>
+                        <div class="timeline-name">RNN</div>
+                    </div>
+                </div>
+                <div class="timeline-connector" style="--year: 1982;"></div>
+                <div class="timeline-dot" style="--year: 1986;"></div>
+                <div class="timeline-item" style="--year: 1986;">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1986</div>
+                        <div class="timeline-name">Backpropagation</div>
+                    </div>
+                </div>
+                <div class="timeline-connector" style="--year: 1986;"></div>
+                <div class="timeline-dot" style="--year: 2006;"></div>
+                <div class="timeline-item" style="--year: 2006;">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2006</div>
+                        <div class="timeline-name">Deep Belief Networks</div>
+                    </div>
+                </div>
+                <div class="timeline-connector" style="--year: 2006;"></div>
+                <div class="timeline-dot positioned" style="--year: 2012;"></div>
+                <div class="timeline-item" style="--year: 2012;">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2012</div>
+                        <div class="timeline-name">AlexNet</div>
+                    </div>
+                </div>
+                <div class="timeline-connector" style="--year: 2012;"></div>
+            </div>
+            <div class="timeline timeline-purple" style="width: 98%; --start-year: 1957; --end-year: 2012;">
+                <div class="timeline-dot fragment custom color-0" data-fragment-index="0" style="--year: 1960;"></div>
+                <div class="timeline-item" style="--year: 1960;">
+                    <div class="timeline-content">
+                        <div class="timeline-year fragment custom color-0" data-fragment-index="0">1960</div>
+                        <div class="timeline-name">LMS Filtering</div>
+                        <div class="timeline-author">Widrow & Hoff</div>
+                    </div>
+                </div>
+                <div class="timeline-connector fragment custom color-0" data-fragment-index="0" style="--year: 1960;"></div>
+                <div class="timeline-dot fragment custom color-2" data-fragment-index="2" style="--year: 1987;"></div>
+                <div class="timeline-item" style="--year: 1987;">
+                    <div class="timeline-content">
+                        <div class="timeline-year fragment custom color-2" data-fragment-index="2">1987</div>
+                        <div class="timeline-name">NN for Phoneme Recognition</div>
+                        <div class="timeline-author">Waibel et al.</div>
+                    </div>
+                </div>
+                <div class="timeline-connector" style="--year: 1987;"></div>
+                <div class="timeline-dot fragment custom color-1" data-fragment-index="1" style="--year: 1989;"></div>
+                <div class="timeline-item" style="--year: 1989;">
+                    <div class="timeline-content">
+                        <div class="timeline-year fragment custom color-1" data-fragment-index="1">1989</div>
+                        <div class="timeline-name">RNN for Symbolic Music Generation</div>
+                        <div class="timeline-author">Todd</div>
+                    </div>
+                </div>
+                <div class="timeline-connector" style="--year: 1989;"></div>
+                <div class="timeline-dot fragment custom color-0" data-fragment-index="0" style="--year: 1989.2;"></div>
+                <div class="timeline-item" style="--year: 1989.2;">
+                    <div class="timeline-content">
+                        <div class="timeline-year fragment custom color-0" data-fragment-index="0">1989</div>
+                        <div class="timeline-name">Gradient Descent for Musical DSP</div>
+                        <div class="timeline-author">Shynk & Moorer</div>
+                    </div>
+                </div>
+                <div class="timeline-connector" style="--year: 1989.2;"></div>
+                <div class="timeline-dot fragment custom color-0" data-fragment-index="0" style="--year: 1997;"></div>
+                <div class="timeline-item" style="--year: 1997;">
+                    <div class="timeline-content">
+                        <div class="timeline-year fragment custom color-0" data-fragment-index="0">1997</div>
+                        <div class="timeline-name">NN for Analog Effects Modeling</div>
+                        <div class="timeline-author">Zhang & Duhamel</div>
+                    </div>
+                </div>
+                <div class="timeline-connector" style="--year: 1997;"></div>
+                <div class="timeline-dot fragment custom color-2" data-fragment-index="2" style="--year: 1999;"></div>
+                <div class="timeline-item" style="--year: 1999;">
+                    <div class="timeline-content">
+                        <div class="timeline-year fragment custom color-2" data-fragment-index="2">1999</div>
+                        <div class="timeline-name">NN for Piano Transcription</div>
+                        <div class="timeline-author">Matija Marolt</div>
+                    </div>
+                </div>
+                <div class="timeline-connector" style="--year: 1999;"></div>
+                <div class="timeline-dot fragment custom color-2" data-fragment-index="2" style="--year: 2009;"></div>
+                <div class="timeline-item" style="--year: 2009;">
+                    <div class="timeline-content">
+                        <div class="timeline-year fragment custom color-2" data-fragment-index="2">2009</div>
+                        <div class="timeline-name">Audio features with DBN</div>
+                        <div class="timeline-author">Lee et al.</div>
+                    </div>
+                </div>
+                <div class="timeline-connector" style="--year: 2009;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="tiles-grid">
+    <div class="tile fragment color-0" data-fragment-index="0">
+        <h3>Gradient Descent Based<br>Digital Signal Processing</h3>
+        <div class="tile-description">
+            Use gradient descent to optimize parameters of digital signal processing algorithms for tasks like audio effects modeling and synthesis.
+        </div>
+    </div>
+    <div class="tile fragment color-1" data-fragment-index="1">
+        <h3>Feature Extraction with<br>Neural Networks</h3>
+        <div class="tile-description">
+            Use neural networks to automatically learn and extract relevant features from audio data for tasks like classification, transcription, and analysis.
+        </div>
+    </div>
+    <div class="tile fragment color-2" data-fragment-index="2">
+        <h3>Symbolic Music Generation<br>with Neural Networks</h3>
+        <div class="tile-description">
+            Use neural networks to generate symbolic music representations, such as music notation or MIDI sequences, for composition and arrangement tasks.
+        </div>
+    </div>
+</div>
+
+<div class="image-overlay fragment" data-fragment-index="3" style="position: absolute; width: 60%; padding: 60px; text-align: center;">
+  <p>What about <strong>neural audio synthesis</strong>?</p>
+</div>
+
+---
+
 ## The Deep Learning Era
 
 <div class="timeline-container" style="flex-direction: row;">
