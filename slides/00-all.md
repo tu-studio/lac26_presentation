@@ -119,31 +119,48 @@ Notes:
 
 
 <div class="fragment appear-vanish" data-fragment-index="0" style="text-align: center; margin-top: 60px;">
-    <img src="assets/images/perceptron.svg" alt="Deep Learning Era Timeline" style="max-width: 50%; height: auto; margin-top: 20px;">
+    <img src="assets/images/perceptron.svg" alt="Deep Learning Era Timeline" style="max-width: 50%; height: auto;">
 </div>
 
-<div class="fragment appear-vanish" data-fragment-index="1" style="text-align: center; margin-top: 60px;">
-    <img src="assets/images/feedforward_network.png" alt="Deep Learning Era Timeline" style="width: 400px; height: auto; margin-top: 20px;">
-    <div class="reference" data-fragment-index="1" style="margin-top: 10px; text-align: center;">
+<div class="fragment appear-vanish" data-fragment-index="1" style="text-align: center; margin-top: 20px;">
+    <img src="assets/images/feedforward_network.png" alt="Deep Learning Era Timeline" style="width: 500px; height: auto;">
+    <div class="reference" style="margin-top: 10px; text-align: center;">
         https://www.cudocompute.com/topics/neural-networks/introduction-to-recurrent-neural-networks-rnns
     </div>
 </div>
 
+<div class="fragment appear-vanish" data-fragment-index="2" style="text-align: center; margin-top: 20px;">
+    <img src="assets/images/neocognition.png" alt="Deep Learning Era Timeline" style="max-width: 40%; height: auto;">
+    <div class="reference" style="margin-top: 10px; text-align: center;">
+        Fukushima, K. (1980). Neocognitron: A self-organizing neural network model for a mechanism of pattern recognition unaffected by shift in position. Biological Cybernetics, 36(4), 193–202. https://doi.org/10.1007/BF00344251
+    </div>
+</div>
 
-
-<div class="fragment appear-vanish" data-fragment-index="2" style="text-align: center; margin-top: 60px;">
-    <img src="assets/images/recurrent_network.png" alt="Deep Learning Era Timeline" style="width: 400px; height: auto; margin-top: 20px;">
-    <div class="reference" data-fragment-index="2" style="margin-top: 10px; text-align: center;">
+<div class="fragment appear-vanish" data-fragment-index="3" style="text-align: center; margin-top: 20px;">
+    <img src="assets/images/recurrent_network.png" alt="Deep Learning Era Timeline" style="width: 450px; height: auto;">
+    <div class="reference" style="margin-top: 10px; text-align: center;">
         https://www.cudocompute.com/topics/neural-networks/introduction-to-recurrent-neural-networks-rnns
     </div>
 </div>
 
+<div class="fragment appear-vanish" data-fragment-index="4" style="text-align: center; margin-top: 20px;">
+    <img src="assets/images/backprop.png" alt="Deep Learning Era Timeline" style="width: 900px; height: auto;">
+    <div class="reference" style="margin-top: 10px; text-align: center;">
+        https://www.linkedin.com/pulse/backpropagation-neural-networks-brain-behind-deep-learning-ali-v8fsf
+    </div>
+</div>
 
+<div class="fragment appear-vanish" data-fragment-index="5" style="text-align: center; margin-top: 20px;">
+    <img src="assets/images/deep_believe_network.jpg" alt="Deep Learning Era Timeline" style="width: 600px; height: auto;">
+    <div class="reference" style="margin-top: 10px; text-align: center;">
+        https://www.analyticsvidhya.com/blog/2022/03/an-overview-of-deep-belief-network-dbn-in-deep-learning/
+    </div>
+</div>
 
-<div class="fragment appear-vanish" data-fragment-index="3" style="text-align: center; margin-top: 60px;">
-    <img src="assets/images/deep_neural_networks.png" alt="Deep Learning Era Timeline" style="width: 700px; height: auto; margin-top: 20px;">
-    <div class="reference" data-fragment-index="3" style="margin-top: 10px; text-align: center;">
-        https://www.geeksforgeeks.org/artificial-intelligence/artificial-neural-networks-and-its-applications/
+<div class="fragment appear-vanish" data-fragment-index="6" style="text-align: center; margin-top: 60px;">
+    <img src="assets/images/alexnet.png" alt="Deep Learning Era Timeline" style="width: 1200px; height: auto;">
+    <div class="reference" style="margin-top: 10px; text-align: center;">
+        Krizhevsky, A., Sutskever, I., & Hinton, G. E. (2012). Imagenet classification with deep convolutional neural networks. Advances in neural information processing systems, 25.
     </div>
 </div>
 
@@ -292,7 +309,7 @@ Notes:
     </div>
 </div>
 
-<div class="fragment appear-vanish" data-fragment-index="0" style="margin-top: 60px;">
+<div class="fragment appear-vanish" data-fragment-index="0" style="margin-top: 20px;">
     <h3>Least Mean Square Filtering<br>
     <span style="font-weight: normal; font-size: 0.6em; font-height: 0.6em;">(Widrow & Hoff)</span></h3>
     <ul>
@@ -305,7 +322,7 @@ Notes:
 <div class="fragment" data-fragment-index="1"></div>
 
 <div class="fragment appear-vanish image-overlay" data-fragment-index="2" style="text-align: center; top: 100%;">
-    <img src="assets/images/rnn_symbolic_music_gen.png" alt="RNN for Symbolic Music Generation" style="width: 700px; height: auto; margin-top: 20px;">
+    <img src="assets/images/rnn_symbolic_music_gen.png" alt="RNN for Symbolic Music Generation" style="width: 700px; height: auto;">
     <div class="reference" style="margin: 10px; text-align: center;">
         Todd, P. M. (1989). A Connectionist Approach to Algorithmic Composition. Computer Music Journal, 13(4), 27–43.
     </div>
@@ -313,7 +330,7 @@ Notes:
 
 <div class="fragment" data-fragment-index="3"></div>
 
-<div class="fragment appear-vanish" data-fragment-index="4" style="margin-top: 60px;">
+<div class="fragment appear-vanish" data-fragment-index="4" style="margin-top: 20px;">
     <h3>Neural Networks for Piano Transcription
     <br><span style="font-weight: normal;">(Matija Marolt)</span></h3>
     <ul>
@@ -322,9 +339,7 @@ Notes:
     </ul>
 </div>
 
-<div class="fragment" data-fragment-index="5"></div>
-
-<div class="fragment appear-vanish" data-fragment-index="6" style="margin-top: 20px;">
+<div class="fragment appear-vanish" data-fragment-index="5" style="margin-top: 20px;">
     <h3>Unsupervised Audio Feature Learning with Deep Belief Networks<br>
     <span style="font-weight: normal;">(Lee et al.)</span></h3>
     <ul>
@@ -430,7 +445,12 @@ Notes:
     </div>
 </div>
 
-<div class="fragment" data-fragment-index="1"></div>
+<div class="fragment appear-vanish" data-fragment-index="1" style="text-align: center; margin-top: 60px;">
+    <img src="assets/images/gan.png" alt="Variational Autoencoder" style="max-width: 1200px; height: auto;">
+    <div class="reference" data-fragment-index="1" style="margin-top: 10px; text-align: center;">
+        https://www.linkedin.com/pulse/what-generative-adversarial-networks-gans-sushant-babbar-qpc9c
+    </div>
+</div>
 
 <div class="fragment appear-vanish" data-fragment-index="2" style="text-align: center; margin-top: 100px;">
     <img src="assets/images/diffusion_networks.png" alt="Diffusion Networks" style="width: 1200px; height: auto;">
@@ -626,44 +646,44 @@ Notes:
     </div>
 </div>
 
-<div class="fragment appear-vanish" data-fragment-index="0" style="text-align: center; margin-top: 20px;">
+<!-- <div class="fragment appear-vanish" data-fragment-index="0" style="text-align: center; margin-top: 20px;">
     <img src="assets/images/wavenet_before.png" alt="WaveNet Before" style="width: 1200px; height: auto;">
     <div class="reference" data-fragment-index="1" style="margin-top: 10px; text-align: center;">
         Oord, A. van den, Dieleman, S., Zen, H., Simonyan, K., Vinyals, O., Graves, A., Kalchbrenner, N., Senior, A., & Kavukcuoglu, K. (2016). WaveNet: A Generative Model for Raw Audio (No. arXiv:1609.03499). https://doi.org/10.48550/arXiv.1609.03499
     </div>
-</div>
+</div> -->
 
-<div class="fragment appear-vanish" data-fragment-index="1" style="text-align: center; margin-top: 20px;">
+<div class="fragment appear-vanish" data-fragment-index="0" style="text-align: center; margin-top: 20px;">
     <img src="assets/images/wavenet_after.png" alt="WaveNet Before" style="width: 1200px; height: auto;">
     <div class="reference" data-fragment-index="1" style="margin-top: 10px; text-align: center;">
         Oord, A. van den, Dieleman, S., Zen, H., Simonyan, K., Vinyals, O., Graves, A., Kalchbrenner, N., Senior, A., & Kavukcuoglu, K. (2016). WaveNet: A Generative Model for Raw Audio (No. arXiv:1609.03499). https://doi.org/10.48550/arXiv.1609.03499
     </div>
 </div>
 
-<div class="fragment appear-vanish" data-fragment-index="2" style="text-align: center; top: 100%;">
+<div class="fragment appear-vanish" data-fragment-index="1" style="text-align: center; top: 100%;">
     <img src="assets/images/nsynth.png" alt="Neural Synthesis" style="width: 900px; height: auto;">
         <div class="reference" data-fragment-index="1" style="margin: 10px; text-align: center;">
             Engel, J., Resnick, C., Roberts, A., Dieleman, S., Norouzi, M., Eck, D., & Simonyan, K. (2017, July). Neural audio synthesis of musical notes with wavenet autoencoders. In International conference on machine learning (pp. 1068-1077). PMLR.
         </div>
 </div>
 
-<div class="fragment appear-vanish" data-fragment-index="3" style="text-align: center; top: 100%;">
+<div class="fragment appear-vanish" data-fragment-index="2" style="text-align: center; top: 100%;">
     <img src="assets/images/ddsp.png" alt="Neural Synthesis" style="width: 1300px; height: auto;">
         <div class="reference" data-fragment-index="1" style="margin: 10px; text-align: center;">
             Engel, J., Hantrakul, L. (Hanoi), Gu, C., & Roberts, A. (2019, September 25). DDSP: Differentiable Digital Signal Processing. International Conference on Learning Representations.
         </div>
 </div>
 
-<div class="fragment" data-fragment-index="4"></div>
+<div class="fragment" data-fragment-index="3"></div>
 
-<div class="fragment appear-vanish image-overlay" data-fragment-index="5" style="text-align: center; top: 110%;">
+<div class="fragment appear-vanish image-overlay" data-fragment-index="4" style="text-align: center; top: 110%;">
     <img src="assets/images/clap.png" alt="CLAP" style="max-width: 1800px; height: auto;">
     <div class="reference" data-fragment-index="1" style="margin: 10px; text-align: center;">
         Elizalde, B., Deshmukh, S., Al Ismail, M., & Wang, H. (2023, June). Clap learning audio concepts from natural language supervision. In ICASSP 2023-2023 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP) (pp. 1-5). IEEE.
     </div>
 </div>
 
-<div class="fragment appear-vanish" data-fragment-index="6" style="text-align: center; top: 120%;">
+<div class="fragment appear-vanish" data-fragment-index="5" style="text-align: center; top: 120%;">
     <img src="assets/images/diffusion-transformer.png" alt="Diffusion Transformer" style="max-width: 1800px; height: auto;">
     <div class="reference" data-fragment-index="1" style="margin: 10px; text-align: center;">
         https://digialps.com/stability-ais-new-open-source-ai-creation-stable-audio-2-0-takes-on-suno-ai/
@@ -674,14 +694,19 @@ Notes:
 
 <div style="font-size: 0.85em; margin-top: 20px;">
 
-- Now let's look at some key milestones in neural music production during this early history
-- Allready in 1960, Widrow and Hoff introduced the Least Mean Square filtering algorithm
-- Then 27 years later, neural networks were applied to phoneme recognition
-- In 1989, Peter Todd used RNNs for symbolic music generation
-- In the same year, there have been first attempts to use gradient descent for musical DSP
-- In 1997, neural networks were used the first time for modeling analog effects
-- Music transcription with neural networks dates back to 1999, with Matija Marolt's work on piano transcription
-- Finally in 2009, Lee et al. demonstrated the effectiveness of deep belief networks for learning audio features from unsupervised data
+- We left the neural music production before the deep learning era, saying that there was no neural audio generation yet
+- But that changed with the WaveNet model in 2016
+- WaveNet used a clever trick in convolutional neural networks to model raw audio waveforms - it used so-called dilated convolutions to increase the receptive field of the network
+- This allowed the model to capture long-range dependencies in audio signals, resulting in high-quality and realistic audio generation
+- In 2017, Engel et al. introduced Neural Synthesis with WaveNet Autoencoders - a model that could generate musical notes by learning a latent representation of audio
+- In 2019, they further advanced the field with Differentiable Digital Signal Processing (DDSP) - combining neural networks with traditional signal processing techniques
+- Basically, predicting the parameters of an additive synthesizer with deep learning
+- The key to this approach is that the synthesis process is differentiable, allowing for end-to-end training of the model
+- In 2020, Steinmetz et al. proposed an approach for automatic mixing basing on differentiable signal processing effects
+- In 2021, Caillon and Esling introduced RAVE - a real-time audio synthesis model using variational autoencoders
+- RAVE is capable of generating high-quality audio in real-time, making it suitable for live performances and interactive applications
+- What works for images and text, should also work for audio - in 2022, CLAP was introduced - a model that learns audio concepts from natural language supervision
+- And finally in 2024, Stable Audio was released - a model based on diffusion transformers for high-quality text-to-audio generation
 
 ---
 
