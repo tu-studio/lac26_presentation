@@ -13,6 +13,9 @@ Notes:
 - My name is Fares Schulz
 - Researcher at Audio Communication Group, Technical University of Berlin (like my colleague Annika)
 - Lead of Computer Music and Neural Audio Systems Research Team
+- With this talk, I will give an overview of the evolution of neural music production, highlighting key milestones and recent advancements
+- As the field is extremely broad and fast-moving and I will only be able to cover a small part of it
+- But I hope this talk will give you a good overview of the field and inspire you to explore further
 
 ---
 
@@ -170,8 +173,10 @@ Notes:
 
 - To understand the evolution of neural music production, I want to look first at the early history of neural networks
 - In 1957, the perceptron was introduced by Frank Rosenblatt, marking the beginning of neural network research
+- It was a simple model that could learn to classify inputs into different categories, by adjusting weights based on errors
+- These errors were calculated from prelabeld data, which is called supervised learning
 - Later, the multi-layer perceptron (MLP) was developed, allowing for more complex representations of data
-- In 1979, convolutional neural networks (CNNs) were introduced - replacing the matrix multiplications with convolution operations
+- In 1979, convolutional neural networks (CNNs) were introduced - replacing the multiplications with convolution operations
 - And two years later - Hopfield networks were proposed, introducing recurrent connections - temporal dynamics
 - Then the backpropagation algorithm enabled training of multi-layer networks - efficiently computing gradients
 - Before the deep learning era, Deep Belief Networks (DBNs) were proposed as a way to pre-train deep networks layer by layer
