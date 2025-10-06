@@ -1115,7 +1115,52 @@ Notes:
 
 ## Future Directions in Neural Music Production
 
-- Real-time neural synthesis and processing
+<div style="display: flex; justify-content: space-between; gap: 40px; margin-top: 40px; font-size: 0.9em;">
+
+<div style="flex: 1;">
+
+<strong style="font-size: 1.1em;">Deep Learning & Model Architectures</strong>
+
+- Advanced sequence modeling for extended, coherent audio generation
+- Methods for explainability and interpretability of neural audio models
+- Synthetic data generation with generative models
+
+</div>
+
+<div style="flex: 1;">
+
+<strong style="font-size: 1.1em;">Deployment & Real-time Performance</strong>
+
+- Real-time inference optimization for low-latency audio processing
+- Efficient model compression for resource-constrained devices
+- Sample-rate agnostic architectures for flexible synthesis
+
+</div>
+
+<div style="flex: 1;">
+
+<strong style="font-size: 1.1em;">Creative & Artistic Applications</strong>
+
+- Improved control mechanisms for user-guided audio generation
+- Multi-modal conditioning for richer, more expressive outputs
+- Enhanced embodiment in neural instruments
+
+</div>
+
+</div>
+
+Notes:
+
+- Looking ahead, there are several exciting future directions in neural music production
+- On the deep learning and model architecture side, long-term coherent audio generation and long receptive field modeling remain a challenge
+- Furthermore, methods for explainability and interpretability of neural audio models are needed to better understand how these models work
+- Synthetic data generation with generative models is another exciting area that can help to overcome data scarcity issues
+- On the deployment and real-time performance side, real-time inference optimization for low-latency audio processing is crucial for live applications
+- Efficient model compression techniques are needed to run these models on resource-constrained devices
+- Sample-rate agnostic architectures can provide more flexibility in synthesis
+- Finally, in terms of creative and artistic applications, improved control mechanisms for user-guided audio generation are a hot topic right now
+- Multi-modal conditioning can lead to richer and more expressive outputs
+- Which could also enhance embodiment in neural instruments, making them more intuitive and responsive for musicians
 
 ---
 
