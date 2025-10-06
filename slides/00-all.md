@@ -1125,35 +1125,35 @@ Notes:
 <strong>Any Questions?</strong>
 </div>
 
-<div style="display: flex; justify-content: space-between; align-items: center; margin-top: 60px; gap: 80px;">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-top: 100px; gap: 60px;">
 
 <div style="flex: 1; text-align: center;">
     <div style="margin-bottom: 30px;">
-        <img src="assets/images/qr-code_demo.svg" alt="Demo QR Code" style="width: 280px; height: 280px;">
+        <img src="assets/images/anira_paper-qr.svg" alt="Demo QR Code" style="width: 350px; height: 350px;">
     </div>
-    <div style="font-size: 1.1em; font-weight: bold; margin-bottom: 10px;">
-        Interactive Demo
-    </div>
-    <div style="font-size: 0.9em; color: var(--fs-text-muted-color);">
-        <a>pgesam.faresschulz.com</a>
+    <div style="font-size: 0.8em; color: var(--fs-text-muted-color); font-weight: bold; margin-bottom: 10px;">
+        Anira Paper
     </div>
 </div>
 
 <div style="flex: 1; text-align: center;">
     <div style="margin-bottom: 30px;">
-        <img src="assets/images/qr-code_repo.svg" alt="Repository QR Code" style="width: 280px; height: 280px;">
+        <img src="assets/images/neural_proxies_paper-qr.svg" alt="Repository QR Code" style="width: 350px; height: 350px;">
     </div>
-    <div style="font-size: 1.1em; font-weight: bold; margin-bottom: 10px;">
-        Repository
+    <div style="font-size: 0.8em; color: var(--fs-text-muted-color); font-weight: bold; margin-bottom: 10px;">
+        Neural Proxies Paper
     </div>
-    <div style="font-size: 0.9em; color: var(--fs-text-muted-color);">
-        <a>github.com/faressc/pgesam</a>
+</div>
+
+<div style="flex: 1; text-align: center;">
+    <div style="margin-bottom: 30px;">
+        <img src="assets/images/pgesam_paper-qr.svg" alt="Repository QR Code" style="width: 350px; height: 350px;">
+    </div>
+    <div style="font-size: 0.8em; color: var(--fs-text-muted-color); font-weight: bold; margin-bottom: 10px;">
+        pGESAM Paper
     </div>
 </div>
 
 </div>
 
-<div style="text-align: center; margin-top: 40px; font-size: 0.85em; color: var(--fs-text-muted-color);">
-Christian Limberg*, Fares Schulz*, Zhe Zhang, Stefan Weinziel<br>
-<em>(*equal contribution)</em>
 </div>
