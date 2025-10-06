@@ -910,8 +910,14 @@ Notes:
 
 <div style="font-size: 0.9em;">
 
-<strong>ANIRA: An Architecture for Neural Network Inference in Real-time Audio Applications<br>
--> C++ Library that Bridges the Gap between Neural Audio Research and Real-time Applications</strong>
+<div style="text-align: center; margin: 40px 0;">
+    <strong style="font-size: 1.em; display: block; margin-bottom: 15px;">
+        ANIRA: An Architecture for Neural network Inference in Real-time Audio applications
+    </strong>
+    <div style="font-size: 0.95em; color: var(--fs-text-muted-color); font-style: italic;">
+        → C++ Library that bridges the gap between neural audio research and real-time applications
+    </div>
+</div>
 
 <div class="fragment custom vanish" data-fragment-index="1" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-top: 60px;">
     <div style="flex: 1;">
@@ -972,7 +978,11 @@ Notes:
 
 <div style="font-size: 0.9em;">
 
-<strong>-> How can we integrate non-differential synthesizers in deep learning pipelines for automatic synthesizer programming?</strong>
+<div style="text-align: center; margin: 40px 0;">
+    <div style="font-size: 0.95em; color: var(--fs-text-muted-color); font-style: italic;">
+        → How can we integrate non-differential synthesizers in deep learning pipelines for automatic synthesizer programming?
+    </div>
+</div>
 
 <div class="fragment custom vanish" data-fragment-index="4">
     <h4 style="margin: 60px 0 0 0;">Key Contributions</h4>
@@ -1043,10 +1053,15 @@ Notes:
 
 <div style="font-size: 0.9em;">
 
-<strong>pGESAM: pitch-conditioned GEnerative SAmple Map<br>
--> How can musicians find the perfect samples in an effective and creative way?<br>
--> How can we generate samples that can be played expressively throughout different pitches?
-</strong>
+<div style="text-align: center; margin: 40px 0;">
+    <strong style="font-size: 1.em; display: block; margin-bottom: 15px;">
+        pGESAM: pitch-conditioned GEnerative SAmple Map
+    </strong>
+    <div style="font-size: 0.95em; color: var(--fs-text-muted-color); font-style: italic;">
+        → How can musicians find the perfect samples in an effective and creative way?<br>
+        → How can we generate samples that can be played expressively throughout different pitches?
+    </div>
+</div>
 
 <div class="fragment custom vanish" data-fragment-index="2">
     <h4 style="margin: 60px 0 0 0;">Key Contributions</h4>
