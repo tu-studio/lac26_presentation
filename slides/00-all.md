@@ -913,7 +913,7 @@ Notes:
 <strong>ANIRA: An Architecture for Neural Network Inference in Real-time Audio Applications<br>
 -> C++ Library that Bridges the Gap between Neural Audio Research and Real-time Applications</strong>
 
-<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-top: 60px;">
+<div class="fragment custom vanish" data-fragment-index="1" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-top: 60px;">
     <div style="flex: 1;">
         <h4 style="margin: 0;">Real-Time Integration</h4>
         <ul>
@@ -928,6 +928,21 @@ Notes:
             <li>Provides a framework for benchmarking neural networks in real-time scenarios</li>
             <li>Paper: <strong>First benchmark</strong> of neural audio effects models with different backends in real-time audio contexts</li>
         </ul>
+    </div>
+</div>
+
+<div class="fragment appear-vanish flex" data-fragment-index="1" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-top: 0px;">
+    <div style="flex: 1; text-align: center;">
+        <img src="assets/images/anira_docu-qr.svg" alt="Anira Logo" style="max-width: 400px; height: auto;">
+        <div style="color: var(--fs-text-muted-color); margin-top: 10px;">
+            Documentation:<br><a href="https://anira-project.github.io/anira/">https://anira-project.github.io/anira/</a>
+        </div>
+    </div>
+    <div style="flex: 1; text-align: center;">
+        <img src="assets/images/anira_paper-qr.svg" alt="Anira Architecture" style="max-width: 400px; height: auto;">
+        <div style="color: var(--fs-text-muted-color); margin-top: 10px;">
+            Paper published at 2024 IEEE 5th International Symposium on the Internet of Sounds (IS2)
+        </div>
     </div>
 </div>
 
@@ -953,6 +968,68 @@ Notes:
 
 ---
 
+<h2>Neural Proxies for Sound Synthesizers<br><span style="color: var(--fs-text-muted-color); font-weight: 400; font-size: 0.8em">(Combes, P., Weinzierl, S., Obermayer, K.)</span></h2>
+
+<div style="font-size: 0.9em;">
+
+<strong>-> How can we integrate non-differential synthesizers in deep learning pipelines for automatic synthesizer programming?</strong>
+
+<div class="fragment custom vanish" data-fragment-index="4">
+    <h4 style="margin: 60px 0 0 0;">Key Contributions</h4>
+    <ul>
+        <li>Method for training neural proxies for arbitrary synthesizers</li>
+        <li>Evaluation of pretrained audio feature extraction models as proxy training representations</li>
+        <li>Analysis of generalization from 10M synthetic to hand-crafted presets</li>
+        <li>Evaluation of method on synthesizer sound matching tasks in nASP systems</li>
+    </ul>
+</div>
+
+<div class="fragment appear-vanish flex" data-fragment-index="4" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-top: 0px;">
+    <div style="flex: 1; text-align: center;">
+        <img src="assets/images/neural_proxies_repo-qr.svg" alt="Neural Proxies Repository" style="max-width: 350px; height: auto;">
+        <div style="color: var(--fs-text-muted-color); margin-top: 10px;">
+            Repository:<br><a href="https://github.com/pcmbs/synth-proxy/">https://github.com/pcmbs/synth-proxy/</a>
+        </div>
+    </div>
+    <div style="flex: 1; text-align: center;">
+        <img src="assets/images/anira_paper-qr.svg" alt="Anira Architecture" style="max-width: 350px; height: auto;">
+        <div style="color: var(--fs-text-muted-color); margin-top: 10px;">
+            Paper published at Journal of the Audio<br>Engineering Society, 73(9), 561–577.
+        </div>
+    </div>
+</div>
+
+<div class="highlight" style="text-align: center; padding: 20px; margin-top: 60px;">
+    <strong>Open-source</strong>
+</div>
+
+</div>
+
+<div class="image-overlay fragment appear-vanish" data-fragment-index="0" style="position: absolute; text-align: center; width: 62%; padding: 40px;">
+    <img src="assets/images/neural_proxy_training.png" alt="Neural Proxy Training" style="width: 100%; height: auto;">
+    <div style="color: var(--fs-text-muted-color); margin-top: 10px;">
+        Training of a neural proxy to mimic the behavior of a<br>non-differentiable synthesizer
+    </div>
+</div>
+
+<div class="fragment" data-fragment-index="1"></div>
+
+<div class="image-overlay fragment appear-vanish" data-fragment-index="2" style="position: absolute; width: 82%; text-align: center; padding: 40px;">
+    <img src="assets/images/synth_sound_matching_training.png" alt="Synth Sound Matching Training" style="width: 100%; height: auto;">
+    <div style="color: var(--fs-text-muted-color); margin-top: 10px;">
+        Training of a synthesizer sound matching system using the neural proxy
+    </div>
+</div>
+
+<div class="fragment" data-fragment-index="3"></div>
+
+Notes:
+
+- The next contribution I want to present is Neural Proxies for Sound Synthesizers, a work mainly conducted by my colleague Paulo Combes
+- The question here was - how can we integrate non-differential synthesizers in deep learning pipelines for automatic synthesizer programming?
+
+---
+
 <h2>pGESAM <span style="color: var(--fs-text-muted-color); font-weight: 400; font-size: 0.8em">(Limberg, C.*, Schulz, F.*, Zhang, Z., Weinzierl, S.)</span></h2>
 
 <div style="font-size: 0.9em;">
@@ -962,13 +1039,30 @@ Notes:
 -> How can we generate samples that can be played expressively throughout different pitches?
 </strong>
 
-<h4 style="margin: 60px 0 0 0;">Key Contributions</h4>
-<ul>
-    <li>Framework for successful generation of 4 second one-shot samples from 3 data-points (2D timbre, 1D pitch)</li>
-    <li>Effective pitch-timbre disentanglement via semi-supervised learning</li>
-    <li>Extensive evaluation on NSynth dataset</li>
-    <li>Validated 7-component loss function design for intuitive latent space exploration</li>
-</ul>
+<div class="fragment custom vanish" data-fragment-index="2">
+    <h4 style="margin: 60px 0 0 0;">Key Contributions</h4>
+    <ul>
+        <li>Framework for successful generation of 4 second one-shot samples from 3 data-points (2D timbre, 1D pitch)</li>
+        <li>Effective pitch-timbre disentanglement via semi-supervised learning</li>
+        <li>Extensive evaluation on NSynth dataset</li>
+        <li>Validated 7-component loss function design for intuitive latent space exploration</li>
+    </ul>
+</div>
+
+<div class="fragment appear-vanish flex" data-fragment-index="2" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-top: 0px;">
+    <div style="flex: 1; text-align: center;">
+        <img src="assets/images/pgesam_demo-qr.svg" alt="pGESAM Demo" style="max-width: 380px; height: auto;">
+        <div style="color: var(--fs-text-muted-color); margin-top: 10px;">
+            Web Demon:<br><a href="https://pgesam.faresschulz.com/">https://pgesam.faresschulz.com/</a>
+        </div>
+    </div>
+    <div style="flex: 1; text-align: center;">
+        <img src="assets/images/pgesam_paper-qr.svg" alt="pGESAM Paper" style="max-width: 380px; height: auto;">
+        <div style="color: var(--fs-text-muted-color); margin-top: 10px;">
+            Paper published at 28th International Conference on Digital Audio Effects (DAFx25)
+        </div>
+    </div>
+</div>
 
 <div class="highlight" style="text-align: center; padding: 20px; margin-top: 60px;">
     <strong>Open-source • Web Demonstration</strong>
@@ -997,6 +1091,22 @@ Notes:
 - We have extensively evaluated this framework on the NSynth dataset, demonstrating the effectiveness of our approach
 - Our VAE training uses a validated 7-component loss function specifically designed for intuitive latent space exploration
 - Let me show you how to generate audio samples in practice with pGESAM now with our interactive web demonstration
+
+---
+
+<h1 style="font-size: 1.5em; margin-block: 20% 10%;">OUTLOOK</h1>
+
+Notes:
+
+- Before showing some of our research I will give an overview of the evolution of neural music production, highlighting key milestones and recent advancements
+- As the field is extremely broad and fast-moving and I will only be able to cover a small part of it
+- But I hope this will give you a good overview of the field and inspire you to explore further
+
+---
+
+## Future Directions in Neural Music Production
+
+- Real-time neural synthesis and processing
 
 ---
 
