@@ -911,7 +911,7 @@ Notes:
 <div style="font-size: 0.9em;">
 
 <div style="text-align: center; margin: 40px 0;">
-    <strong style="font-size: 1.em; display: block; margin-bottom: 15px;">
+    <strong style="font-size: 1em; display: block; margin-bottom: 15px;">
         ANIRA: An Architecture for Neural network Inference in Real-time Audio applications
     </strong>
     <div style="font-size: 0.95em; color: var(--fs-text-muted-color); font-style: italic;">
@@ -1054,7 +1054,7 @@ Notes:
 <div style="font-size: 0.9em;">
 
 <div style="text-align: center; margin: 40px 0;">
-    <strong style="font-size: 1.em; display: block; margin-bottom: 15px;">
+    <strong style="font-size: 1em; display: block; margin-bottom: 15px;">
         pGESAM: pitch-conditioned GEnerative SAmple Map
     </strong>
     <div style="font-size: 0.95em; color: var(--fs-text-muted-color); font-style: italic;">
