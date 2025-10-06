@@ -954,7 +954,7 @@ Notes:
 
 Notes:
 
-- The first contribution is ANIRA - an architecture for neural network inference in real-time audio applications
+- The first contribution is ANIRA - an architecture for neural network inference in real-time audio applications - project done with my colleague Valentin Ackva
 - Anira is a C++ library that tries to bridge the gap between neural audio research and real-time applications
 - It has two major focus areas - first the real-time safe integration of neural networks into DAWs, audio plugins and audio applications in general
 - For this it supports the major inference engines (engines to process neural networks) and custom backends
@@ -980,7 +980,7 @@ Notes:
         <li>Method for training neural proxies for arbitrary synthesizers</li>
         <li>Evaluation of pretrained audio feature extraction models as proxy training representations</li>
         <li>Analysis of generalization from 10M synthetic to hand-crafted presets</li>
-        <li>Evaluation of method on synthesizer sound matching tasks in nASP systems</li>
+        <li>Evaluation of method on synthesizer sound matching task</li>
     </ul>
 </div>
 
@@ -992,7 +992,7 @@ Notes:
         </div>
     </div>
     <div style="flex: 1; text-align: center;">
-        <img src="assets/images/anira_paper-qr.svg" alt="Anira Architecture" style="max-width: 350px; height: auto;">
+        <img src="assets/images/neural_proxies_paper-qr.svg" alt="Neural Proxies Paper" style="max-width: 350px; height: auto;">
         <div style="color: var(--fs-text-muted-color); margin-top: 10px;">
             Paper published at Journal of the Audio<br>Engineering Society, 73(9), 561–577.
         </div>
@@ -1027,6 +1027,15 @@ Notes:
 
 - The next contribution I want to present is Neural Proxies for Sound Synthesizers, a work mainly conducted by my colleague Paulo Combes
 - The question here was - how can we integrate non-differential synthesizers in deep learning pipelines for automatic synthesizer programming?
+- Because training neural networks requires differentiable operations to compute gradients for backpropagation - neural audio synthesis models like ddsp rely on differentiable synthesizers
+- However, many high-quality synthesizers are non-differentiable, which limits their integration in deep learning pipelines
+- To address this, Paulo proposed to use neural proxies - differentiable neural networks that mimic the behavior of non-differentiable synthesizers
+- For this, he uses an audio feature extraction model (g()) to extract features from the synthesizer output
+- Then he trains a neural network (f()) that maps the synthesizer parameters to the extracted features
+- In his paper you can find an extensive evaluation of different audio feature extraction models as proxy training representations
+- And analyzed the generalization from synthetic presets to hand-crafted presets
+- Finally, he evaluated the method on the task of synthesizer sound matching
+- So basically using the neural proxy (f()) to train a neural network that predicts synthesizer parameters for a target sound (e())
 
 ---
 
@@ -1078,7 +1087,7 @@ Notes:
 
 Notes:
 
-- The last contribution I want to present is pGESAM - the pitch-conditioned Generative Sample Map
+- The last contribution I want to present is pGESAM - the pitch-conditioned Generative Sample Map - a work mainly conducted by Christian Limberg and myself
 - The idea behind pGESAM is to provide a tool for musicians to find the perfect samples in an effective and creative way
 - And furthermore, to generate samples that can be played expressively throughout different pitches
 - The key contributions of this work are:
