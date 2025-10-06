@@ -186,10 +186,10 @@ Notes:
 - To understand the evolution of neural music production, I want to look first at the early history of neural networks
 - In 1957, the perceptron was introduced by Frank Rosenblatt, marking the beginning of neural network research
 - It was a simple model that could learn to classify inputs into different categories, by adjusting weights based on errors
-- These errors were calculated from prelabeld data, which is called supervised learning
+- These errors were calculated from prelabeled data, which is called supervised learning
 - Later, the multi-layer perceptron was developed, allowing for more complex representations of data
 - In 1979, convolutional neural networks were introduced - replacing the multiplications with convolution operations
-- And two years later - Hopfield networks were proposed, introducing recurrent connections - temporal dynamics
+- And three years later - Hopfield networks were proposed, introducing recurrent connections - temporal dynamics
 - Then the backpropagation algorithm enabled training of multi-layer networks - efficiently computing gradients
 - Before the deep learning era, Deep Belief Networks were proposed as a way to pre-train deep networks layer by layer
 - Finally, in 2012, AlexNet demonstrated the power of large deep convolutional networks on image classification tasks - marking the beginning of the deep learning revolution
@@ -361,7 +361,7 @@ Notes:
 <div style="font-size: 0.85em;">
 
 - Now let's look at some key milestones in neural music production during this early history
-- Allready in 1960, Widrow and Hoff introduced the Least Mean Square filtering algorithm
+- Already in 1960, Widrow and Hoff introduced the Least Mean Square filtering algorithm
 - Then 27 years later, neural networks were applied to phoneme recognition
 - In 1989, Peter Todd used RNNs for symbolic music generation
 - In the same year, there have been first attempts to use gradient descent for musical DSP
@@ -657,12 +657,12 @@ Notes:
 
 <div style="font-size: 0.85em;">
 
-- Well for neural audio synthesis we need the inventions of the deep learning era - first an overview of key milestones in deep learning in general
+- Well, for neural audio synthesis we need the inventions of the deep learning era - first an overview of key milestones in deep learning in general
 - In 2013, Variational Autoencoders were introduced - ability to generate new data points by sampling from a learned distribution - the latent distribution
 - Learn in an unsupervised manner to encode input data into a compressed representation and then decode it back to the original input
 - In 2014, Generative Adversarial Networks were proposed - two neural networks competing against each other
 - In 2015, Diffusion models were introduced - iterative denoising process to generate high-quality samples
-- The 2017 was the year Transformers revolutionized sequence modeling with self-attention mechanisms
+- The year 2017 was the year Transformers revolutionized sequence modeling with self-attention mechanisms
 - In 2021, CLIP demonstrated the power of multi-modal learning by connecting images and text
 - Two encoders that map images and text into a shared latent space - by using contrastive learning the images and text are mapped close to each other in the latent space
 - It could for example classify images, without ever being trained on that specific task
@@ -870,9 +870,9 @@ Notes:
 - This allowed the model to capture long-range dependencies in audio signals, resulting in high-quality and realistic audio generation
 - In 2017, Engel et al. introduced Neural Synthesis with WaveNet Autoencoders - a model that could generate musical notes by learning a latent representation of audio
 - In 2019, the same team (Google Magenta) further advanced the field with Differentiable Digital Signal Processing (DDSP) - combining neural networks with traditional signal processing techniques
-- Basically, predicting they parameters of an additive synthesizer with deep learning
+- Basically, they were predicting the parameters of an additive synthesizer with deep learning
 - The key to this approach is that the synthesis process is differentiable, allowing for end-to-end training of the model
-- In 2020, Steinmetz et al. proposed an approach for automatic mixing basing on differentiable signal processing effects
+- In 2020, Steinmetz et al. proposed an approach for automatic mixing based on differentiable effects
 - In 2021, Caillon and Esling introduced RAVE - a real-time audio synthesis model using variational autoencoders
 - What works for images and text, should also work for audio - in 2022, CLAP was introduced - a model that learns audio concepts from natural language supervision
 - And finally in 2024, Stable Audio Open was released - a model based on diffusion transformers for high-quality text-to-audio generation
@@ -889,7 +889,7 @@ Notes:
 
 Notes:
 
-- Ok, so now that you hopefully have an overview of the neural music production field in academia, I want to show you three of our latest contributions in this area
+- OK, so now that you hopefully have an overview of the neural music production field in academia, I want to show you three of our latest contributions in this area
 
 ---
 
@@ -940,14 +940,14 @@ Notes:
 
 <div style="font-size: 0.85em;">
 
-- The first contribution is ANIRA - an architecture for neural network inference in real-time audio applications - project mainly by my colleague Valentin Ackva and me
+- The first contribution is ANIRA - an architecture for neural network inference in real-time audio applications - a project mainly by my colleague Valentin Ackva and me
 - Inference is the process of using a trained neural network to make predictions on new data
-- Anira is a C++ library that tries to bridge the gap between neural audio research and real-time applications
+- ANIRA is a C++ library that tries to bridge the gap between neural audio research and real-time applications
 - It has two major focus areas - first the real-time safe integration of neural networks into DAWs, audio plugins and audio applications in general
 - The second focus area is the performance evaluation of neural networks in audio applications
-- For this anira provides a framework for benchmarking neural networks in real-time scenarios
+- For this ANIRA provides a framework for benchmarking neural networks in real-time scenarios
 - And our paper was the first benchmark of neural audio effects models with different backends in real-time audio contexts
-- Finally, anira is open-source, has extensive documentation and permissive licensing
+- Finally, ANIRA is open-source, has extensive documentation and permissive licensing
 
 </div>
 
@@ -1025,7 +1025,7 @@ Notes:
 - Then a neural network (f()) is trained to map synthesizer parameters to these extracted features
 - The paper also provides extensive evaluation of different audio feature extraction models as proxy training representations
 - Finally, the method was evaluated on synthesizer sound matching tasks
-- Using the neural proxy to train a network (e()) that predicts synthesizer parameters for a given target sound
+- Using the neural proxy (f()) to train a network (e()) that predicts synthesizer parameters for a given target sound
 
 </div>
 
@@ -1058,7 +1058,7 @@ Notes:
     <div style="flex: 1; text-align: center;">
         <img src="assets/images/pgesam_demo-qr.svg" alt="pGESAM Demo" style="max-width: 380px; height: auto;">
         <div style="color: var(--fs-text-muted-color); margin-top: 10px;">
-            Web Demon:<br><a href="https://pgesam.faresschulz.com/">https://pgesam.faresschulz.com/</a>
+            Web Demo:<br><a href="https://pgesam.faresschulz.com/">https://pgesam.faresschulz.com/</a>
         </div>
     </div>
     <div style="flex: 1; text-align: center;">
@@ -1147,8 +1147,8 @@ Notes:
 <div style="font-size: 0.85em;">
 
 - In the deep learning research area there is active work on long-term coherent generation, model explainability, and synthetic data creation
-- For real-time contexts inference optimization, model compression, and sample-rate agnostic architectures are important topics
-- Finally for creative applications enhanced user control, multi-modal conditioning, and the embodiment of neural instruments are key areas of focus
+- For real-time contexts, inference optimization, model compression, and sample-rate agnostic architectures are important topics
+- Finally, for creative applications, enhanced user control, multi-modal conditioning, and the embodiment of neural instruments are key areas of focus
 
 </div>
 
