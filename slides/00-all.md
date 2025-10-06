@@ -181,7 +181,7 @@ Notes:
 
 Notes:
 
-<div style="font-size: 0.85em; margin-top: 20px;">
+<div style="font-size: 0.85em;">
 
 - To understand the evolution of neural music production, I want to look first at the early history of neural networks
 - In 1957, the perceptron was introduced by Frank Rosenblatt, marking the beginning of neural network research
@@ -349,14 +349,7 @@ Notes:
 
 <div class="fragment" data-fragment-index="4"></div>
 
-<div class="fragment appear-vanish" data-fragment-index="5" style="margin-top: 20px;">
-    <h3>Neural Networks for Piano Transcription
-    <br><span style="font-weight: normal;">(Matija Marolt)</span></h3>
-    <ul>
-        <li>Division of audio signals into frequency bands</li>
-        <li>One Multilayer Perceptron (MLP) for each band</li>
-    </ul>
-</div>
+<div class="fragment" data-fragment-index="5"></div>
 
 <div class="fragment appear-vanish" data-fragment-index="6" style="margin-top: 20px;">
     <h3>Unsupervised Audio Feature Learning with Deep Belief Networks<br>
@@ -369,7 +362,7 @@ Notes:
 
 Notes:
 
-<div style="font-size: 0.85em; margin-top: 20px;">
+<div style="font-size: 0.85em;">
 
 - Now let's look at some key milestones in neural music production during this early history
 - Allready in 1960, Widrow and Hoff introduced the Least Mean Square filtering algorithm
@@ -665,15 +658,14 @@ Notes:
 
 Notes:
 
-<div style="font-size: 0.85em; margin-top: 20px;">
+<div style="font-size: 0.85em;">
 
 - Well for neural audio synthesis we need the inventions of the deep learning era - first an overview of key milestones in deep learning in general
 - In 2013, Variational Autoencoders were introduced - ability to generate new data points by sampling from a learned distribution - the latent distribution
 - Learn in an unsupervised manner to encode input data into a compressed representation and then decode it back to the original input
-- Generation of new data points by sampling from the latent distribution
 - In 2014, Generative Adversarial Networks were proposed - two neural networks competing against each other
 - In 2015, Diffusion models were introduced - iterative denoising process to generate high-quality samples
-- In 2017, Transformers revolutionized sequence modeling with self-attention mechanisms
+- The 2017 was the year Transformers revolutionized sequence modeling with self-attention mechanisms
 - In 2021, CLIP demonstrated the power of multi-modal learning by connecting images and text
 - Two encoders that map images and text into a shared latent space - by using contrastive learning the images and text are mapped close to each other in the latent space
 - It could for example classify images, without ever being trained on that specific task
@@ -874,15 +866,15 @@ Notes:
 
 Notes:
 
-<div style="font-size: 0.85em; margin-top: 20px;">
+<div style="font-size: 0.85em;">
 
 - We left the neural music production before the deep learning era, saying that there was no neural audio generation yet
 - But that changed with the WaveNet model in 2016
 - WaveNet used a clever trick in convolutional neural networks to model raw audio waveforms - it used so-called dilated convolutions to increase the receptive field of the network
 - This allowed the model to capture long-range dependencies in audio signals, resulting in high-quality and realistic audio generation
 - In 2017, Engel et al. introduced Neural Synthesis with WaveNet Autoencoders - a model that could generate musical notes by learning a latent representation of audio
-- In 2019, they further advanced the field with Differentiable Digital Signal Processing (DDSP) - combining neural networks with traditional signal processing techniques
-- Basically, predicting the parameters of an additive synthesizer with deep learning
+- In 2019, the same team (Google Magenta) further advanced the field with Differentiable Digital Signal Processing (DDSP) - combining neural networks with traditional signal processing techniques
+- Basically, predicting they parameters of an additive synthesizer with deep learning
 - The key to this approach is that the synthesis process is differentiable, allowing for end-to-end training of the model
 - In 2020, Steinmetz et al. proposed an approach for automatic mixing basing on differentiable signal processing effects
 - In 2021, Caillon and Esling introduced RAVE - a real-time audio synthesis model using variational autoencoders
@@ -902,7 +894,6 @@ Notes:
 Notes:
 
 - Ok, so now that you hopefully have an overview of the neural music production field in academia, I want to show you three of our latest contributions in this area
-- With our I refer to the Computer Music and Neural Audio Systems Research Team
 
 ---
 
@@ -919,25 +910,16 @@ Notes:
     </div>
 </div>
 
-<div class="fragment custom vanish" data-fragment-index="1" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-top: 60px;">
-    <div style="flex: 1;">
-        <h4 style="margin: 0;">Real-Time Integration</h4>
-        <ul>
-            <li>Enables <strong>real-time safe</strong> neural network integration in DAWs and audio plugins</li>
-            <li>Supports major inference engines and custom backends</li>
-            <li>Web version with WebAssembly + WebAudio (coming soon)</li>
-        </ul>
-    </div>
-    <div style="flex: 1;">
-        <h4 style="margin: 0;">Performance Evaluation</h4>
-        <ul>
-            <li>Provides a framework for benchmarking neural networks in real-time scenarios</li>
-            <li>Paper: <strong>First benchmark</strong> of neural audio effects models with different backends in real-time audio contexts</li>
-        </ul>
-    </div>
+<div>
+    <h4 style="margin: 60px 0 0 0;">Key Contributions</h4>
+    <ul>
+        <li>Enables <strong>real-time safe</strong> neural network integration in DAWs and audio plugins</li>
+        <li>Provides a framework for benchmarking neural networks in real-time scenarios</li>
+        <li>Paper: <strong>First benchmark</strong> of neural audio effects models with different backends in real-time audio contexts</li>
+    </ul>
 </div>
 
-<div class="fragment appear-vanish flex" data-fragment-index="1" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-top: 0px;">
+<!-- <div class="fragment appear-vanish flex" data-fragment-index="1" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-top: 0px;">
     <div style="flex: 1; text-align: center;">
         <img src="assets/images/anira_docu-qr.svg" alt="Anira Logo" style="max-width: 400px; height: auto;">
         <div style="color: var(--fs-text-muted-color); margin-top: 10px;">
@@ -950,7 +932,7 @@ Notes:
             Paper published at 2024 IEEE 5th International Symposium on the Internet of Sounds (IS2)
         </div>
     </div>
-</div>
+</div> -->
 
 <div class="highlight" style="text-align: center; padding: 20px; margin-top: 60px;">
     <strong>Open-source • Extensive documentation • Permissive licensing</strong>
@@ -960,17 +942,18 @@ Notes:
 
 Notes:
 
-- The first contribution is ANIRA - an architecture for neural network inference in real-time audio applications - project done with my colleague Valentin Ackva
+<div style="font-size: 0.85em;">
+
+- The first contribution is ANIRA - an architecture for neural network inference in real-time audio applications - project mainly by my colleague Valentin Ackva and me
+- Inference is the process of using a trained neural network to make predictions on new data
 - Anira is a C++ library that tries to bridge the gap between neural audio research and real-time applications
 - It has two major focus areas - first the real-time safe integration of neural networks into DAWs, audio plugins and audio applications in general
-- For this it supports the major inference engines (engines to process neural networks) and custom backends
-- While we are having already a JUCE example, CLAP plugin, Bela Framework example...
-- ... at the moment we are working on a webassembly version, that will allow to run neural networks in web browsers using the WebAudio API
-- And also we are working on a MAX/MSP external
-- The second focus area is the performance evaluation of neural networks in real-time scenarios
+- The second focus area is the performance evaluation of neural networks in audio applications
 - For this anira provides a framework for benchmarking neural networks in real-time scenarios
 - And our paper was the first benchmark of neural audio effects models with different backends in real-time audio contexts
 - Finally, anira is open-source, has extensive documentation and permissive licensing
+
+</div>
 
 ---
 
@@ -984,17 +967,16 @@ Notes:
     </div>
 </div>
 
-<div class="fragment custom vanish" data-fragment-index="4">
+<div>
     <h4 style="margin: 60px 0 0 0;">Key Contributions</h4>
     <ul>
         <li>Method for training neural proxies for arbitrary synthesizers</li>
         <li>Evaluation of pretrained audio feature extraction models as proxy training representations</li>
-        <li>Analysis of generalization from 10M synthetic to hand-crafted presets</li>
         <li>Evaluation of method on synthesizer sound matching task</li>
     </ul>
 </div>
 
-<div class="fragment appear-vanish flex" data-fragment-index="4" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-top: 0px;">
+<!-- <div class="fragment appear-vanish flex" data-fragment-index="4" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-top: 0px;">
     <div style="flex: 1; text-align: center;">
         <img src="assets/images/neural_proxies_repo-qr.svg" alt="Neural Proxies Repository" style="max-width: 350px; height: auto;">
         <div style="color: var(--fs-text-muted-color); margin-top: 10px;">
@@ -1007,7 +989,7 @@ Notes:
             Paper published at Journal of the Audio<br>Engineering Society, 73(9), 561–577.
         </div>
     </div>
-</div>
+</div> -->
 
 <div class="highlight" style="text-align: center; padding: 20px; margin-top: 60px;">
     <strong>Open-source</strong>
@@ -1031,21 +1013,25 @@ Notes:
     </div>
 </div>
 
-<div class="fragment" data-fragment-index="3"></div>
+<!-- <div class="fragment" data-fragment-index="3"></div> -->
 
 Notes:
 
-- The next contribution I want to present is Neural Proxies for Sound Synthesizers, a work mainly conducted by my colleague Paulo Combes
-- The question here was - how can we integrate non-differential synthesizers in deep learning pipelines for automatic synthesizer programming?
-- Because training neural networks requires differentiable operations to compute gradients for backpropagation - neural audio synthesis models like ddsp rely on differentiable synthesizers
-- However, many high-quality synthesizers are non-differentiable, which limits their integration in deep learning pipelines
-- To address this, Paulo proposed to use neural proxies - differentiable neural networks that mimic the behavior of non-differentiable synthesizers
-- For this, he uses an audio feature extraction model (g()) to extract features from the synthesizer output
-- Then he trains a neural network (f()) that maps the synthesizer parameters to the extracted features
-- In his paper you can find an extensive evaluation of different audio feature extraction models as proxy training representations
-- And analyzed the generalization from synthetic presets to hand-crafted presets
-- Finally, he evaluated the method on the task of synthesizer sound matching
-- So basically using the neural proxy (f()) to train a neural network that predicts synthesizer parameters for a target sound (e())
+<div style="font-size: 0.85em;">
+
+- The next contribution is Neural Proxies for Sound Synthesizers, primarily led by my colleague Paulo Combes
+- The central question: how can we integrate non-differentiable synthesizers into deep learning pipelines for automatic synthesizer programming?
+- In deep learning everything needs to be differentiable for our backpropagation algorithm to work
+- This is why neural audio synthesis models like DDSP rely on differentiable synthesizers
+- However, many high-quality synthesizers are non-differentiable, which limits their use in deep learning workflows
+- Paulo's solution: neural proxies - differentiable neural networks that mimic non-differentiable synthesizer behavior
+- The training process uses an audio feature extraction model (g()) to extract features from synthesizer output
+- Then a neural network (f()) is trained to map synthesizer parameters to these extracted features
+- The paper also provides extensive evaluation of different audio feature extraction models as proxy training representations
+- Finally, the method was evaluated on synthesizer sound matching tasks
+- Using the neural proxy to train a network (e()) that predicts synthesizer parameters for a given target sound
+
+</div>
 
 ---
 
@@ -1063,17 +1049,16 @@ Notes:
     </div>
 </div>
 
-<div class="fragment custom vanish" data-fragment-index="2">
+<div>
     <h4 style="margin: 60px 0 0 0;">Key Contributions</h4>
     <ul>
         <li>Framework for successful generation of 4 second one-shot samples from 3 data-points (2D timbre, 1D pitch)</li>
         <li>Effective pitch-timbre disentanglement via semi-supervised learning</li>
         <li>Extensive evaluation on NSynth dataset</li>
-        <li>Validated 7-component loss function design for intuitive latent space exploration</li>
     </ul>
 </div>
 
-<div class="fragment appear-vanish flex" data-fragment-index="2" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-top: 0px;">
+<!-- <div class="fragment appear-vanish flex" data-fragment-index="2" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-top: 0px;">
     <div style="flex: 1; text-align: center;">
         <img src="assets/images/pgesam_demo-qr.svg" alt="pGESAM Demo" style="max-width: 380px; height: auto;">
         <div style="color: var(--fs-text-muted-color); margin-top: 10px;">
@@ -1086,7 +1071,7 @@ Notes:
             Paper published at 28th International Conference on Digital Audio Effects (DAFx25)
         </div>
     </div>
-</div>
+</div> -->
 
 <div class="highlight" style="text-align: center; padding: 20px; margin-top: 60px;">
     <strong>Open-source • Web Demonstration</strong>
@@ -1102,19 +1087,18 @@ Notes:
 
 Notes:
 
-- The last contribution I want to present is pGESAM - the pitch-conditioned Generative Sample Map - a work mainly conducted by Christian Limberg and myself
-- The idea behind pGESAM is to provide a tool for musicians to find the perfect samples in an effective and creative way
-- And furthermore, to generate samples that can be played expressively throughout different pitches
-- The key contributions of this work are:
-- A framework for the successful generation of 4 second one-shot samples from just 3 data-points - 2D timbre and 1D pitch
-- Really only 3 floats and you get a 4 second audio sample generated
-- An effective pitch-timbre disentanglement via semi-supervised learning
-- Just very briefly this is our architecture: we use a neural audio codec to extract embeddings from the audio samples
-- Then we train a VAE to learn a low-dimensional timbre representation with disentangled pitch information
-- Finally, we train a pitch/timbre-conditioned transformer to generate the audio embeddings autoregressively
-- We have extensively evaluated this framework on the NSynth dataset, demonstrating the effectiveness of our approach
-- Our VAE training uses a validated 7-component loss function specifically designed for intuitive latent space exploration
-- Let me show you how to generate audio samples in practice with pGESAM now with our interactive web demonstration
+<div style="font-size: 0.85em;">
+
+- The last contribution is pGESAM - pitch-conditioned Generative Sample Map - a collaboration primarily between Christian Limberg and me
+- Two central questions: how can musicians discover perfect samples effectively and creatively? And how can we generate samples playable expressively across different pitches?
+- Key contributions: a framework generating 4-second one-shot samples from just 3 data points
+- Three floats input, 4-second audio output
+- These dimensions are disentangled - independent control over timbre (2D) and pitch (1D)
+- Architecture overview: neural audio codec extracts embeddings (e), VAE learns low-dimensional timbre representation with disentangled pitch, pitch/timbre-conditioned transformer generates audio embeddings autoregressively
+- Extensive evaluation on NSynth dataset demonstrates effectiveness
+- Now I want to show you a quick demo of the pGESAM framework with our interactive web application
+
+</div>
 
 ---
 
@@ -1164,16 +1148,13 @@ Notes:
 
 Notes:
 
-- Looking ahead, there are several exciting future directions in neural music production
-- On the deep learning and model architecture side, long-term coherent audio generation and long receptive field modeling remain a challenge
-- Furthermore, methods for explainability and interpretability of neural audio models are needed to better understand how these models work
-- Synthetic data generation with generative models is another exciting area that can help to overcome data scarcity issues
-- On the deployment and real-time performance side, real-time inference optimization for low-latency audio processing is crucial for live applications
-- Efficient model compression techniques are needed to run these models on resource-constrained devices
-- Sample-rate agnostic architectures can provide more flexibility in synthesis
-- Finally, in terms of creative and artistic applications, improved control mechanisms for user-guided audio generation are a hot topic right now
-- Multi-modal conditioning can lead to richer and more expressive outputs
-- Which could also enhance embodiment in neural instruments, making them more intuitive and responsive for musicians
+<div style="font-size: 0.85em;">
+
+- In the deep learning research area there is active work on long-term coherent generation, model explainability, and synthetic data creation
+- For real-time contexts inference optimization, model compression, and sample-rate agnostic architectures are important topics
+- Finally for creative applications enhanced user control, multi-modal conditioning, and the embodiment of neural instruments are key areas of focus
+
+</div>
 
 ---
 
