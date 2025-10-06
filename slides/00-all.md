@@ -187,11 +187,11 @@ Notes:
 - In 1957, the perceptron was introduced by Frank Rosenblatt, marking the beginning of neural network research
 - It was a simple model that could learn to classify inputs into different categories, by adjusting weights based on errors
 - These errors were calculated from prelabeld data, which is called supervised learning
-- Later, the multi-layer perceptron (MLP) was developed, allowing for more complex representations of data
-- In 1979, convolutional neural networks (CNNs) were introduced - replacing the multiplications with convolution operations
+- Later, the multi-layer perceptron was developed, allowing for more complex representations of data
+- In 1979, convolutional neural networks were introduced - replacing the multiplications with convolution operations
 - And two years later - Hopfield networks were proposed, introducing recurrent connections - temporal dynamics
 - Then the backpropagation algorithm enabled training of multi-layer networks - efficiently computing gradients
-- Before the deep learning era, Deep Belief Networks (DBNs) were proposed as a way to pre-train deep networks layer by layer
+- Before the deep learning era, Deep Belief Networks were proposed as a way to pre-train deep networks layer by layer
 - Finally, in 2012, AlexNet demonstrated the power of large deep convolutional networks on image classification tasks - marking the beginning of the deep learning revolution
 
 </div>
@@ -355,7 +355,7 @@ Notes:
     <h3>Unsupervised Audio Feature Learning with Deep Belief Networks<br>
     <span style="font-weight: normal;">(Lee et al.)</span></h3>
     <ul>
-        <li>Learning Audio Features from Unsupervised Data</li>
+        <li>Learning of audio features from unlabeled data - unsupervised learning</li>
         <li>Outperformed traditional hand-crafted features in many classification tasks</li>
     </ul>
 </div>
@@ -371,7 +371,8 @@ Notes:
 - In the same year, there have been first attempts to use gradient descent for musical DSP
 - In 1997, neural networks were used the first time for modeling analog effects
 - Music transcription with neural networks dates back to 1999, with Matija Marolt's work on piano transcription
-- Finally in 2009, Lee et al. demonstrated the effectiveness of deep belief networks for learning audio features from unsupervised data
+- Finally in 2009, Lee et al. demonstrated the effectiveness of deep belief networks for learning audio features with unsupervised learning - unlabeled data
+- These features outperformed traditional hand-crafted features in many classification tasks
 
 ---
 
