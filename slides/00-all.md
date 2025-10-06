@@ -4,7 +4,7 @@
     <div style="font-size: 0.8em; margin-bottom: 10px;">
         Researcher at the Audio Communication Group<br>
         Lead of Computer Music and Neural Audio Systems Research Team<br>
-        Technical University of Berlin
+        Technische Universität Berlin
     </div>
 </div>
 
@@ -14,7 +14,7 @@ Notes:
 - Hello everyone
 - I will be presenting the history and latest advances of neural music production
 - My name is Fares Schulz
-- Researcher at Audio Communication Group at Technical University of Berlin (like my colleague Annika)
+- Researcher at Audio Communication Group at Technische Universität Berlin (like my colleague Annika)
 - Lead of Computer Music and Neural Audio Systems Research Team
 
 <!-- .slide: data-state="no-header" -->
@@ -891,12 +891,12 @@ Notes:
 
 ---
 
-<h1 style="font-size: 1.5em; margin-block: 20% 10%;">OUR RESEARCH CONTRIBUTIONS</h1>
+<h1 style="font-size: 1.5em; margin-block: 20% 10%;">OUR RECENT RESEARCH CONTRIBUTIONS</h1>
 
 <div style="text-align: center; margin-top: 40px; font-size: 0.7em; color: var(--fs-text-muted-color);">
     Selected work from the Computer Music and Neural Audio Systems Research Team<br>
     Audio Communication Group<br>
-    Technical University of Berlin
+    Technische Universität Berlin
 </div>
 
 Notes:
