@@ -1103,13 +1103,11 @@ Notes:
 
 ---
 
-<h1 style="font-size: 1.5em; margin-block: 20% 10%;">OUTLOOK</h1>
+<h1 style="font-size: 2em; margin-block: 20% 10%;">OUTLOOK</h1>
 
 Notes:
 
-- Before showing some of our research I will give an overview of the evolution of neural music production, highlighting key milestones and recent advancements
-- As the field is extremely broad and fast-moving and I will only be able to cover a small part of it
-- But I hope this will give you a good overview of the field and inspire you to explore further
+- To conclude this presentation, I want to give you a brief outlook on future directions in neural music production
 
 ---
 
@@ -1141,9 +1139,9 @@ Notes:
 
 <strong style="font-size: 1.1em;">Creative & Artistic Applications</strong>
 
-- Improved control mechanisms for user-guided audio generation
+- Improved control mechanisms for user-guided generation and processing
 - Multi-modal conditioning for richer, more expressive outputs
-- Enhanced embodiment in neural instruments
+- Enhanced embodiment in neural musical instruments
 
 </div>
 
