@@ -1086,7 +1086,9 @@ Notes:
 <div style="font-size: 0.85em;">
 
 - The last contribution is pGESAM - pitch-conditioned Generative Sample Map - a collaboration primarily between Christian Limberg and me
-- Two central questions: how can musicians discover perfect samples effectively and creatively? And how can we generate samples playable expressively across different pitches?
+- Two central questions:
+- How can musicians find the perfect samples in an effective and creative way?
+- How can we generate samples that can be played expressively throughout different pitches?
 - Key contributions: a framework generating 4-second one-shot samples from just 3 data points
 - Three floats input, 4-second audio output
 - These dimensions are disentangled - independent control over timbre (2D) and pitch (1D)
@@ -1148,7 +1150,7 @@ Notes:
 
 - In the deep learning research area there is active work on long-term coherent generation, model explainability, and synthetic data creation
 - For real-time contexts, inference optimization, model compression, and sample-rate agnostic architectures are important topics
-- Finally, for creative applications, enhanced user control, multi-modal conditioning, and the embodiment of neural instruments are key areas of focus
+- Finally, for creative applications, there is research in enhanced user control and better multi-modal conditioning, which would hopefully lead to more embodiment of neural musical instruments
 
 </div>
 
