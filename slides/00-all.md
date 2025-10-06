@@ -347,11 +347,7 @@ Notes:
 
 <div class="fragment" data-fragment-index="3"></div>
 
-<div class="fragment" data-fragment-index="4"></div>
-
-<div class="fragment" data-fragment-index="5"></div>
-
-<div class="fragment appear-vanish" data-fragment-index="6" style="margin-top: 20px;">
+<div class="fragment appear-vanish" data-fragment-index="4" style="margin-top: 20px;">
     <h3>Unsupervised Audio Feature Learning with Deep Belief Networks<br>
     <span style="font-weight: normal;">(Lee et al.)</span></h3>
     <ul>
@@ -849,16 +845,15 @@ Notes:
 </div>
 
 <div class="fragment" data-fragment-index="3"></div>
-<div class="fragment" data-fragment-index="4"></div>
 
-<div class="fragment appear-vanish image-overlay" data-fragment-index="5" style="text-align: center; top: 110%;">
+<div class="fragment appear-vanish image-overlay" data-fragment-index="4" style="text-align: center; top: 110%;">
     <img src="assets/images/clap.png" alt="CLAP" style="max-width: 1800px; height: auto;">
     <div class="reference" data-fragment-index="1" style="margin: 10px; text-align: center;">
         Elizalde, B., Deshmukh, S., Al Ismail, M., & Wang, H. (2023, June). Clap learning audio concepts from natural language supervision. In ICASSP 2023-2023 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP) (pp. 1-5). IEEE.
     </div>
 </div>
 
-<div class="fragment appear-vanish" data-fragment-index="6" style="text-align: center; top: 120%;">
+<div class="fragment appear-vanish" data-fragment-index="5" style="text-align: center; top: 120%;">
     <img src="assets/images/diffusion-transformer.png" alt="Diffusion Transformer" style="max-width: 1800px; height: auto;">
     <div class="reference" data-fragment-index="1" style="margin: 10px; text-align: center;">
         https://digialps.com/stability-ais-new-open-source-ai-creation-stable-audio-2-0-takes-on-suno-ai/
