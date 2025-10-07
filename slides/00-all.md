@@ -889,7 +889,11 @@ Notes:
 
 Notes:
 
-- OK, so now that you hopefully have an overview of the neural music production field in academia, I want to show you three of our latest contributions in this area
+- Ok, now you have an overview of the academic field from its origins to the present day
+- This area is receiving growing interest from research groups worldwide
+- From us, as well
+- So I'd like to show you three of our recent contributions in the years 2024 and 2025
+- By "us" I refer to the Computer Music and Neural Audio Systems Research Team at the Audio Communication Group
 
 ---
 
@@ -932,6 +936,10 @@ Notes:
 
 <div class="highlight" style="text-align: center; padding: 20px; margin-top: 60px;">
     <strong>Open-source • Extensive documentation • Permissive licensing</strong>
+</div>
+
+<div class="reference" style="font-size: 0.75em;">
+    Ackva, V., & Schulz, F. (2024). ANIRA: An Architecture for Neural Network Inference in Real-Time Audio Applications. <em>2024 IEEE 5th International Symposium on the Internet of Sounds (IS2)</em>, 1–10. https://doi.org/10.1109/IS262782.2024.10704099
 </div>
 
 </div>
@@ -991,6 +999,10 @@ Notes:
     <strong>Open-source</strong>
 </div>
 
+<div class="reference" style="font-size: 0.75em;">
+    Combes, P., Weinzierl, S., & Obermayer, K. (2025). Neural Proxies for Sound Synthesizers: Learning Perceptually Informed Preset Representations. <em>Journal of the Audio Engineering Society, 73(9)</em>, 561–577. https://doi.org/10.17743/jaes.2022.0219
+</div>
+
 </div>
 
 <div class="image-overlay fragment appear-vanish" data-fragment-index="0" style="position: absolute; text-align: center; width: 62%; padding: 40px;">
@@ -1048,8 +1060,8 @@ Notes:
 <div>
     <h4 style="margin: 60px 0 0 0;">Key Contributions</h4>
     <ul>
-        <li>Framework for successful generation of 4 second one-shot samples from 3 data-points (2D timbre, 1D pitch)</li>
-        <li>Effective pitch-timbre disentanglement via semi-supervised learning</li>
+        <li>Framework for successful generation of 4 second one-shot samples from 3 data-points</li>
+        <li>Effective pitch-timbre disentanglement via semi-supervised learning (2D timbre, 1D pitch)</li>
         <li>Extensive evaluation on NSynth dataset</li>
     </ul>
 </div>
@@ -1071,6 +1083,10 @@ Notes:
 
 <div class="highlight" style="text-align: center; padding: 20px; margin-top: 60px;">
     <strong>Open-source • Web Demonstration</strong>
+</div>
+
+<div class="reference" style="font-size: 0.75em;">
+    Limberg, C., Schulz, F., Zhang, Z., & Weinzierl, S. (2025). Pitch-Conditioned Instrument Sound Synthesisfrom an Interactive Timbre Latent Space. <em>28th International Conference on Digital Audio Effects (DAFx25)</em>, 1–8. https://dafx.de/paper-archive/2025/DAFx25_paper_58.pdf
 </div>
 
 </div>
