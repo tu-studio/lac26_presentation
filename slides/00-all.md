@@ -894,7 +894,7 @@ Notes:
 
 Notes:
 
-- Ok, now you have an overview of the academic field from its origins to the present day
+- Ok, this was my overview of the academic field from its origins to the present day
 - This area is receiving growing interest from research groups worldwide
 - From us, as well
 - So I'd like to show you three of our recent contributions in the years 2024 and 2025
