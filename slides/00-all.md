@@ -1,9 +1,3 @@
-<section data-background-image="assets/images/First_Slide.jpg">
-
-<!-- .slide: data-state="no-header no-footer" -->
-
----
-
 <h1 style="font-size: 1.8em; margin-block: 16% 10%;">ADVANCES IN NEURAL MUSIC<br>PRODUCTION</h1>
 <div style="font-size: 0.8em; text-align: center; color: var(--fs-text-muted-color);">
     <strong>Fares Schulz</strong><br>
@@ -1215,9 +1209,3 @@ Notes:
 </div>
 
 </div>
-
----
-
-<section data-background-image="assets/images/Last_Slide.jpg">
-
-<!-- .slide: data-state="no-header no-footer" -->
