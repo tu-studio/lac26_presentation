@@ -1,4 +1,4 @@
-<h1 style="font-size: 1.8em; margin-block: 16% 10%;">ADVANCES IN NEURAL MUSIC<br>PRODUCTION</h1>
+<h1 style="font-size: 1.8em; margin-block: 16% 10%;">Advances in Neural Music<br>Production</h1>
 <div style="font-size: 0.8em; text-align: center; color: var(--fs-text-muted-color);">
     <strong>Fares Schulz</strong><br>
     <div style="font-size: 0.8em; margin-bottom: 10px;">
