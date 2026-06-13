@@ -1,6 +1,6 @@
-<h1 style="font-size: 1.8em; margin-block: 10% 10%;">SeamLess:<br> DISTRIBUTED SPATIAL AUDIO RENDERING
+<h1 style="font-size: 1.8em; margin-block: 10% 10%; text-shadow: 0 0 20px var(--fs-background-color), 0 0 30px var(--fs-background-color)">SeamLess:<br> DISTRIBUTED SPATIAL AUDIO RENDERING
 ON THE LINUX AUDIO STACK</h1>
-<div style="display: flex; text-align: center; justify-content: space-between; align-items: flex-start">
+<div style="display: flex; text-align: center; justify-content: space-between; align-items: flex-start; text-shadow: 0 0 20px var(--fs-background-color), 0 0 30px var(--fs-background-color)"">
     <div style="font-size: 0.8em; text-align: center; color: var(--fs-text-muted-color);">
         <strong>Fares Schulz</strong><br>
         <div style="font-size: 0.8em; margin-bottom: 10px;">
@@ -21,7 +21,7 @@ Notes:
 
 - Hello everyone
 
-<!-- .slide: data-state="no-header" -->
+<!-- .slide: data-state="no-header no-footer", data-background-image="assets/images/SHF_eb00125547_Ethnologisches_Museum.jpg" -->
 
 ---
 #  Introduction
@@ -29,7 +29,6 @@ Notes:
 <!-- <div style="text-align: center">
 <img  src=assets/images/SHF_eb00125547_Ethnologisches_Museum.jpg>
 </div> -->
-<!-- .slide: data-background-image="assets/images/SHF_eb00125547_Ethnologisches_Museum.jpg" -->
 ---
 ## Overview - Rendering Methods
 - Ambisonics
