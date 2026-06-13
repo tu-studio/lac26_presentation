@@ -24,11 +24,22 @@ Notes:
 <!-- .slide: data-state="no-header" -->
 
 ---
-##  Introduction
+#  Introduction
 
-
+<!-- <div style="text-align: center">
+<img  src=assets/images/SHF_eb00125547_Ethnologisches_Museum.jpg>
+</div> -->
+<!-- .slide: data-background-image="assets/images/SHF_eb00125547_Ethnologisches_Museum.jpg" -->
 ---
-## Shortcomings of Spatial Audio Systems
+## Overview - Rendering Methods
+- Ambisonics
+- Wavefield Synthesis (WFS)
+---
+## Overview - Rendering Solutions
+
+TODO plugins und softwares auflisten?
+---
+## Limitations of existing Spatial Audio Systems
 
 - limited portability of pieces <!-- .element: class="fragment" data-fragment-index="1" -->
 - Amount of speakers limited by soundcard outputs and processing power <!-- .element: class="fragment" data-fragment-index="2" -->
@@ -38,8 +49,51 @@ Notes:
 ---
 ## Rendering Methods
 
+---
+# SeamLess
+
+---
+## General
+
+---
+## OSC-Kreuz
+
+---
+## Audio-Matrix
+
+---
+## Wonder
+
+---
+## SeamLess Plugin Suite
+
+---
+## Ambisonics Decoding
+
+---
+## Playback Engine
+
+---
+## ShowControl
+
+---
+## Jack-Connection-Manager
+
+---
+# Orchestration
+
+---
+## Configs
+
+---
+## Versioned Install
+
+---
+## Deployment
 
 ---
 ## Outlook
+- AES67
+- Standalone Playback System
 
 
