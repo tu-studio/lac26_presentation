@@ -24,29 +24,140 @@ Notes:
 <!-- .slide: data-state="no-header no-footer", data-background-image="assets/images/SHF_eb00125547_Ethnologisches_Museum.jpg" -->
 
 ---
-#  Introduction
+# Introduction
 
-<!-- <div style="text-align: center">
-<img  src=assets/images/SHF_eb00125547_Ethnologisches_Museum.jpg>
-</div> -->
----
-## Overview - Rendering Methods
-- Ambisonics
-- Wavefield Synthesis (WFS)
----
-## Overview - Rendering Solutions
+<!-- .slide: data-state="no-header no-footer" data-background-image="assets/images/hufo_image.jpg" data-background-opacity="0.55" -->
 
-TODO plugins und softwares auflisten?
----
-## Limitations of existing Spatial Audio Systems
+Notes:
 
-- limited portability of pieces <!-- .element: class="fragment" data-fragment-index="1" -->
-- Amount of speakers limited by soundcard outputs and processing power <!-- .element: class="fragment" data-fragment-index="2" -->
-- Proprietary hard- and software <!-- .element: class="fragment" data-fragment-index="3" -->
-- Steep costs <!-- .element: class="fragment" data-fragment-index="4" -->
+- Let me set the stage for *why* we built SeamLess.
+- Over the past decades, sound reproduction has moved well beyond two-channel and multichannel stereo.
+- We now build large loudspeaker arrays — in concert halls, museums, and research studios — to reproduce sound in three dimensions.
 
 ---
-## Rendering Methods
+## Spatial Sound Reproduction
+
+- Beyond two-channel and multichannel stereo
+- **Immersive, three-dimensional sound** over loudspeaker arrays
+- Two widely used, **non-proprietary** methods:
+    - **Ambisonics**
+    - **Wave Field Synthesis (WFS)**
+- Deployed in concert halls, museums, theatres and research studios
+
+<div class="reference" style="margin-top: 30px;">
+Schultz, Hahn &amp; Spors (2025), <em>Wellenfeldsynthese</em>, in: Handbuch der Audiotechnik, Springer.
+</div>
+
+Notes:
+
+- Two methods dominate the open, non-proprietary landscape: Ambisonics and Wave Field Synthesis.
+- Both are loudspeaker-based and both benefit from large channel counts.
+- They are not competitors — they have complementary strengths, which is exactly why we want to combine them.
+
+---
+## Two Complementary Methods
+
+<div style="display: flex; gap: 40px; margin-top: 30px;">
+    <div class="tile color-0" style="flex: 1;">
+        <h3>Ambisonics</h3>
+        <div class="tile-description" style="height: auto; font-size: 0.6em;">
+            <ul>
+                <li>Domain-independent spatial audio format</li>
+                <li>Sound field encoded on a <strong>sphere around the listener</strong></li>
+                <li>Decoded to <strong>arbitrary</strong> loudspeaker layouts</li>
+                <li>Strong for <strong>diffuse and elevated</strong> 3D fields</li>
+            </ul>
+        </div>
+    </div>
+    <div class="tile color-1" style="flex: 1;">
+        <h3>Wave Field Synthesis</h3>
+        <div class="tile-description" style="height: auto; font-size: 0.6em;">
+            <ul>
+                <li>Object-based: synthesizes <strong>wave fronts</strong> from many speakers</li>
+                <li>Perceptually accurate <strong>localization</strong></li>
+                <li>Enables <strong>focused sources</strong> inside the array</li>
+                <li>Predominantly <strong>2D / horizontal</strong></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="highlight" style="margin-top: 40px;">Combining both leverages their complementary strengths in a single system</div>
+
+Notes:
+
+- Ambisonics is domain-independent: a virtual source is projected onto a sphere around the listener and decoded to whatever loudspeaker layout you have. It shines for diffuse and elevated, three-dimensional fields.
+- WFS is object-based: it synthesizes wave fronts by overlapping signals from a large number of speakers. This gives very accurate localization, and it can even place "focused" sources *inside* the listening area. But it is mostly used in 2D — horizontally — so it lacks native support for elevated sources.
+- WFS gives you perceptual accuracy and focused sources for nearby, horizontal content; Ambisonics gives you diffuse and elevated 3D fields. SeamLess is built to do both.
+
+---
+## The Challenge of Scale
+
+- Both methods benefit from **large channel counts** — hundreds of loudspeakers
+- Computational + organizational demands **exceed a single machine**
+- Our venues at TU Berlin and the Humboldt Forum:
+
+<div style="display: flex; gap: 24px; margin-top: 24px; font-size: 0.62em;">
+    <div class="tile" style="flex: 1; padding: 24px;">
+        <strong>Ethnological Museum<br>(Humboldt Forum)</strong><br>
+        256-channel WFS · 45-speaker HOA dome
+    </div>
+    <div class="tile" style="flex: 1; padding: 24px;">
+        <strong>TU Studio</strong><br>
+        192-channel WFS · 21-channel Ambisonics dome · 8-speaker ring
+    </div>
+    <div class="tile" style="flex: 1; padding: 24px;">
+        <strong>Lecture Hall H 0104</strong><br>
+        832-channel WFS · 600+ seats
+    </div>
+</div>
+
+<div class="highlight" style="margin-top: 36px;">Driving hundreds of speakers calls for <strong>distributed processing across multiple hosts</strong></div>
+
+Notes:
+
+- Both methods scale with channel count — more speakers means a more convincing field, but also more processing.
+- At a certain size, a single workstation simply cannot keep up: the computational and organizational demands exceed one machine.
+- Concretely: the Humboldt Forum listening room runs 256 WFS channels plus a 45-speaker Ambisonics dome; our TU Studio combines a 192-channel WFS system, a 21-channel dome and an 8-speaker ring; and our largest install — Lecture Hall H 0104 — drives 832 WFS channels for an audience of over 600.
+- These numbers are the core driver for distributing the rendering across many machines.
+
+---
+## Existing Solutions
+
+Mature systems exist — but each leaves a gap for large-scale, open, distributed Linux setups.
+
+| System | Open source | Linux | WFS | Distributed |
+|---|:---:|:---:|:---:|:---:|
+| IRCAM **Spat** | ✗ (free, proprietary) | ✗ | ✓ | ✗ |
+| **Holoplot** | ✗ | embedded | ✓ | custom HW |
+| **SSR** | ✓ | ✓ | ✓ | ✗ |
+| **TASCAR** | ✓ | ✓ | ~ | ✗ |
+| **IEM** / **SPARTA** plug-ins | ✓ | ✓ | ✗ | ✗ |
+| **SeamLess** | ✓ | ✓ | ✓ | ✓ |
+
+<div class="reference" style="margin-top: 20px;">
+Carpentier et al. (Spat, ICMC 2015) · Geier et al. (SSR) · Grimm et al. (TASCAR) · Rudrich et al. (IEM) · McCormack &amp; Politis (SPARTA, AES 2019)
+</div>
+
+Notes:
+
+- The landscape splits into two families. First, integrated rendering frameworks that process the audio themselves: IRCAM's Spat is the most comprehensive — VBAP, Ambisonics, DBAP, WFS — but it lives inside Max/MSP, targets macOS and Windows, and is proprietary. Holoplot's WFS panels are state of the art (the Las Vegas Sphere), but proprietary and tied to their own hardware. The SoundScape Renderer is open-source, Linux-capable, supports WFS — but renders on a single machine. TASCAR is Linux-native and open, oriented toward hearing-aid research and controlled experiments rather than large arrays.
+- Second, DAW plug-in suites — IEM, Kronlachner's Ambisonic suite, SPARTA. All open and cross-platform, but Ambisonics-only, no WFS, and confined to single-machine rendering inside a host.
+- So: plenty of good tools, but none combine open-source, Linux-first, WFS support, *and* distributed multi-machine rendering. That last column is the gap.
+
+---
+## Limitations of Existing Systems
+
+- Limited **portability of pieces** between venues <!-- .element: class="fragment" data-fragment-index="1" -->
+- Channel count **limited by soundcard outputs and processing power** of one machine <!-- .element: class="fragment" data-fragment-index="2" -->
+- **Proprietary** hardware and software <!-- .element: class="fragment" data-fragment-index="3" -->
+- **Steep costs** — out of reach for smaller, budget-conscious setups <!-- .element: class="fragment" data-fragment-index="4" -->
+- No **deployment automation** or **show scheduling** for permanent installations <!-- .element: class="fragment" data-fragment-index="5" -->
+
+Notes:
+
+- Pulling those gaps together: pieces are hard to move between venues because loudspeaker-specific configuration is baked in. Channel count is capped by a single machine's soundcard outputs and CPU. Much of the ecosystem is proprietary and expensive — which prices out smaller venues. And almost none of these systems were designed for permanent installations, so deployment automation and show scheduling are missing entirely.
+- These are exactly the problems SeamLess sets out to solve — which Maximilian will now walk you through in detail.
 
 ---
 # SeamLess
@@ -132,9 +243,90 @@ Notes:
 
 ---
 # Conclusion
+
+<!-- .slide: data-state="no-header no-footer" data-background-image="assets/images/SHF_eb00125547_Ethnologisches_Museum.jpg" data-background-opacity="0.5" -->
+
+Notes:
+
+- Let me tie this back together.
+
+---
+## What We Presented
+
+- **SeamLess** — a modular, open-source, real-time spatial audio rendering platform
+- Built **entirely on the Linux audio stack**
+- **Distributes** rendering across multiple commodity Linux servers
+- **Separates** the rendering backend from user interaction
+    - artists work through familiar **DAW plug-ins** and plain **OSC**
+- Scales to large arrays — **up to 832 channels** in our largest install
+
+Notes:
+
+- In short: SeamLess is a modular, open-source, real-time spatial audio rendering system built entirely on the Linux audio stack.
+- It distributes the rendering workload across a cluster of commodity Linux servers, and it cleanly separates that backend from how artists interact with it — DAW plug-ins and OSC messages.
+- That separation is what lets the same piece scale from a small studio up to our 832-channel lecture hall without the artist having to think about the cluster underneath.
+
+---
+## The Linux Audio Stack is Ready
+
+- **JACK** — and more recently **PipeWire** — proved mature enough for demanding, high-channel-count spatial audio in production
+- PipeWire removed the previous **64-channel hardware limit**
+- **WirePlumber** scripting + native **AES67** support are a promising foundation
+
+<div class="highlight" style="margin-top: 36px;">Open, Linux-based rendering is viable for real-world, large-scale installations</div>
+
+Notes:
+
+- One of our main takeaways is that the Linux audio stack is genuinely ready for this. JACK — and now PipeWire — handle demanding, high-channel-count spatial audio reliably in production.
+- The recent PipeWire work that removed the 64-channel hardware limit was a turning point for us.
+- And looking forward, WirePlumber's scripting capabilities plus PipeWire's native AES67 support are a very promising foundation for networked audio systems.
+
+---
+## Operational Experience
+
+- Running **continuously since May 2025** at the Berlin Humboldt Forum
+- **systemd** services + **Ansible** deployment + strict **version control**
+    - the reliability a permanent museum exhibit demands
+- A central concern throughout: **reliability and reproducibility**
+
+<div class="reference" style="margin-top: 24px;">
+Permanent exhibition, Ethnological Museum — Humboldt Forum, Berlin
+</div>
+
+Notes:
+
+- This is not just a lab prototype. The system has run continuously at the Humboldt Forum since around May 2025, with only occasional restarts after updates.
+- That kind of uptime in a permanent museum exhibit is only possible because reliability was a central concern from the start: every component runs as a systemd service, deployment is automated with Ansible, and strict version control lets us roll back when something breaks.
+- REAPER, perhaps surprisingly, has been a very stable playback engine for our five-hour single-session show.
+
 ---
 ## Outlook
-- AES67
-- Standalone Playback System
+
+- Replace the proprietary **REAPER** playback engine with a **custom open-source** solution
+- Further investigate **PipeWire stability** under sustained, high-channel-count load
+- Explore rendering methods **beyond WFS and Ambisonics**
+- Adopt **AES67** for networked audio — motivated by poor Linux support for MADI/Dante drivers
+
+Notes:
+
+- Looking ahead, a few directions. We want to replace the one proprietary piece left in the chain — the REAPER playback engine — with a custom, open-source playback solution, partly for licensing and partly for scalability.
+- We want to keep stress-testing PipeWire under sustained, high-channel-count load.
+- We'd like to support rendering methods beyond just WFS and Ambisonics.
+- And AES67 is high on the list: the audio drivers themselves — MADI and Dante — are a real pain point because of immature Linux support, which is exactly what motivates moving to AES67 over standard networking.
+
+---
+## Making Spatial Audio Accessible
+
+- Fully **open-source**, **Linux-first**, built on **standard hardware**
+- Viable for **large-scale venues** *and* **smaller, budget-conscious setups**
+- The open nature invites **adoption and contribution** from other institutions
+
+<div class="highlight" style="margin-top: 40px;">Thank you! — github.com/tu-studio</div>
+
+Notes:
+
+- The bigger picture: because SeamLess is fully open-source, Linux-first, and runs on standard commodity hardware, it lowers the barrier to spatial audio — not only for large institutions but for smaller, budget-conscious setups too.
+- And being open, it invites adoption and contributions from other institutions running comparable systems.
+- All of the components — the audio matrix, OSC-Kreuz, Wonder, the plug-in suite, the configs — are on our GitHub at github.com/tu-studio. Thank you — happy to take questions.
 
 
