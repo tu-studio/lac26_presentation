@@ -359,9 +359,9 @@ Notes:
 <div class="highlight" style="margin-top: 40px;"> Manage JACK/PipeWire connections between clients with high number of ports </div>
 
 
-```yml
+```yaml
 - client: audio-matrix:wfs_
-  n_channels: 64
+  n_channels: 32
   start_index: 0
   connections:
     - client: twonder1:input
