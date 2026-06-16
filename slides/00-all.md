@@ -308,7 +308,7 @@ Any program with multichannel audio playback and OSC output or VST plugin-suppor
 Notes:
 - currently the only non-free component
 - chosen for 
-  - **stability**, 
+  - **stability**, (unreasonably stable) 
   - **familiarity** of artists, 
   - osc **remote** control, 
   - lua **scripting**, 
@@ -337,7 +337,7 @@ Notes:
 
 ## ShowControl
 <div class="highlight" style="margin-top: 40px;"> Scheduling and Playback Control </div>
-<img src="assets/images/seamless_status.png" alt="audio matrix signal flow" style="width:75%" >
+<img src="assets/images/seamless_status.png" alt="audio matrix signal flow" style="width:66%" >
 
 Notes:
 - Scheduler, in museum context
@@ -387,9 +387,17 @@ Notes:
 
 ---
 ## Versioned Install
+<div class="highlight" style="margin-top: 40px;"> Manage JACK/PipeWire connections between clients with high number of ports </div>
 
 ---
 ## Deployment
+<div class="highlight" style="margin-top: 40px;"> Infrastructure as Code </div>
+
+Notes:
+
+
+
+- can't offer general install script, because each location is unique in its setup, but our configs can serve as inspiration
 
 ---
 # Conclusion
