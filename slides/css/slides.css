@@ -61,6 +61,12 @@
   font-size: 0.85em;
 }
 
+.textit {
+  font-style: italic;
+  color: var(--fs-fragment-select-text-color);
+  font-weight: lighter;
+}
+
 /*********************************************
  * HEADERS
  *********************************************/
@@ -531,6 +537,8 @@
   max-width: 95%;
 }
 
+
+
 .reveal table th {
   background: var(--fs-surface-alt, var(--fs-surface));
   color: var(--fs-heading-color);
@@ -610,6 +618,29 @@
 .reveal table em {
   color: var(--fs-text-muted-color);
   font-style: italic;
+}
+
+
+/*********************************************
+ * Code block fixes
+ *********************************************/
+.reveal table.hljs-ln{
+  all: unset;
+}
+
+
+.reveal table.hljs-ln td {
+  all: revert;
+  padding-right: 1em;
+}
+
+.reveal .hljs:not(:first-child).fragment{
+  position: absolute;
+  min-height: unset;
+}
+
+.code-wrapper {
+  position: relative;
 }
 
 /*********************************************

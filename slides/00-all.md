@@ -175,7 +175,7 @@ Notes:
 - **Complexity** is **hidden** from users 
     -> only mono audio streams and positional data using OSC
 - All components **configurable**
-- Management through common Linux tools (systemd, JACK/PipeWire)
+- Management through common Linux tools (systemd, JACK/PipeWire, Ansible, meson)
 - Pieces are (more) **portable**
   - Shared, normalized coordinate system for all venues
 
@@ -359,7 +359,7 @@ Notes:
 <div class="highlight" style="margin-top: 40px;"> Manage JACK/PipeWire connections between clients with high number of ports </div>
 
 
-```yaml
+```yaml [1-3,9-10|4-8,11-12]
 - client: audio-matrix:wfs_
   n_channels: 32
   start_index: 0
@@ -385,19 +385,93 @@ Notes:
 ---
 ## Configs
 
+- All of our configs in one repo
+- Installed using Meson build system
+- correct configs chosen for **location** and **node**
+
+| location | node |
+| --- | --- |
+| `EN325` | `riviera` |
+| | `wintermute` |
+| `HUFO` | `playstation` |
+| | `renderer01` - `03` |
+| `H0104` | `tengo` |
+| | `kaoru01` - `05`
+
+Notes:
+- meson is used for most installations, including python, where it just calls the correct tools, and then moves the files to their locations
 ---
 ## Versioned Install
-<div class="highlight" style="margin-top: 40px;"> Manage JACK/PipeWire connections between clients with high number of ports </div>
+<div class="highlight" style="margin-top: 40px;"> Keep multiple versions available </div>
+String based on current git tag version is appended to filenames/directories
+
+<pre><code data-noescape class="language-txt hljs" data-highlighted="yes" data-line-numbers="3,7|2,5-6">/usr/local/bin/
+├── audio-matrix -> /usr/local/bin/audio-matrix-<span class="hljs-keyword textit">version</span>
+└── audio-matrix-<span class="hljs-keyword textit">version</span> 
+/usr/local/etc/
+├── audio-matrix 
+│    -> /usr/local/etc/audio-matrix-<span class="hljs-keyword textit">location</span>-<span class="hljs-keyword textit">node</span>-<span class="hljs-keyword textit">version</span>/
+└── audio-matrix-<span class="hljs-keyword textit">location</span>-<span class="hljs-keyword textit">node</span>-<span class="hljs-keyword textit">version</span>
+</code></pre>
+
+
+Notes:
+- high reliability requirements, limited time to work, thus quick rollback required
+- similar to how library versions are managed
+---
+## Versioned Install
+<div class="highlight" style="margin-top: 40px;"> Keep multiple versions available </div>
+String based on current git tag version is appended to filenames/directories
+
+<pre><code data-noescape class="language-txt hljs" data-highlighted="yes" data-line-numbers="2-3|6-7|5">/usr/local/share/
+└── osc-kreuz-<span class="hljs-keyword textit">version</span>/
+    └── venv/*
+/usr/local/bin/
+├── osc-kreuz -> /usr/local/bin/osc-kreuz-<span class="hljs-keyword textit">version</span>
+└── osc-kreuz-<span class="hljs-keyword textit">version</span> -> 
+        /usr/local/share/osc-kreuz-<span class="hljs-keyword textit">version</span>/venv/bin/osc-kreuz
+</code></pre>
+
+Notes:
+for python applications like siss
 
 ---
 ## Deployment
 <div class="highlight" style="margin-top: 40px;"> Infrastructure as Code </div>
+Ansible Playbooks to go from fresh Debian installation to complete SeamLess system
+
+<div class="image-overlay fragment appear" data-fragment-index="1" data-fragment-span="3">
+    <pre>
+<code data-trim data-line-numbers="1,9|2-5,10-13|6-8,14-16" data-fragment-index="2" style="font-size: 0.8em">renderer:
+  hosts:
+    renderer01:
+      ansible_host: renderer01.local
+      ansible_user: username
+      services: [osc-kreuz, jack-connection-manager, audio-matrix, ambisonics]
+      location: HUFO
+      audio_driver: dante
+player:
+  hosts:
+    playstation:
+      ansible_host: playstation.local
+      ansible_user: username
+      services: [jack-connection-manager, gui, showcontrol]
+      location: HUFO
+      audio_driver: [dante]
+</code></pre>
+</div>
+
+### Setting up new SeamLess system
+1. set up Ansible inventory
+2. create config files <!-- .element: class="fragment" data-fragment-index="5" -->
+3. run main playbook <!-- .element: class="fragment" data-fragment-index="6" -->
+
+
+
+
 
 Notes:
-
-
-
-- can't offer general install script, because each location is unique in its setup, but our configs can serve as inspiration
+- caveats to this: location specific scripts for proxies etc
 
 ---
 # Conclusion
