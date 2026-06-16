@@ -442,7 +442,7 @@ Ansible Playbooks to go from fresh Debian installation to complete SeamLess syst
 
 <div class="image-overlay fragment appear" data-fragment-index="1" data-fragment-span="3">
     <pre>
-<code data-trim data-line-numbers="1,9|2-5,10-13|6-8,14-16" data-fragment-index="2" style="font-size: 0.8em">renderer:
+<code data-trim data-line-numbers="1,11|2-5,9-10,12-15|6-8,16-18" data-fragment-index="2" style="font-size: 0.8em">renderer:
   hosts:
     renderer01:
       ansible_host: renderer01.local
@@ -450,6 +450,8 @@ Ansible Playbooks to go from fresh Debian installation to complete SeamLess syst
       services: [osc-kreuz, jack-connection-manager, audio-matrix, ambisonics]
       location: HUFO
       audio_driver: dante
+    renderer02:
+      ...
 player:
   hosts:
     playstation:
@@ -463,8 +465,8 @@ player:
 
 ### Setting up new SeamLess system
 1. set up Ansible inventory
-2. create config files <!-- .element: class="fragment" data-fragment-index="5" -->
-3. run main playbook <!-- .element: class="fragment" data-fragment-index="6" -->
+2. create config files <!-- .element: class="fragment" data-fragment-index="6" -->
+3. run main playbook <!-- .element: class="fragment" data-fragment-index="7" -->
 
 
 

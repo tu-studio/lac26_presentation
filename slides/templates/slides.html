@@ -108,17 +108,14 @@
         tohideArray.forEach(frag => {
           let frag_length = parseInt(frag.getAttribute("data-fragment-span"))
           let frag_index = parseInt(event.fragment.getAttribute("data-fragment-index"))
-          console.log(frag_length, frag_index)
           if (
             frag_index >= frag_length
           ){
             frag.classList.remove("fade-in");
             frag.classList.add("fade-out");
-            console.log("making invisible")
           } else {
             frag.classList.remove("fade-out");
             frag.classList.add("fade-in");
-            console.log("making visible")
 
           } 
         });
