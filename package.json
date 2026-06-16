@@ -12,7 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "katex": "^0.16.22",
-    "reveal.js": "^5.2.1"
+    "reveal.js": "^6.0.1"
   },
   "devDependencies": {
     "ws": "^8.18.3"

@@ -199,9 +199,9 @@ async function copyAllFolders() {
     await copyDirectory(revealDistDir, targetDistDir);
     
     // Copy plugins
-    const pluginDir = path.join(nodeModulesReveal, 'plugin');
-    const targetPluginDir = path.join(distReveal, 'plugin');
-    await copyDirectory(pluginDir, targetPluginDir);
+    // const pluginDir = path.join(nodeModulesReveal, 'plugin');
+    // const targetPluginDir = path.join(distReveal, 'plugin');
+    // await copyDirectory(pluginDir, targetPluginDir);
     
     console.log('📂 Copied reveal.js/');
   } catch (error) {

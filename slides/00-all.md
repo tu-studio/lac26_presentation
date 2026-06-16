@@ -161,7 +161,7 @@ Notes:
 
 ---
 # SeamLess
-
+<!-- .slide: data-state="no-header no-footer" data-background-image="assets/images/hufo_image.jpg" data-background-opacity="0.55" -->
 ---
 
 ## SeamLess - Overview
@@ -170,67 +170,217 @@ Notes:
     <img src="assets/images/hufo_signal_flow.png" alt="pGESAM Framework" width="100%" >
 </div>
 
-- Modular Software Stack
-- Rendering can be distributed
-- Complexity is hidden from users 
+- **Modular** Software Stack
+- Rendering can be **distributed**
+- **Complexity** is **hidden** from users 
     -> only mono audio streams and positional data using OSC
-- All components configurable
-- Management through basic Linux tools (systemd, JACK/PipeWire)
-- Shared coordinate system for all venues
+- All components **configurable**
+- Management through common Linux tools (systemd, JACK/PipeWire)
+- Pieces are (more) **portable**
+  - Shared, normalized coordinate system for all venues
 
 Notes:
 - Rendering on backend
 - Synchronization handled by audio hardware, either dante or wordclock or in the future aes67 using PTP
 - route audio to rendering machines, further processed, all linux runing JACK or PipeWire, 
-    - pipewire only recently possible due to removing 64 channel hardware limit
-
-
+    - pipewire (for us) only recently possible due to removing 64 channel hardware limit, since we use soundcards with 128 or 192 outputs
 
 - coordinate system is normalized so that the wall farthest from the center is at a distance of 0.5 on either the x- or y-axis. This enables transfer between different locations using the SeamLess system without having to rescale all positions.
-
-
+- of course room differences, so never true portability, but at least its possible, especially between similar systems like hufo and TU
+- flexible in choice of rendering software
 
 
 
 ---
 ## OSC-Kreuz
 
-- Central OSC Routing Hub
-- Automatic conversion between different Coordinate formats
-- per-source rate limiting
+- OSC routing hub
+- Automatic conversion between different coordinate formats
+- Per-source rate limiting
+
+Notes:
+- Python
+- translates between expected formats
+- cwonder
+- configurable
+- receivers either specified in config file or subscribe during runtime
+- if special format is needed new receiver subclass can be
+- coordinate formats
+- rate limiting (smoother movement wfs (doppler))
+- 
+--
+
+<div class="image-overlay">
+    <img src="assets/images/hufo_signal_flow.png" alt="pGESAM Framework" width="100%" >
+    <div class="detail-rect" style="top: 17%;left:43%;width:13%;height:6%" />
+</div>
 ---
+
 ## Audio-Matrix
 
-- Flexible Multichannel DSP 
+- Flexible multichannel DSP 
 - OSC controllable
-<div class="image-overlay fragment appear-vanish" data-fragment-index="0">
-    <img src="assets/images/audio_matrix.png" alt="audio matrix signal flow" height="0%" >
+- Channel count calculated during initialization stage
+- Modules: **Gain**, **Ambisonics Encoder**, **Sum**, **Filter**, **Distance Gain**, **Delay**
+<div class="image-overlay fragment appear-vanish" data-fragment-index="0" style="width: 82%">
+    <img src="assets/images/audio_matrix.png" alt="audio matrix signal flow" >
+</div>
+
+Notes:
+- C++
+- heavily configurable using yaml
+- preprocessing for actual renderers (wfs/hoa)
+- Gains for systems
+- multiple tracks, each track configurable modules
+- new modules relatively easy to add, access to osc server (liblo)
+
+--
+
+<div class="image-overlay">
+    <img src="assets/images/hufo_signal_flow.png" alt="pGESAM Framework" width="100%" >
+    <div class="detail-rect" style="top: 17%;left:18%;width:25%;height:25.5%"></div>
+    <div class="detail-rect" style="top: 17%;left:60.5%;width:13%;height:13%"></div>
+    <div class="detail-rect" style="top: 17%;left:78.2%;width:13%;height:13%"></div>
+
 </div>
 
 ---
-## SeamLess Plugin Suite
-<img src="assets/images/SeamLessClient.png" alt="audio matrix signal flow" width="100%" >
-
----
 ## Wonder
-- WFS Rendering Engine
+<div class="highlight" style="margin-top: 40px;"> Wave field synthesis Of New Dimensions of Electronic music in Realtime </div>
+
+- WFS Rendering Suite
+- Stripped down, only actual renderer tWonder is still used
 - Can be run distributed by having knowledge about connected speakers and layout of the full system
+- support for focused and unfocused sources
+- gains and delays for all speakers
+- multicast to increase synchronicity of OSC messages
+- Started as systemd template service
+Notes:
+followed similar design principle as seamless on the whole, that's why message router cWonder could be drop-in replaced by OSC-Kreuz
+- each twonder handles subset of speaker-panels (cheap way of getting multithreading)
+- cwonder supplies room polygon
+- focused vs unfocused sources
+TODO Grafik focused source?
+polygon information is used to determine if panel is needed for source
+- rendering withgains and delays based on distance from virtual sound source
 
+--
 
+<div class="image-overlay">
+    <img src="assets/images/hufo_signal_flow.png" alt="pGESAM Framework" width="100%" >
+    <div class="detail-rect" style="top: 30%;left:60.5%;width:13%;height:6%"></div>
+    <div class="detail-rect" style="top: 30%;left:78.2%;width:13%;height:6%"></div>
+</div>
 ---
+
 ## Ambisonics Decoding
 
+Decoding and Distance Compensation with modified IEM plugins
+
+Encoding within Audio-Matrix
+
+Notes:
+- not configured using yaml :(
+- configuration bit more complicated, 
+  - first need to calculate the decoder/config on machine running gui version, 
+  - then copy the state over
+--
+
+<div class="image-overlay">
+    <img src="assets/images/hufo_signal_flow.png" alt="pGESAM Framework" width="100%" >
+    <div class="detail-rect" style="top: 43%;left:18%;width:13.5%;height:16.5%"></div>
+
+</div>
 ---
+
 ## Playback Engine
+<div class="highlight" style="margin-top: 40px;"> Feed audio and control data into the system</div>
+Any program with multichannel audio playback and OSC output or VST plugin-support
 
+**REAPER** with **SWS Extensions**
+
+| Channels | Mapping |
+| --- | --- |
+| 1-32 | Virtual Sources|
+|33-48 | Encoded ambisonics up to 3rd order |
+| 50 | LFE direct |
+
+Notes:
+- currently the only non-free component
+- chosen for 
+  - **stability**, 
+  - **familiarity** of artists, 
+  - osc **remote** control, 
+  - lua **scripting**, 
+  - **adoption** within spatial audio scene
+- long session with all pieces, stops using sws
+--
+
+<div class="image-overlay">
+    <img src="assets/images/hufo_signal_flow.png" alt="pGESAM Framework" width="100%" >
+    <div class="detail-rect" style="top: 17%;left:2%;width:13%;height:6%" />
+</div>
 ---
+
+## SeamLess Plugin Suite
+<img src="assets/images/SeamLessClient.png" alt="audio matrix signal flow" style="width:70%" >
+<img src="assets/images/SeamLessMain.png" alt="audio matrix signal flow" style="width:22%" >
+
+Notes:
+- Client side plugins for controlling positions and gains
+- JUCE plugins for most DAWs
+- no processing, just OSC
+- Main handles state and communication
+- Clients connect using ipc
+- split allows keeping positional data and automation grouped with audio data
+---
+
 ## ShowControl
+<div class="highlight" style="margin-top: 40px;"> Scheduling and Playback Control </div>
+<img src="assets/images/seamless_status.png" alt="audio matrix signal flow" style="width:75%" >
 
+Notes:
+- Scheduler, in museum context
+- python with frontend with flask, typescript/react
+- controls reaper and sends broadcasts for video screens MPV
+- schedule is generated from blocks of pieces
+- pieces, blocks and schedules are of course yml files
+- additional features like this webGL based source viewer
+- also APIs for controlling and getting status, info screens and emergency playback stopping
+--
+
+<div class="image-overlay">
+    <img src="assets/images/hufo_signal_flow.png" alt="pGESAM Framework" width="100%" >
+    <div class="detail-rect" style="top: 52.5%;left:43%;width:13%;height:6%" />
+</div>
 ---
-## Jack-Connection-Manager
 
+## Jack-Connection-Manager
+<div class="highlight" style="margin-top: 40px;"> Manage JACK/PipeWire connections between clients with high number of ports </div>
+
+
+```yml
+- client: audio-matrix:wfs_
+  n_channels: 64
+  start_index: 0
+  connections:
+    - client: twonder1:input
+    - client: twonder2:input
+    - client: twonder3:input
+    - client: twonder4:input
+- client: twonder1:speaker
+  n_channels: 16
+  connections:
+    - client: system:playback_
+```
+
+Notes:
+- simple python program
+- instead of specifying connections specify client and connect groups of ports to make configs readable and concise, instead of just creating snapshots
+- might be made obsolete by wireplumber/lua, but due to simple syntax might stay around, since it also works for pipewire, burn that bridge when get to it
 ---
 # Orchestration
+<!-- .slide: data-state="no-header no-footer" data-background-image="assets/images/hufo_image.jpg" data-background-opacity="0.55" -->
 
 ---
 ## Configs

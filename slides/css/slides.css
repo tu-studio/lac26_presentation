@@ -153,7 +153,8 @@
  *********************************************/
 
 .reveal .controls {
-  display: none !important;
+  /* display: none !important; */
+  z-index: 1001;
 }
 
 /*********************************************
@@ -688,6 +689,19 @@
   color: var(--fs-text-color);
   z-index: 10;
 }
+
+/*********************************************
+ * IMAGE OVERLAY
+ *********************************************/
+.detail-rect {
+  border: 10px solid var(--fs-fragment-select-text-color);
+  border-radius: 20px;
+  position:absolute;
+  min-width: 20px;
+  min-height: 10px;
+
+}
+
 
 
 /***********************************************
