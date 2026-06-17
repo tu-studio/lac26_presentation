@@ -639,6 +639,10 @@
   min-height: unset;
 }
 
+.reveal table tr:hover td {
+  color: #fff;
+}
+
 .code-wrapper {
   position: relative;
 }
@@ -730,7 +734,22 @@
   position:absolute;
   min-width: 20px;
   min-height: 10px;
+}
 
+.speaker-polygon {
+  border: 15px solid var(--fs-highlight-background);
+  border-radius: 50%;
+  position:absolute;
+  min-width: 20px;
+  min-height: 10px;
+}
+
+.speaker-source {
+  background-color: var(--fs-fragment-select-text-color);  
+  border-radius: 50%;
+  position:absolute;
+  width: 1.2em;
+  height: 1.2em;
 }
 
 

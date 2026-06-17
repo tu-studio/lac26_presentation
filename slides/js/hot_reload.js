@@ -7,10 +7,9 @@
       // Store current slide position before reload
       if (window.Reveal && window.Reveal.getState) {
         const currentState = window.Reveal.getState();
+        console.log(window.Reveal.getState())
         localStorage.setItem('reveal-slide-position', JSON.stringify({
-          indexh: currentState.indexh,
-          indexv: currentState.indexv,
-          indexf: currentState.indexf,
+          state: currentState,
           timestamp: Date.now()
         }));
       }
@@ -47,12 +46,17 @@
       if (savedPosition) {
         const position = JSON.parse(savedPosition);
         // Only restore if the save was recent (within last 10 seconds)
-        if (Date.now() - position.timestamp < 10000) {
+        if (Date.now() - position.timestamp < 30*60*1000) {
           console.log('🔄 Restoring slide position:', position);
-          window.Reveal.slide(position.indexh, position.indexv, position.indexf);
+          window.Reveal.setState(position.state);
           // Clean up the stored position
           localStorage.removeItem('reveal-slide-position');
+        } else {
+          console.log('Not reloading: Saved Position too old')
         }
+      } else {
+        console.log('Not reloading: No state found')
+
       }
     } catch (error) {
       console.log('Could not restore slide position:', error);

@@ -1,6 +1,6 @@
 <h1 style="font-size: 1.8em; margin-block: 10% 10%; text-shadow: 0 0 20px var(--fs-background-color), 0 0 30px var(--fs-background-color)">SeamLess:<br> DISTRIBUTED SPATIAL AUDIO RENDERING
 ON THE LINUX AUDIO STACK</h1>
-<div style="display: flex; text-align: center; justify-content: space-between; align-items: flex-start; text-shadow: 0 0 20px var(--fs-background-color), 0 0 30px var(--fs-background-color)"">
+<div style="display: flex; text-align: center; justify-content: space-between; align-items: flex-start; text-shadow: 0 0 20px var(--fs-background-color), 0 0 30px var(--fs-background-color)">
     <div style="font-size: 0.8em; text-align: center; color: var(--fs-text-muted-color);">
         <strong>Fares Schulz</strong><br>
         <div style="font-size: 0.8em; margin-bottom: 10px;">
@@ -148,11 +148,11 @@ Notes:
 ---
 ## Limitations of Existing Systems
 
-- Limited **portability of pieces** between venues <!-- .element: class="fragment" data-fragment-index="1" -->
-- Channel count **limited by soundcard outputs and processing power** of one machine <!-- .element: class="fragment" data-fragment-index="2" -->
-- **Proprietary** hardware and software <!-- .element: class="fragment" data-fragment-index="3" -->
-- **Steep costs** — out of reach for smaller, budget-conscious setups <!-- .element: class="fragment" data-fragment-index="4" -->
-- No **deployment automation** or **show scheduling** for permanent installations <!-- .element: class="fragment" data-fragment-index="5" -->
+- Limited **portability of pieces** between venues
+- Channel count **limited by soundcard outputs and processing power** of one machine 
+- **Proprietary** hardware and software 
+- **Steep costs** — out of reach for smaller, budget-conscious setups 
+- No **deployment automation** or **show scheduling** for permanent installations
 
 Notes:
 
@@ -165,73 +165,96 @@ Notes:
 ---
 
 ## SeamLess - Overview
-
-<div class="image-overlay fragment appear-vanish" data-fragment-index="0">
-    <img src="assets/images/hufo_signal_flow.png" alt="pGESAM Framework" width="100%" >
-</div>
-
-- **Modular** Software Stack
-- Rendering can be **distributed**
+- **Modular** software stack
+- Highly **Configurable** compononents
+- **Distributed** rendering
 - **Complexity** is **hidden** from users 
-    -> only mono audio streams and positional data using OSC
-- All components **configurable**
+    (only mono audio streams and positional data using OSC)
 - Management through common Linux tools (systemd, JACK/PipeWire, Ansible, meson)
-- Pieces are (more) **portable**
-  - Shared, normalized coordinate system for all venues
+- Pieces are (reasonably) **portable**
+  - Shared, normalized coordinate system between all venues
 
 Notes:
-- Rendering on backend
-- Synchronization handled by audio hardware, either dante or wordclock or in the future aes67 using PTP
+- modular software stack -> components can be chosen based on setup, and also replaced -> also flexible in choice of rendering software
+- all components also very configurable, mostly using yaml files
+- Distributed rendering -> not limited by outs and performance
+- Rendering on backend -> complexity and implementation details hidden
+- linux tools
+- coordinate system is normalized: wall farthest from the center at distance 0.5 on either the x- or y-axis. transfer between different locations without rescale
+- of course room differences, so never true portability, but at least its possible, especially between similar systems like hufo and TU
+
+
+---
+## 
+
+<div class="image-overlay">
+    <img src="assets/images/hufo_signal_flow.png" alt="hufo signal flow" width="100%" >
+</div>
+
+Notes:
+- overview of signal flow in one of our installations, at hufo
 - route audio to rendering machines, further processed, all linux runing JACK or PipeWire, 
     - pipewire (for us) only recently possible due to removing 64 channel hardware limit, since we use soundcards with 128 or 192 outputs
 
-- coordinate system is normalized so that the wall farthest from the center is at a distance of 0.5 on either the x- or y-axis. This enables transfer between different locations using the SeamLess system without having to rescale all positions.
-- of course room differences, so never true portability, but at least its possible, especially between similar systems like hufo and TU
-- flexible in choice of rendering software
+- Synchronization handled by audio hardware, either dante or wordclock or in the future aes67 using PTP
 
-
+- lets take smol look at the different components
 
 ---
 ## OSC-Kreuz
 
-- OSC routing hub
+<div class="highlight" style="margin-top: 40px;"> OSC routing hub and central source of truth </div>
+
+- support for positional data, gains and WFS parameters
 - Automatic conversion between different coordinate formats
 - Per-source rate limiting
+- Receivers can subscribe using OSC based protocol
 
 Notes:
-- Python
-- translates between expected formats
-- cwonder
+- Python, central osc routing hub and source of truth by keeping track of state
+- currently supports positional data, gains for all rendering engines and special WFS parameters (point source or plane wave?)
+- translates between cartesian and spherical coordinates, depending on what is received
 - configurable
-- receivers either specified in config file or subscribe during runtime
-- if special format is needed new receiver subclass can be
-- coordinate formats
 - rate limiting (smoother movement wfs (doppler))
-- 
+- receivers either specified in config file or subscribe during runtime
+- if special format is needed new receiver subclass can be easily created
+  - cwonder as example
 --
 
 <div class="image-overlay">
     <img src="assets/images/hufo_signal_flow.png" alt="pGESAM Framework" width="100%" >
     <div class="detail-rect" style="top: 17%;left:43%;width:13%;height:6%" />
 </div>
+
+Notes:
+exists one time in the system
 ---
 
 ## Audio-Matrix
+<div class="highlight" style="margin-top: 40px;"> Flexible multichannel DSP  </div>
 
-- Flexible multichannel DSP 
-- OSC controllable
-- Channel count calculated during initialization stage
-- Modules: **Gain**, **Ambisonics Encoder**, **Sum**, **Filter**, **Distance Gain**, **Delay**
 <div class="image-overlay fragment appear-vanish" data-fragment-index="0" style="width: 82%">
     <img src="assets/images/audio_matrix.png" alt="audio matrix signal flow" >
 </div>
 
+- Preprocessing and gains
+- OSC controllable
+- Channel count calculated during initialization stage
+- Modules: **Gain**, **Ambisonics Encoder**, **Sum**, **Filter**, **Distance Gain**, **Delay**
+
+<div class="fragment"></div>
 Notes:
 - C++
 - heavily configurable using yaml
 - preprocessing for actual renderers (wfs/hoa)
-- Gains for systems
-- multiple tracks, each track configurable modules
+- most important task: Gains for rendering systems
+- OSC controllable
+
+OPEN OVERLAY
+- signal split to multiple tracks, each track configurable modules
+
+CLOSE OVERLAY
+- output channel count calculated during initialization
 - new modules relatively easy to add, access to osc server (liblo)
 
 --
@@ -244,25 +267,39 @@ Notes:
 
 </div>
 
+Notes:
+- gains
+- summing for sub
+- encoding
+
 ---
 ## Wonder
 <div class="highlight" style="margin-top: 40px;"> Wave field synthesis Of New Dimensions of Electronic music in Realtime </div>
 
-- WFS Rendering Suite
-- Stripped down, only actual renderer tWonder is still used
-- Can be run distributed by having knowledge about connected speakers and layout of the full system
-- support for focused and unfocused sources
-- gains and delays for all speakers
-- multicast to increase synchronicity of OSC messages
-- Started as systemd template service
+- WFS Rendering Suite, renderer **tWonder**
+- tWonders can be distributed accross different machines
+- Support for focused and unfocused sources
+- Multicast to increase synchronicity of OSC messages
+- Started using systemd template service and custom target
+
+<div class="speaker-polygon fragment" style="top: 33%;left:70%;width:15%;height:70%;">
+    <div class="speaker-source fragment fade-in-then-out" style="top: 1%;left:99%;"></div>
+    <div class="speaker-source fragment" style="top: 17%;left:60.5%;"></div>
+</div>
+
+
+
 Notes:
-followed similar design principle as seamless on the whole, that's why message router cWonder could be drop-in replaced by OSC-Kreuz
-- each twonder handles subset of speaker-panels (cheap way of getting multithreading)
+- our WFS rendering suite, developed at TU for 20 years now
+- Stripped down, only actual renderer tWonder is used, since followed similar design principle as seamless on the whole, that's why message router cWonder could be drop-in replaced by OSC-Kreuz
+- each twonder handles subset of speaker-panels (cheap way of getting multithreading, since independent of each other), thus can be distributed by having knowledge about connected speakers and layout of the full system
 - cwonder supplies room polygon
-- focused vs unfocused sources
-TODO Grafik focused source?
+- focused vs unfocused sources, 
 polygon information is used to determine if panel is needed for source
-- rendering withgains and delays based on distance from virtual sound source
+- rendering: gains and delays based on distance from virtual sound source
+- Multicast to increase synchronicity of OSC messages
+- Started using systemd template service and custom target to monitor state of up to 16 tWonders per machine
+
 
 --
 
@@ -275,9 +312,9 @@ polygon information is used to determine if panel is needed for source
 
 ## Ambisonics Decoding
 
-Decoding and Distance Compensation with modified IEM plugins
-
-Encoding within Audio-Matrix
+- Decoding and Distance Compensation with modified IEM plugins
+- Built without GUI
+- Encoding within Audio-Matrix
 
 Notes:
 - not configured using yaml :(
@@ -306,6 +343,8 @@ Any program with multichannel audio playback and OSC output or VST plugin-suppor
 | 50 | LFE direct |
 
 Notes:
+- playback engine could be any program with multichannel audio playback and OSC output or VST plugin-support
+- on the playback machine in the hufo REAPER with SWS extensions
 - currently the only non-free component
 - chosen for 
   - **stability**, (unreasonably stable) 
@@ -313,7 +352,7 @@ Notes:
   - osc **remote** control, 
   - lua **scripting**, 
   - **adoption** within spatial audio scene
-- long session with all pieces, stops using sws
+- one big session with all pieces, that can get started with OSC and stopped using sws
 --
 
 <div class="image-overlay">
@@ -359,7 +398,7 @@ Notes:
 <div class="highlight" style="margin-top: 40px;"> Manage JACK/PipeWire connections between clients with high number of ports </div>
 
 
-```yaml [1-3,9-10|4-8,11-12]
+```yaml [|1-3,9-10|4-8,11-12]
 - client: audio-matrix:wfs_
   n_channels: 32
   start_index: 0
@@ -375,8 +414,10 @@ Notes:
 ```
 
 Notes:
-- simple python program
-- instead of specifying connections specify client and connect groups of ports to make configs readable and concise, instead of just creating snapshots
+- simple python program that runs as daemon
+- focus on readable and concise configs, instead of just creating snapshots or saving every connection individually, because we don't have that many clients, but each has a lot of connections
+- NEXT: instead of specifying connections specify client and the amount of channels, optionally start index, 
+- NEXT: then we define the clients with port names to connect it to
 - might be made obsolete by wireplumber/lua, but due to simple syntax might stay around, since it also works for pipewire, burn that bridge when get to it
 ---
 # Orchestration
@@ -396,13 +437,17 @@ Notes:
 | `HUFO` | `playstation` |
 | | `renderer01` - `03` |
 | `H0104` | `tengo` |
-| | `kaoru01` - `05`
+| | `kaoru01` - `05` |
 
 Notes:
-- meson is used for most installations, including python, where it just calls the correct tools, and then moves the files to their locations
+- All of our configs in one repo, probably what is changed the most often
+- Installed using Meson build system
+- meson is used (abused?) for most installations, including python, where it just calls the correct tools, and then moves the files to their locations
+- correct configs chosen for **location** and **node**
+- sometimes we have uniquely named machines, sometimes numbered, the logic is contained within meson scripts
 ---
 ## Versioned Install
-<div class="highlight" style="margin-top: 40px;"> Keep multiple versions available </div>
+<div class="highlight" style="margin-top: 40px;"> Strict versioning for installed software </div>
 String based on current git tag version is appended to filenames/directories
 
 <pre><code data-noescape class="language-txt hljs" data-highlighted="yes" data-line-numbers="3,7|2,5-6">/usr/local/bin/
@@ -420,7 +465,7 @@ Notes:
 - similar to how library versions are managed
 ---
 ## Versioned Install
-<div class="highlight" style="margin-top: 40px;"> Keep multiple versions available </div>
+<div class="highlight" style="margin-top: 40px;"> Strict versioning for installed software </div>
 String based on current git tag version is appended to filenames/directories
 
 <pre><code data-noescape class="language-txt hljs" data-highlighted="yes" data-line-numbers="2-3|6-7|5">/usr/local/share/
@@ -433,14 +478,14 @@ String based on current git tag version is appended to filenames/directories
 </code></pre>
 
 Notes:
-for python applications like siss
+for python applications like osc-kreuz venv
 
 ---
 ## Deployment
 <div class="highlight" style="margin-top: 40px;"> Infrastructure as Code </div>
 Ansible Playbooks to go from fresh Debian installation to complete SeamLess system
 
-<div class="image-overlay fragment appear" data-fragment-index="1" data-fragment-span="3">
+<div class="image-overlay fragment appear" data-fragment-index="1" data-fragment-span="4">
     <pre>
 <code data-trim data-line-numbers="1,11|2-5,9-10,12-15|6-8,16-18" data-fragment-index="2" style="font-size: 0.8em">renderer:
   hosts:
@@ -464,15 +509,27 @@ player:
 </div>
 
 ### Setting up new SeamLess system
-1. set up Ansible inventory
-2. create config files <!-- .element: class="fragment" data-fragment-index="6" -->
-3. run main playbook <!-- .element: class="fragment" data-fragment-index="7" -->
-
-
+0. Build a system
+1. Set up Ansible inventory <!-- .element: class="fragment" data-fragment-index="0" -->
+2. Create config files <!-- .element: class="fragment" data-fragment-index="6" -->
+3. Run main playbook <!-- .element: class="fragment" data-fragment-index="7" -->
 
 
 
 Notes:
+- use ansible for management and deployment. does everything from installing software, setup system
+
+- you of course need to build a system first, and handle audio routing in some way, but that's nothing we can automate
+ 
+- to go about setting up new seamless system first create inventory
+  - groups of hosts: renderer, player
+  - actual hosts with host and usernames
+  - custom variables: 
+    - services define which software gets installed
+    - location is passed to the meson config install script
+    - audio driver defines which drivers get installed
+
+
 - caveats to this: location specific scripts for proxies etc
 
 ---
@@ -538,6 +595,7 @@ Notes:
 
 - Replace the proprietary **REAPER** playback engine with a **custom open-source** solution
 - Further investigate **PipeWire stability** under sustained, high-channel-count load
+<!-- - TODO benchmark synchronicity? -->
 - Explore rendering methods **beyond WFS and Ambisonics**
 - Adopt **AES67** for networked audio — motivated by poor Linux support for MADI/Dante drivers
 

@@ -85,10 +85,10 @@
       function updateSlideCounter() {
         const slideCounter = document.querySelector('.slide-counter');
         if (slideCounter) {
-          const current = Reveal.getState().indexh + 1;
+          const current = Reveal.getSlidePastCount() + 1;
           const total = Reveal.getTotalSlides();
           slideCounter.textContent = `${current} / ${total}`;
-          console.log('Updating slide counter'); // Debugging line
+          // console.log('Updating slide counter'); // Debugging line
         }
       }
 
@@ -101,7 +101,7 @@
       // Emit custom event when Reveal.js is ready
       window.dispatchEvent(new CustomEvent('reveal-ready'));
 
-      // custom handler to make one event stay longer lol
+      // custom handler to make fragments stay longer
       const listener = (event) => {
         var toHideElems = document.querySelectorAll('[data-fragment-span]');
         var tohideArray = [...toHideElems];
