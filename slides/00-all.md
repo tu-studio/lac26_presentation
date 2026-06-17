@@ -26,13 +26,7 @@ Notes:
 ---
 # Introduction
 
-<!-- .slide: data-state="no-header no-footer" --->
-
-Notes:
-
-- Let me set the stage for *why* we built SeamLess.
-- Over the past decades, sound reproduction has moved well beyond two-channel and multichannel stereo.
-- We now build large loudspeaker arrays — in concert halls, museums, and research studios — to reproduce sound in three dimensions.
+<!-- .slide: data-state="no-header" --->
 
 ---
 ## Spatial Sound Reproduction
@@ -48,12 +42,6 @@ Notes:
 Schultz, Hahn &amp; Spors (2025), <em>Wellenfeldsynthese</em>, in: Handbuch der Audiotechnik, Springer.
 </div>
 
-Notes:
-
-- Two methods dominate the open, non-proprietary landscape: Ambisonics and Wave Field Synthesis.
-- Both are loudspeaker-based and both benefit from large channel counts.
-- They are not competitors — they have complementary strengths, which is exactly why we want to combine them.
-
 ---
 ## Two Complementary Methods
 
@@ -67,6 +55,7 @@ Notes:
                 <li>Decoded to <strong>arbitrary</strong> loudspeaker layouts</li>
                 <li>Strong for <strong>diffuse and elevated</strong> 3D fields</li>
             </ul>
+            <img src="assets/images/spherical_harmonics.png" alt="Spherical harmonics" style="width: 100%; object-fit: contain; border-radius: 8px; margin-top: 12px;">
         </div>
     </div>
     <div class="tile color-1" style="flex: 1;">
@@ -78,22 +67,17 @@ Notes:
                 <li>Enables <strong>focused sources</strong> inside the array</li>
                 <li>Predominantly <strong>2D / horizontal</strong></li>
             </ul>
+            <img src="assets/images/huygens_fresnel_principle.webp" alt="Huygens-Fresnel principle" style="width: 100%; object-fit: contain; border-radius: 8px; margin-top: 12px; background: #fff; padding: 8px;">
         </div>
     </div>
 </div>
 
-<div class="highlight" style="margin-top: 40px;">Combining both leverages their complementary strengths in a single system</div>
-
-Notes:
-
-- Ambisonics is domain-independent: a virtual source is projected onto a sphere around the listener and decoded to whatever loudspeaker layout you have. It shines for diffuse and elevated, three-dimensional fields.
-- WFS is object-based: it synthesizes wave fronts by overlapping signals from a large number of speakers. This gives very accurate localization, and it can even place "focused" sources *inside* the listening area. But it is mostly used in 2D — horizontally — so it lacks native support for elevated sources.
-- WFS gives you perceptual accuracy and focused sources for nearby, horizontal content; Ambisonics gives you diffuse and elevated 3D fields. SeamLess is built to do both.
+<div class="highlight image-overlay" style="top: 50%; left: 50%; transform: translate(-50%, -50%); width: 70%;">Combining both leverages their complementary strengths in a single system</div>
 
 ---
 ## The Challenge of Scale
 
-- Both methods benefit from **large channel counts** (especially WFS)
+- Both methods benefit from large channel counts (especially WFS)
 - Computational + organizational demands **exceed a single machine**
 - Our venues at TU Berlin and the Humboldt Forum:
 
@@ -101,7 +85,7 @@ Notes:
     <div class="tile" style="flex: 1; padding: 16px; display: flex; flex-direction: column; align-items: center; text-align: center;">
         <img src="assets/images/hufo_image.jpg" alt="Humboldt Forum listening room" style="width: 100%; height: 170px; object-fit: cover; border-radius: 8px; margin-bottom: 12px;">
         <strong>Humboldt Forum</strong><br>
-        256-channel WFS · 45-speaker HOA dome
+        256-channel WFS · 45-channel Ambisonics dome
     </div>
     <div class="tile" style="flex: 1; padding: 16px; display: flex; flex-direction: column; align-items: center; text-align: center;">
         <img src="assets/images/small-studio.png" alt="TU Studio" style="width: 100%; height: 170px; object-fit: cover; border-radius: 8px; margin-bottom: 12px;">
@@ -116,13 +100,6 @@ Notes:
 </div>
 
 <div class="highlight" style="margin-top: 36px;">Driving hundreds of speakers calls for <strong>distributed processing across multiple hosts</strong></div>
-
-Notes:
-
-- Both methods scale with channel count — more speakers means a more convincing field, but also more processing.
-- At a certain size, a single workstation simply cannot keep up: the computational and organizational demands exceed one machine.
-- Concretely: the Humboldt Forum listening room runs 256 WFS channels plus a 45-speaker Ambisonics dome; our TU Studio combines a 192-channel WFS system, a 21-channel dome and an 8-speaker ring; and our largest install — Lecture Hall H 0104 — drives 832 WFS channels for an audience of over 600.
-- These numbers are the core driver for distributing the rendering across many machines.
 
 ---
 ## Existing Solutions
@@ -144,27 +121,22 @@ Carpentier et al. (Spat, ICMC 2015) · Geier et al. (SSR, AES 2008) · Grimm et 
 
 Notes:
 
-- The landscape splits into two families. First, integrated rendering frameworks that process the audio themselves: IRCAM's Spat is the most comprehensive — VBAP, Ambisonics, DBAP, WFS — but it lives inside Max/MSP, targets macOS and Windows, and is proprietary. Holoplot's WFS panels are state of the art (the Las Vegas Sphere), but proprietary and tied to their own hardware. The SoundScape Renderer is open-source, Linux-capable, supports WFS — but renders on a single machine. TASCAR is Linux-native and open, oriented toward hearing-aid research and controlled experiments rather than large arrays.
-- Second, DAW plug-in suites — IEM, Kronlachner's Ambisonic suite, SPARTA. All open and cross-platform, but Ambisonics-only, no WFS, and confined to single-machine rendering inside a host.
-- So: plenty of good tools, but none combine open-source, Linux-first, WFS support, *and* distributed multi-machine rendering. That last column is the gap.
+- Two groups: integrated renderers (Spat, Holoplot, SSR, TASCAR) and DAW plug-ins (IEM, SPARTA).
+- Existing tools each miss at least one key requirement: openness, Linux-first workflow, WFS, or distribution.
+- SeamLess targets exactly that missing combination: open-source + Linux + WFS + distributed rendering.
 
 ---
 ## Limitations of Existing Systems
 
-- Limited **portability of pieces** between venues
-- Channel count **limited by soundcard outputs and processing power** of one machine 
+- Limited portability of pieces between venues
+- **Channel count limited** by soundcard outputs and processing power of one machine 
 - **Proprietary** hardware and software 
-- **Steep costs** — out of reach for smaller, budget-conscious setups 
+- **Costly** — not for smaller, budget-conscious setups 
 - No **deployment automation** or **show scheduling** for permanent installations
-
-Notes:
-
-- Pulling those gaps together: pieces are hard to move between venues because loudspeaker-specific configuration is baked in. Channel count is capped by a single machine's soundcard outputs and CPU. Much of the ecosystem is proprietary and expensive — which prices out smaller venues. And almost none of these systems were designed for permanent installations, so deployment automation and show scheduling are missing entirely.
-- These are exactly the problems SeamLess sets out to solve — which Maximilian will now walk you through in detail.
 
 ---
 # SeamLess
-<!-- .slide: data-state="no-header no-footer" data-background-image="assets/images/hufo_image.jpg" data-background-opacity="0.55" -->
+<!-- .slide: data-state="no-header" data-background-image="assets/images/hufo_image.jpg" data-background-opacity="0.55" -->
 ---
 
 ## SeamLess - Overview
@@ -172,14 +144,14 @@ Notes:
 - Highly **Configurable** compononents
 - **Distributed** rendering
 - **Complexity** is **hidden** from users 
-    (only mono audio streams and positional data using OSC)
+    (only mono audio streams and control data using OSC)
 - Management through common Linux tools (systemd, JACK/PipeWire, Ansible, meson)
 - Pieces are (reasonably) **portable**
   - Shared, normalized coordinate system between all venues
 
 Notes:
-- modular software stack -> components can be chosen based on setup, and also replaced -> also flexible in choice of rendering software
-- all components also very configurable, mostly using yaml files
+- Modular software stack -> components can be chosen based on setup, and also replaced -> also flexible in choice of rendering software
+- ll components also very configurable, mostly using yaml files
 - Distributed rendering -> not limited by outs and performance
 - Rendering on backend -> complexity and implementation details hidden
 - linux tools
@@ -204,11 +176,21 @@ Notes:
 - lets take smol look at the different components
 
 ---
+
+<div class="image-overlay">
+    <img src="assets/images/hufo_signal_flow.png" alt="pGESAM Framework" width="100%" >
+    <div class="detail-rect" style="top: 17%;left:43%;width:13%;height:6%" />
+</div>
+
+Notes:
+exists one time in the system
+
+---
 ## OSC-Kreuz
 
 <div class="highlight" style="margin-top: 40px;"> OSC routing hub and central source of truth </div>
 
-- support for positional data, gains and WFS parameters
+- Support for positional data, gains and WFS parameters
 - Automatic conversion between different coordinate formats
 - Per-source rate limiting
 - Receivers can subscribe using OSC based protocol
@@ -222,16 +204,22 @@ Notes:
 - receivers either specified in config file or subscribe during runtime
 - if special format is needed new receiver subclass can be easily created
   - cwonder as example
---
+---
 
 <div class="image-overlay">
     <img src="assets/images/hufo_signal_flow.png" alt="pGESAM Framework" width="100%" >
-    <div class="detail-rect" style="top: 17%;left:43%;width:13%;height:6%" />
+    <div class="detail-rect" style="top: 17%;left:18%;width:25%;height:25.5%"></div>
+    <div class="detail-rect" style="top: 17%;left:60.5%;width:13%;height:13%"></div>
+    <div class="detail-rect" style="top: 17%;left:78.2%;width:13%;height:13%"></div>
+
 </div>
 
 Notes:
-exists one time in the system
+- gains
+- summing for sub
+- encoding
 ---
+
 
 ## Audio-Matrix
 <div class="highlight" style="margin-top: 40px;"> Flexible multichannel DSP  </div>
@@ -260,20 +248,14 @@ CLOSE OVERLAY
 - output channel count calculated during initialization
 - new modules relatively easy to add, access to osc server (liblo)
 
---
+
+---
 
 <div class="image-overlay">
     <img src="assets/images/hufo_signal_flow.png" alt="pGESAM Framework" width="100%" >
-    <div class="detail-rect" style="top: 17%;left:18%;width:25%;height:25.5%"></div>
-    <div class="detail-rect" style="top: 17%;left:60.5%;width:13%;height:13%"></div>
-    <div class="detail-rect" style="top: 17%;left:78.2%;width:13%;height:13%"></div>
-
+    <div class="detail-rect" style="top: 30%;left:60.5%;width:13%;height:6%"></div>
+    <div class="detail-rect" style="top: 30%;left:78.2%;width:13%;height:6%"></div>
 </div>
-
-Notes:
-- gains
-- summing for sub
-- encoding
 
 ---
 ## Wonder
@@ -304,13 +286,14 @@ polygon information is used to determine if panel is needed for source
 - Started using systemd template service and custom target to monitor state of up to 16 tWonders per machine
 
 
---
+---
 
 <div class="image-overlay">
     <img src="assets/images/hufo_signal_flow.png" alt="pGESAM Framework" width="100%" >
-    <div class="detail-rect" style="top: 30%;left:60.5%;width:13%;height:6%"></div>
-    <div class="detail-rect" style="top: 30%;left:78.2%;width:13%;height:6%"></div>
+    <div class="detail-rect" style="top: 43%;left:18%;width:13.5%;height:16.5%"></div>
+
 </div>
+
 ---
 
 ## Ambisonics Decoding
@@ -324,12 +307,11 @@ Notes:
 - configuration bit more complicated, 
   - first need to calculate the decoder/config on machine running gui version, 
   - then copy the state over
---
+---
 
 <div class="image-overlay">
     <img src="assets/images/hufo_signal_flow.png" alt="pGESAM Framework" width="100%" >
-    <div class="detail-rect" style="top: 43%;left:18%;width:13.5%;height:16.5%"></div>
-
+    <div class="detail-rect" style="top: 17%;left:2%;width:13%;height:6%" />
 </div>
 ---
 
@@ -356,12 +338,7 @@ Notes:
   - lua **scripting**, 
   - **adoption** within spatial audio scene
 - one big session with all pieces, that can get started with OSC and stopped using sws
---
 
-<div class="image-overlay">
-    <img src="assets/images/hufo_signal_flow.png" alt="pGESAM Framework" width="100%" >
-    <div class="detail-rect" style="top: 17%;left:2%;width:13%;height:6%" />
-</div>
 ---
 
 ## SeamLess Plugin Suite
@@ -377,24 +354,24 @@ Notes:
 - split allows keeping positional data and automation grouped with audio data
 ---
 
+<div class="image-overlay">
+    <img src="assets/images/hufo_signal_flow.png" alt="pGESAM Framework" width="100%" >
+    <div class="detail-rect" style="top: 52.5%;left:43%;width:13%;height:6%" />
+</div>
+---
+
 ## ShowControl
 <div class="highlight" style="margin-top: 40px;"> Scheduling and Playback Control </div>
 <img src="assets/images/seamless_status.png" alt="audio matrix signal flow" style="width:66%" >
 
 Notes:
 - Scheduler, in museum context
-- python with frontend with flask, typescript/react
+- ython with frontend with flask, typescript/react
 - controls reaper and sends broadcasts for video screens MPV
 - schedule is generated from blocks of pieces
 - pieces, blocks and schedules are of course yml files
 - additional features like this webGL based source viewer
 - also APIs for controlling and getting status, info screens and emergency playback stopping
---
-
-<div class="image-overlay">
-    <img src="assets/images/hufo_signal_flow.png" alt="pGESAM Framework" width="100%" >
-    <div class="detail-rect" style="top: 52.5%;left:43%;width:13%;height:6%" />
-</div>
 ---
 
 ## Jack-Connection-Manager
@@ -425,7 +402,7 @@ Notes:
 - might be made obsolete by wireplumber/lua, but due to simple syntax might stay around, since it also works for pipewire, burn that bridge when get to it
 ---
 # Orchestration
-<!-- .slide: data-state="no-header no-footer" data-background-image="assets/images/hufo_image.jpg" data-background-opacity="0.55" -->
+<!-- .slide: data-state="no-header" data-background-image="assets/images/hufo_image.jpg" data-background-opacity="0.55" -->
 
 Notes:
 in a cluster with that much software we can't edit config files by hand all the time using ssh, so we use some tools to help us with that
@@ -435,7 +412,7 @@ in a cluster with that much software we can't edit config files by hand all the 
 
 - All of our configs in one repo
 - Installed using Meson build system
-- correct configs chosen for **location** and **node**
+- Correct configs chosen for **location** and **node**
 
 | location | node |
 | --- | --- |
@@ -473,7 +450,9 @@ Notes:
 - with configs node and location as well
 - NEXT: then we create symlinks with the actual names pointing to the versioned files 
 - similar to how library versions are managed
----
+
+<!-- 
+
 ## Versioned Install
 <div class="highlight" style="margin-top: 40px;"> Strict versioning for installed software </div>
 String based on current git tag version is appended to filenames/directories
@@ -491,7 +470,7 @@ Notes:
 for python applications like osc-kreuz or jacoma:
 1. venv in /usr/local/share/, in which the module is installed
 2. NEXT: in the binary dir first symlink to installed python script in venv
-3. NEXT: symlink with clean name
+3. NEXT: symlink with clean name -->
 
 ---
 ## Deployment
@@ -544,7 +523,7 @@ Notes:
 ---
 # Conclusion
 
-<!-- .slide: data-state="no-header no-footer" data-background-image="assets/images/SHF_eb00125547_Ethnologisches_Museum.jpg" data-background-opacity="0.5" -->
+<!-- .slide: data-state="no-header" data-background-image="assets/images/SHF_eb00125547_Ethnologisches_Museum.jpg" data-background-opacity="0.5" -->
 
 Notes:
 
@@ -554,66 +533,30 @@ Notes:
 ## What We Presented
 
 - **SeamLess** — a modular, open-source, real-time spatial audio rendering platform
-- Built **entirely on the Linux audio stack**
+- Built entirely on the Linux audio stack
 - **Distributes** rendering across multiple commodity Linux servers
+- **systemd** services + **Ansible** deployment + strict **version control** for reliability
 - **Separates** the rendering backend from user interaction
     - artists work through familiar **DAW plug-ins** and plain **OSC**
 - Scales to large arrays — **up to 832 channels** in our largest install
-
-Notes:
-
-- In short: SeamLess is a modular, open-source, real-time spatial audio rendering system built entirely on the Linux audio stack.
-- It distributes the rendering workload across a cluster of commodity Linux servers, and it cleanly separates that backend from how artists interact with it — DAW plug-ins and OSC messages.
-- That separation is what lets the same piece scale from a small studio up to our 832-channel lecture hall without the artist having to think about the cluster underneath.
+- Running **continuously since May 2025** at the Berlin Humboldt Forum
 
 ---
 ## PipeWire — Spatial Audio Backend for the Future?
 
-- **JACK** has reliably carried demanding, high-channel-count spatial audio in production for **many years** — mature, rock solid, battle-tested
-- **PipeWire** now joins it: recently lifting the **64-channel hardware limit** makes it a viable solution going forward
-- **WirePlumber** scripting + native **AES67** support point to an even stronger foundation ahead
+- **JACK** has reliably carried our demanding, high-channel-count spatial audio in production for many years
+- **PipeWire** recently lifted the **64-channel hardware limit** -> makes it a viable solution going forward
+- Especially **WirePlumber** scripting + native **AES67** interesting
 
 <div class="highlight" style="margin-top: 36px;">Open, Linux-based rendering has long been viable for real-world, large-scale installations</div>
-
-Notes:
-
-- I want to be clear on this: the readiness of the Linux audio stack is not a new development. JACK has been ready for this for a very long time — it has reliably carried demanding, high-channel-count spatial audio in production for years. That is the foundation SeamLess was built on.
-- What *is* recent is PipeWire: lifting the previous 64-channel hardware limit was the turning point that makes it, too, a viable solution for us going forward — alongside JACK, not replacing it.
-- And looking further ahead, WirePlumber's scripting capabilities plus PipeWire's native AES67 support are a very promising foundation for networked audio systems.
-
----
-## Operational Experience
-
-- Running **continuously since May 2025** at the Berlin Humboldt Forum
-- **systemd** services + **Ansible** deployment + strict **version control**
-    - the reliability a permanent museum exhibit demands
-- A central concern throughout: **reliability and reproducibility**
-
-<div class="reference" style="margin-top: 24px;">
-Permanent exhibition, Ethnological Museum — Humboldt Forum, Berlin
-</div>
-
-Notes:
-
-- This is not just a lab prototype. The system has run continuously at the Humboldt Forum since around May 2025, with only occasional restarts after updates.
-- That kind of uptime in a permanent museum exhibit is only possible because reliability was a central concern from the start: every component runs as a systemd service, deployment is automated with Ansible, and strict version control lets us roll back when something breaks.
-- REAPER, perhaps surprisingly, has been a very stable playback engine for our five-hour single-session show.
 
 ---
 ## Outlook
 
 - Replace the proprietary **REAPER** playback engine with a **custom open-source** solution
 - Further investigate **PipeWire stability** under sustained, high-channel-count load
-<!-- - TODO benchmark synchronicity? -->
-- Explore rendering methods **beyond WFS and Ambisonics**
+- Explore rendering methods beyond WFS and Ambisonics
 - Adopt **AES67** for networked audio — motivated by poor Linux support for MADI/Dante drivers
-
-Notes:
-
-- Looking ahead, a few directions. We want to replace the one proprietary piece left in the chain — the REAPER playback engine — with a custom, open-source playback solution, partly for licensing and partly for scalability.
-- We want to keep stress-testing PipeWire under sustained, high-channel-count load.
-- We'd like to support rendering methods beyond just WFS and Ambisonics.
-- And AES67 is high on the list: the audio drivers themselves — MADI and Dante — are a real pain point because of immature Linux support, which is exactly what motivates moving to AES67 over standard networking.
 
 ---
 ## Making Spatial Audio Accessible
@@ -621,12 +564,6 @@ Notes:
 - Fully **open-source**, **Linux-first**, built on **standard hardware**
 - Viable for **large-scale venues** *and* **smaller, budget-conscious setups**
 - The open nature invites **adoption and contribution** from other institutions
-
-Notes:
-
-- The bigger picture: because SeamLess is fully open-source, Linux-first, and runs on standard commodity hardware, it lowers the barrier to spatial audio — not only for large institutions but for smaller, budget-conscious setups too.
-- And being open, it invites adoption and contributions from other institutions running comparable systems.
-- All of the components — the audio matrix, OSC-Kreuz, Wonder, the plug-in suite, the configs — are on our GitHub at github.com/tu-studio.
 
 ---
 ## Thank You for Listening!
@@ -641,12 +578,4 @@ Notes:
     </div>
 </div>
 
-<!-- .slide: data-state="no-header no-footer" -->
-
-Notes:
-
-- That's everything from us — thank you for listening!
-- The full documentation is at tu-studio.github.io/seamless-docs; the QR code on screen takes you straight there.
-- Happy to take any questions now.
-
-
+<!-- .slide: data-state="no-header" -->
