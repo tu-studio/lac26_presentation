@@ -17,7 +17,7 @@ Notes:
 
 - Hello everyone
 - We present the SeamLess system, a distributed spatial audio rendering platform built on the Linux audio stack
-- My name is Fares Schulz, this collegue Maximilian Weidauer
+- My name is Fares Schulz, this is my colleague Maximilian Weidauer
 
 <!-- .slide: data-state="no-header no-footer", data-background-image="assets/images/SHF_eb00125547_Ethnologisches_Museum.jpg" -->
 
@@ -47,7 +47,7 @@ Notes:
 - Widely used non-proprietary methods include:
     - Ambisonics
     - Wave Field Synthesis (WFS)
-- Both methods are already used in different venues througout the world
+- Both methods are already used in different venues throughout the world
 
 ---
 ## Ambisonics & WFS
@@ -82,17 +82,17 @@ Ambisonics:
 
 Wave Field Synthesis:
 - Synthesizes wave fields from speaker arrays
-- Comes from the Huygens-Fresenel principle: Any wavefront can be created from an infinite number of elementary waves
+- Comes from the Huygens-Fresnel principle: Any wavefront can be created from an infinite number of elementary waves
 - Imagine these elementary waves as what happens when you throw a stone into water, the circular wave that appears
-- With this i.e. the wave field of a focused source inside the loudspreaker array can be synthesized
-- Predominantly used for 2D-horizontal sound-fields an allows for a very precise placement of soundsources within a room
+- With this i.e. the wave field of a focused source inside the loudspeaker array can be synthesized
+- Predominantly used for 2D-horizontal sound-fields and allows for a very precise placement of sound sources within a room
 
 ---
 ## The Challenge of Scale
 
 - Both methods benefit from large channel counts (especially WFS)
 - Computational + organizational demands **exceed a single machine**
-- Our venues at the Humboldt Forum has...
+- Our venues at the Humboldt Forum and TU Berlin have...
 
 <div style="display: flex; gap: 24px; margin-top: 24px; font-size: 0.62em;">
     <div class="tile" style="flex: 1; padding: 16px; display: flex; flex-direction: column; align-items: center; text-align: center;">
@@ -116,7 +116,7 @@ Wave Field Synthesis:
 
 Notes:
 
-- But I want to note that both systems benifit from high audio channel counts, especially WFS
+- But I want to note that both systems benefit from high audio channel counts, especially WFS
 - And these channel counts can easily exceed the computational resources of a single machine
 - For example our venues at the TU Berlin and the Humboldt-Forum Berlin have...
 - And rendering for these high-channel count systems requires distributed processing across multiple hosts
@@ -152,11 +152,11 @@ Notes:
 - There exist already quite a couple of mature spatial audio rendering frameworks
 - Two groups: integrated renderers (Spat, Holoplot, SSR, TASCAR) and DAW plug-ins (IEM, SPARTA).
 - Existing tools each miss at least one key requirement: openness, Linux support, WFS, or distributed rendering.
-- I.e. The Spat and Holoplot codebase is propriatary and Spat is concieved as MAX externals and hence not linux compatible
+- I.e. The Spat and Holoplot codebase is proprietary and Spat is conceived as MAX externals and hence not Linux compatible
 - The SSR has almost all features but does not allow for distributed rendering, similar to the DAW plug-ins IEM and Sparta
 - Which also do not have a WFS renderer, like TASCAR
 - SeamLess targets exactly that missing combination: open-source + first class Linux support + WFS + distributed rendering.
-- An appart from that we also takle two more limitations:
+- And apart from that we also tackle two more limitations:
 
 ---
 # SeamLess
@@ -165,7 +165,7 @@ Notes:
 
 ## SeamLess - Overview
 - **Modular** software stack
-- Highly **Configurable** compononents
+- Highly **Configurable** components
 - **Distributed** rendering
 - **Complexity** is **hidden** from users 
     (only mono audio streams and control data using OSC)
@@ -175,7 +175,7 @@ Notes:
 
 Notes:
 - Modular software stack -> components can be chosen based on setup, and also replaced -> also flexible in choice of rendering software
-- ll components also very configurable, mostly using yaml files
+- all components also very configurable, mostly using yaml files
 - Distributed rendering -> not limited by outs and performance
 - Rendering on backend -> complexity and implementation details hidden
 - linux tools
@@ -192,7 +192,7 @@ Notes:
 
 Notes:
 - overview of signal flow in one of our installations, at hufo
-- route audio to rendering machines, further processed, all linux runing JACK or PipeWire, 
+- route audio to rendering machines, further processed, all Linux running JACK or PipeWire, 
     - pipewire (for us) only recently possible due to removing 64 channel hardware limit, since we use soundcards with 128 or 192 outputs
 
 - Synchronization handled by audio hardware, either dante or wordclock or in the future aes67 using PTP
@@ -286,7 +286,7 @@ CLOSE OVERLAY
 <div class="highlight" style="margin-top: 40px;"> Wave field synthesis Of New Dimensions of Electronic music in Realtime </div>
 
 - WFS Rendering Suite, renderer **tWonder**
-- tWonders can be distributed accross different machines
+- tWonders can be distributed across different machines
 - Support for focused and unfocused sources
 - Multicast to increase synchronicity of OSC messages
 - Started using systemd template service and custom target
@@ -390,7 +390,7 @@ Notes:
 
 Notes:
 - Scheduler, in museum context
-- ython with frontend with flask, typescript/react
+- Python with frontend with flask, typescript/react
 - controls reaper and sends broadcasts for video screens MPV
 - schedule is generated from blocks of pieces
 - pieces, blocks and schedules are of course yml files
@@ -571,23 +571,23 @@ Notes:
 - It is based entirely on the Linux audio stack
 - And allows you to create a spatial audio rendering system which distributes the compute across multiple commodity Linux servers
 - Through the infrastructure as code principle and strict version control we have achieved a high reliability
-- I.e. the system has bee running continuously since May 2025 at the Berlin Humboldt-Forum
+- I.e. the system has been running continuously since May 2025 at the Berlin Humboldt-Forum
 - And it also scales – we tested up to 832 channels in our largest installation
-- In all installations we have the rendering backend strictly seperated from the user interaction, which lets artists work in their familiar DAW or with plain OSC messages while hiding the complexity
+- In all installations we have the rendering backend strictly separated from the user interaction, which lets artists work in their familiar DAW or with plain OSC messages while hiding the complexity
 
 ---
 ## PipeWire — Spatial Audio Backend for the Future?
 
 - **JACK** has reliably carried our demanding, high-channel-count spatial audio in production for many years
 - **PipeWire** recently lifted the **64-channel hardware limit** -> makes it a viable solution going forward
-- Especially **WirePlumber** scripting + native **AES67** interesting for future developement
+- Especially **WirePlumber** scripting + native **AES67** interesting for future development
 
 Notes:
 
 - One thing we want to highlight especially to the Linux audio community:
 - While JACK has been reliably driving our demanding high-channel-count audio rendering in the recent years
-- Now Pipewire has alse lifted the 64 channel hardware limit, which also makes it a viable solution
-- Our initial test show that seamless also works reliably with Pipewire and
+- Now Pipewire has also lifted the 64 channel hardware limit, which also makes it a viable solution
+- Our initial tests show that seamless also works reliably with Pipewire and
 - The Wireplumber scripting and native AES67 support are interesting features for our future
 
 ---
@@ -602,10 +602,10 @@ Notes:
 
 - Which brings us to the outlook
 - So we want to further investigate the PipeWire stability under sustained, high-channel-count load
-- And also adopt AES67 for networked audio, this is also motivated party by the poor Linux support for MADI/Dante drivers
+- And also adopt AES67 for networked audio, this is also motivated partly by the poor Linux support for MADI/Dante drivers
 - We then plan to replace the proprietary **REAPER** playback engine with a **custom open-source** solution
-- Ideally a solution which can be attached to the output to any DAW or other audio application and records the outgoing audio and OSC data -> even stricter separation of artist frontend and our backend
-- Important: As artist in the spatial audio production domain, work with a wide range of tools and we just want to record the output, not dive into the artist sessions everytime for recording/saving for our scheduling system
+- Ideally a solution which can be attached to the output of any DAW or other audio application and records the outgoing audio and OSC data -> even stricter separation of artist frontend and our backend
+- Important: As artists in the spatial audio production domain, work with a wide range of tools and we just want to record the output, not dive into the artist sessions every time for recording/saving for our scheduling system
 - Integrate other rendering methods in our modular system
 
 ---
@@ -651,7 +651,7 @@ Fares Schulz, Maximilian Weidauer, Stefan Weinzierl, Henrik von Coler<br>
 
 Notes:
 
-- With this I want to than you for listening
+- With this I want to thank you for listening
 - And of course the open nature invites for **adoption and contribution** from you maybe?! So scan the QR codes
 - And we also want to also thank Paul Schuladen and Nils Tonnät for their work on the first version!
 
