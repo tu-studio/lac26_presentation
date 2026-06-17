@@ -1,25 +1,23 @@
 <h1 style="font-size: 1.8em; margin-block: 10% 10%; text-shadow: 0 0 20px var(--fs-background-color), 0 0 30px var(--fs-background-color)">SeamLess:<br> DISTRIBUTED SPATIAL AUDIO RENDERING
 ON THE LINUX AUDIO STACK</h1>
-<div style="display: flex; text-align: center; justify-content: space-between; align-items: flex-start; text-shadow: 0 0 20px var(--fs-background-color), 0 0 30px var(--fs-background-color)">
-    <div style="font-size: 0.8em; text-align: center; color: var(--fs-text-muted-color);">
-        <strong>Fares Schulz</strong><br>
-        <div style="font-size: 0.8em; margin-bottom: 10px;">
-            Researcher at the Audio Communication Group<br>
-            Lead of Computer Music and Neural Audio Systems Research Team<br>
-            Technische Universität Berlin
-        </div>
+<div style="text-align: center; color: var(--fs-text-muted-color); text-shadow: 0 0 20px var(--fs-background-color), 0 0 30px var(--fs-background-color)">
+    <div style="display: flex; justify-content: center; gap: 48px; font-size: 0.8em;">
+        <strong>Fares Schulz</strong>
+        <strong>Maximilian Weidauer</strong>
+        <strong>Stefan Weinzierl</strong>
+        <strong>Henrik von Coler</strong>
     </div>
-    <div style="font-size: 0.8em; text-align: center; color: var(--fs-text-muted-color);">
-        <strong>Maximilian Weidauer</strong><br>
-        <div style="font-size: 0.8em; margin-bottom: 10px;">
-            Researcher at the Audio Communication Group<br>
-            Technische Universität Berlin
-        </div>
+    <div style="font-size: 0.7em; margin-top: 16px;">
+        Audio Communication Group<br>
+        Technische Universität Berlin
     </div>
 </div>
+
 Notes:
 
 - Hello everyone
+- We present the SeamLess system, a distributed spatial audio rendering platform built on the Linux audio stack
+- My name is Fares Schulz, this collegue Maximilian Weidauer
 
 <!-- .slide: data-state="no-header no-footer", data-background-image="assets/images/SHF_eb00125547_Ethnologisches_Museum.jpg" -->
 
@@ -31,8 +29,8 @@ Notes:
 ---
 ## Spatial Sound Reproduction
 
+- Reproduction of sound over loudspeaker arrays such that listeners perceive a **two- or three-dimensional sound field**
 - Beyond two-channel and multichannel stereo
-- **Immersive, three-dimensional sound** over loudspeaker arrays
 - Two widely used, **non-proprietary** methods:
     - **Ambisonics**
     - **Wave Field Synthesis (WFS)**
@@ -42,44 +40,59 @@ Notes:
 Schultz, Hahn &amp; Spors (2025), <em>Wellenfeldsynthese</em>, in: Handbuch der Audiotechnik, Springer.
 </div>
 
+Notes:
+
+- Spatial audio is the reproduction of sound over loudspeaker arrays (or headphones) such that listeners perceive a two- or three-dimensional sound field
+- So it goes beyond two-channel and multichannel stereo formats, which are still the most common playback formats for audio
+- Widely used non-proprietary methods include:
+    - Ambisonics
+    - Wave Field Synthesis (WFS)
+- Both methods are already used in different venues througout the world
+
 ---
-## Two Complementary Methods
+## Ambisonics & WFS
 
 <div style="display: flex; gap: 40px; margin-top: 30px;">
-    <div class="tile color-0" style="flex: 1;">
+    <div class="tile color-0" style="flex: 1; align-items: center; text-align: center;">
         <h3>Ambisonics</h3>
         <div class="tile-description" style="height: auto; font-size: 0.6em;">
-            <ul>
-                <li>Domain-independent spatial audio format</li>
-                <li>Sound field encoded using <strong>spherical harmonics</strong> / <strong>sphere around the listener</strong></li>
-                <li>Decoded to <strong>arbitrary</strong> loudspeaker layouts</li>
-                <li>Strong for <strong>diffuse and elevated</strong> 3D fields</li>
-            </ul>
             <img src="assets/images/spherical_harmonics.png" alt="Spherical harmonics" style="width: 100%; object-fit: contain; border-radius: 8px; margin-top: 12px;">
         </div>
     </div>
-    <div class="tile color-1" style="flex: 1;">
+    <div class="tile color-1 fragment" style="flex: 1; align-items: center; text-align: center;">
         <h3>Wave Field Synthesis</h3>
         <div class="tile-description" style="height: auto; font-size: 0.6em;">
-            <ul>
-                <li>Object-based: synthesizes <strong>wave fronts</strong> from many speakers</li>
-                <li>Perceptually accurate <strong>localization</strong></li>
-                <li>Enables <strong>focused sources</strong> inside the array</li>
-                <li>Predominantly <strong>2D / horizontal</strong></li>
-            </ul>
             <img src="assets/images/huygens_fresnel_principle.webp" alt="Huygens-Fresnel principle" style="width: 100%; object-fit: contain; border-radius: 8px; margin-top: 12px; background: #fff; padding: 8px;">
         </div>
     </div>
 </div>
 
-<div class="highlight image-overlay" style="top: 50%; left: 50%; transform: translate(-50%, -50%); width: 70%;">Combining both leverages their complementary strengths in a single system</div>
+<div class="highlight image-overlay fragment" style="top: 50%; left: 50%; transform: translate(-50%, -50%); width: 70%;">Combining both leverages their complementary strengths in a single system</div>
+
+Notes:
+
+Ambisonics:
+- Encodes the spatial soundfield into multiple channels using spherical harmonics
+- These channels have certain parallels to the directionality of microphones:
+    - Channel 0 -> omnidirectional
+    - Channel 1-3 -> figure of eight in different directions
+    - Then cardioid, etc...
+- These encoded channels can then be decoded to arbitrary loudspeaker setups
+- It is very good at diffuse soundfields on a sphere around the listener, but does not allow placing sources on exact positions in the room
+
+Wave Field Synthesis:
+- Synthesizes wave fields from speaker arrays
+- Comes from the Huygens-Fresenel principle: Any wavefront can be created from an infinite number of elementary waves
+- Imagine these elementary waves as what happens when you throw a stone into water, the circular wave that appears
+- With this i.e. the wave field of a focused source inside the loudspreaker array can be synthesized
+- Predominantly used for 2D-horizontal sound-fields an allows for a very precise placement of soundsources within a room
 
 ---
 ## The Challenge of Scale
 
 - Both methods benefit from large channel counts (especially WFS)
 - Computational + organizational demands **exceed a single machine**
-- Our venues at TU Berlin and the Humboldt Forum:
+- Our venues at the Humboldt Forum has...
 
 <div style="display: flex; gap: 24px; margin-top: 24px; font-size: 0.62em;">
     <div class="tile" style="flex: 1; padding: 16px; display: flex; flex-direction: column; align-items: center; text-align: center;">
@@ -99,7 +112,14 @@ Schultz, Hahn &amp; Spors (2025), <em>Wellenfeldsynthese</em>, in: Handbuch der 
     </div>
 </div>
 
-<div class="highlight" style="margin-top: 36px;">Driving hundreds of speakers calls for <strong>distributed processing across multiple hosts</strong></div>
+<div class="highlight" style="margin-top: 36px;">Rendering for these high-channel count systems requires <strong>distributed processing across multiple hosts</strong></div>
+
+Notes:
+
+- But I want to note that both systems benifit from high audio channel counts, especially WFS
+- And these channel counts can easily exceed the computational resources of a single machine
+- For example our venues at the TU Berlin and the Humboldt-Forum Berlin have...
+- And rendering for these high-channel count systems requires distributed processing across multiple hosts
 
 ---
 ## Existing Solutions
@@ -119,20 +139,24 @@ Mature systems exist — but each leaves a gap for large-scale, open, distribute
 Carpentier et al. (Spat, ICMC 2015) · Geier et al. (SSR, AES 2008) · Grimm et al. (TASCAR, LAC 2015) · Rudrich et al. (IEM, 2016) · McCormack &amp; Politis (SPARTA, AES 2019)
 </div>
 
+<div class="image-overlay fragment" style="top: 50%; left: 50%; transform: translate(-50%, -50%); width: 70%; text-align: left;background: var(--fs-highlight-background); color: var(--fs-highlight-color); padding: 20px">
+Other limitations:
+<ul>
+    <li> No <strong>deployment automation</strong> or <strong>show scheduling</strong> for permanent installations</li>
+    <li> Limited portability of pieces between venues for WFS Systems</li>
+</ul>
+</div>
+
 Notes:
 
+- There exist already quite a couple of mature spatial audio rendering frameworks
 - Two groups: integrated renderers (Spat, Holoplot, SSR, TASCAR) and DAW plug-ins (IEM, SPARTA).
-- Existing tools each miss at least one key requirement: openness, Linux-first workflow, WFS, or distribution.
-- SeamLess targets exactly that missing combination: open-source + Linux + WFS + distributed rendering.
-
----
-## Limitations of Existing Systems
-
-- Limited portability of pieces between venues
-- **Channel count limited** by soundcard outputs and processing power of one machine 
-- **Proprietary** hardware and software 
-- **Costly** — not for smaller, budget-conscious setups 
-- No **deployment automation** or **show scheduling** for permanent installations
+- Existing tools each miss at least one key requirement: openness, Linux support, WFS, or distributed rendering.
+- I.e. The Spat and Holoplot codebase is propriatary and Spat is concieved as MAX externals and hence not linux compatible
+- The SSR has almost all features but does not allow for distributed rendering, similar to the DAW plug-ins IEM and Sparta
+- Which also do not have a WFS renderer, like TASCAR
+- SeamLess targets exactly that missing combination: open-source + first class Linux support + WFS + distributed rendering.
+- An appart from that we also takle two more limitations:
 
 ---
 # SeamLess
@@ -527,7 +551,7 @@ Notes:
 
 Notes:
 
-- Let me tie this back together.
+- Thanks Max, I will now conclude the presentation
 
 ---
 ## What We Presented
@@ -536,46 +560,99 @@ Notes:
 - Built entirely on the Linux audio stack
 - **Distributes** rendering across multiple commodity Linux servers
 - **systemd** services + **Ansible** deployment + strict **version control** for reliability
+- Running **continuously since May 2025** at the Berlin Humboldt Forum
+- Scales to large arrays — **up to 832 channels** in our largest install
 - **Separates** the rendering backend from user interaction
     - artists work through familiar **DAW plug-ins** and plain **OSC**
-- Scales to large arrays — **up to 832 channels** in our largest install
-- Running **continuously since May 2025** at the Berlin Humboldt Forum
+
+Notes:
+
+- We have presented to you today the SeamLess system, which is a modular, open-source, real-time spatial audio rendering platform
+- It is based entirely on the Linux audio stack
+- And allows you to create a spatial audio rendering system which distributes the compute across multiple commodity Linux servers
+- Through the infrastructure as code principle and strict version control we have achieved a high reliability
+- I.e. the system has bee running continuously since May 2025 at the Berlin Humboldt-Forum
+- And it also scales – we tested up to 832 channels in our largest installation
+- In all installations we have the rendering backend strictly seperated from the user interaction, which lets artists work in their familiar DAW or with plain OSC messages while hiding the complexity
 
 ---
 ## PipeWire — Spatial Audio Backend for the Future?
 
 - **JACK** has reliably carried our demanding, high-channel-count spatial audio in production for many years
 - **PipeWire** recently lifted the **64-channel hardware limit** -> makes it a viable solution going forward
-- Especially **WirePlumber** scripting + native **AES67** interesting
+- Especially **WirePlumber** scripting + native **AES67** interesting for future developement
 
-<div class="highlight" style="margin-top: 36px;">Open, Linux-based rendering has long been viable for real-world, large-scale installations</div>
+Notes:
+
+- One thing we want to highlight especially to the Linux audio community:
+- While JACK has been reliably driving our demanding high-channel-count audio rendering in the recent years
+- Now Pipewire has alse lifted the 64 channel hardware limit, which also makes it a viable solution
+- Our initial test show that seamless also works reliably with Pipewire and
+- The Wireplumber scripting and native AES67 support are interesting features for our future
 
 ---
 ## Outlook
 
-- Replace the proprietary **REAPER** playback engine with a **custom open-source** solution
 - Further investigate **PipeWire stability** under sustained, high-channel-count load
-- Explore rendering methods beyond WFS and Ambisonics
 - Adopt **AES67** for networked audio — motivated by poor Linux support for MADI/Dante drivers
+- Replace the proprietary **REAPER** playback engine with a **custom open-source** solution
+- Explore rendering methods beyond WFS and Ambisonics
+
+Notes:
+
+- Which brings us to the outlook
+- So we want to further investigate the PipeWire stability under sustained, high-channel-count load
+- And also adopt AES67 for networked audio, this is also motivated party by the poor Linux support for MADI/Dante drivers
+- We then plan to replace the proprietary **REAPER** playback engine with a **custom open-source** solution
+- Ideally a solution which can be attached to the output to any DAW or other audio application and records the outgoing audio and OSC data -> even stricter separation of artist frontend and our backend
+- Important: As artist in the spatial audio production domain, work with a wide range of tools and we just want to record the output, not dive into the artist sessions everytime for recording/saving for our scheduling system
+- Integrate other rendering methods in our modular system
 
 ---
-## Making Spatial Audio Accessible
 
-- Fully **open-source**, **Linux-first**, built on **standard hardware**
-- Viable for **large-scale venues** *and* **smaller, budget-conscious setups**
-- The open nature invites **adoption and contribution** from other institutions
+<h1 style="margin: 24px 0 120px 0;">Thank You for Listening!</h1>
 
----
-## Thank You for Listening!
+<div style="text-align: center; margin-top: 50px; font-size: 1.2em; color: var(--fs-text-color);">
+<strong>Any Questions?</strong>
+</div>
 
-<div style="display: flex; flex-direction: column; align-items: center; gap: 24px; margin-top: 10px;">
-    <div class="highlight" style="margin: 20px; padding: 20px;">Do you have questions?</div>
-    <img src="assets/images/seamless-docs-qr-code.svg" alt="SeamLess documentation QR code" style="width: 320px; height: 320px; background: #fff; padding: 12px; border-radius: 12px;">
-    <div style="font-size: 0.7em;"><strong>tu-studio.github.io/seamless-docs</strong></div>
-    <div style="display: flex; align-items: center; justify-content: center; gap: 48px; margin-top: 16px;">
-        <img src="assets/images/TULogo.png" alt="Technische Universität Berlin" style="height: 70px;">
-        <img src="assets/images/AKTLogo.png" alt="Audio Communication Group" style="height: 70px;">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px; gap: 80px;">
+
+<div style="flex: 1; text-align: center;">
+    <div style="margin-bottom: 30px;">
+        <img src="assets/images/seamless-docs-qr-code.svg" alt="Demo QR Code" style="width: 280px; height: 280px;">
+    </div>
+    <div style="font-size: 1.1em; font-weight: bold; margin-bottom: 10px;">
+        SeamLess Documentation
+    </div>
+    <div style="font-size: 0.9em; color: var(--fs-text-muted-color);">
+        <a>tu-studio.github.io/seamless-docs</a>
     </div>
 </div>
+
+<div style="flex: 1; text-align: center;">
+    <div style="margin-bottom: 30px;">
+        <img src="assets/images/seamless-docs-qr-code.svg" alt="Repository QR Code" style="width: 280px; height: 280px;">
+    </div>
+    <div style="font-size: 1.1em; font-weight: bold; margin-bottom: 10px;">
+        Repositories
+    </div>
+    <div style="font-size: 0.9em; color: var(--fs-text-muted-color);">
+        <a>github.com/tu-studio</a>
+    </div>
+</div>
+
+</div>
+
+<div style="text-align: center; margin-top: 40px; font-size: 0.85em; color: var(--fs-text-muted-color);">
+Fares Schulz, Maximilian Weidauer, Stefan Weinzierl, Henrik von Coler<br>
+<em style="font-size: 0.75em;">Acknowledgements to Paul Schuladen and Nils Tonnät for their work on the first version!</em>
+</div>
+
+Notes:
+
+- With this I want to than you for listening
+- And of course the open nature invites for **adoption and contribution** from you maybe?! So scan the QR codes
+- And we also want to also thank Paul Schuladen and Nils Tonnät for their work on the first version!
 
 <!-- .slide: data-state="no-header" -->
