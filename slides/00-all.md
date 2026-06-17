@@ -418,10 +418,14 @@ Notes:
 - focus on readable and concise configs, instead of just creating snapshots or saving every connection individually, because we don't have that many clients, but each has a lot of connections
 - NEXT: instead of specifying connections specify client and the amount of channels, optionally start index, 
 - NEXT: then we define the clients with port names to connect it to
+- script for creating the config lol
 - might be made obsolete by wireplumber/lua, but due to simple syntax might stay around, since it also works for pipewire, burn that bridge when get to it
 ---
 # Orchestration
 <!-- .slide: data-state="no-header no-footer" data-background-image="assets/images/hufo_image.jpg" data-background-opacity="0.55" -->
+
+Notes:
+in a cluster with that much software we can't edit config files by hand all the time using ssh, so we use some tools to help us with that
 
 ---
 ## Configs
@@ -456,12 +460,15 @@ String based on current git tag version is appended to filenames/directories
 /usr/local/etc/
 ├── audio-matrix 
 │    -> /usr/local/etc/audio-matrix-<span class="hljs-keyword textit">location</span>-<span class="hljs-keyword textit">node</span>-<span class="hljs-keyword textit">version</span>/
-└── audio-matrix-<span class="hljs-keyword textit">location</span>-<span class="hljs-keyword textit">node</span>-<span class="hljs-keyword textit">version</span>
+└── audio-matrix-<span class="hljs-keyword textit">location</span>-<span class="hljs-keyword textit">node</span>-<span class="hljs-keyword textit">version</span>/
 </code></pre>
 
 
 Notes:
-- high reliability requirements, limited time to work, thus quick rollback required
+- high reliability requirements, limited time to work, because usually there are visitors at the museum, thus quick rollback required
+- first we create the actual binary, or config directory, with a string based on the current git tag version appended as postfix
+- with configs node and location as well
+- NEXT: then we create symlinks with the actual names pointing to the versioned files 
 - similar to how library versions are managed
 ---
 ## Versioned Install
@@ -478,7 +485,10 @@ String based on current git tag version is appended to filenames/directories
 </code></pre>
 
 Notes:
-for python applications like osc-kreuz venv
+for python applications like osc-kreuz or jacoma:
+1. venv in /usr/local/share/, in which the module is installed
+2. NEXT: in the binary dir first symlink to installed python script in venv
+3. NEXT: symlink with clean name
 
 ---
 ## Deployment
@@ -518,9 +528,7 @@ player:
 
 Notes:
 - use ansible for management and deployment. does everything from installing software, setup system
-
 - you of course need to build a system first, and handle audio routing in some way, but that's nothing we can automate
- 
 - to go about setting up new seamless system first create inventory
   - groups of hosts: renderer, player
   - actual hosts with host and usernames
@@ -528,8 +536,6 @@ Notes:
     - services define which software gets installed
     - location is passed to the meson config install script
     - audio driver defines which drivers get installed
-
-
 - caveats to this: location specific scripts for proxies etc
 
 ---
