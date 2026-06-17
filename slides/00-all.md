@@ -82,7 +82,7 @@ Ambisonics:
 
 Wave Field Synthesis:
 - Synthesizes wave fields from speaker arrays
-- Comes from the Huygens-Fresnel principle: Any wavefront can be created from an infinite number of elementary waves
+- Comes from the Huygens-Fresnel principle: Any wavefront can be created by summing an infinite number of elementary waves
 - Imagine these elementary waves as what happens when you throw a stone into water, the circular wave that appears
 - With this i.e. the wave field of a focused source inside the loudspeaker array can be synthesized
 - Predominantly used for 2D-horizontal sound-fields and allows for a very precise placement of sound sources within a room
@@ -118,7 +118,7 @@ Notes:
 
 - But I want to note that both systems benefit from high audio channel counts, especially WFS
 - And these channel counts can easily exceed the computational resources of a single machine
-- For example our venues at the TU Berlin and the Humboldt-Forum Berlin have...
+- For example our venues at the Humboldt-Forum has...
 - And rendering for these high-channel count systems requires distributed processing across multiple hosts
 
 ---
@@ -601,11 +601,11 @@ Notes:
 Notes:
 
 - Which brings us to the outlook
-- So we want to further investigate the PipeWire stability under sustained, high-channel-count load
+- We want to further investigate the PipeWire stability under sustained, high-channel-count load
 - And also adopt AES67 for networked audio, this is also motivated partly by the poor Linux support for MADI/Dante drivers
-- We then plan to replace the proprietary **REAPER** playback engine with a **custom open-source** solution
-- Ideally a solution which can be attached to the output of any DAW or other audio application and records the outgoing audio and OSC data -> even stricter separation of artist frontend and our backend
-- Important: As artists in the spatial audio production domain, work with a wide range of tools and we just want to record the output, not dive into the artist sessions every time for recording/saving for our scheduling system
+- We also plan to replace the proprietary **REAPER** playback engine with a **custom open-source** solution
+- Ideally a solution which can be attached to the output of any DAW or other audio application and records the outgoing audio and OSC data -> strict separation of artist frontend and recorder
+- Important: As artists in the spatial audio production domain, work with a wide range of tools and when we want to record the output we do not want to dive into the artist sessions every time for recording/saving for integration in our scheduling system, which relies on reaper for...
 - Integrate other rendering methods in our modular system
 
 ---
