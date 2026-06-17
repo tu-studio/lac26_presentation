@@ -26,7 +26,7 @@ Notes:
 ---
 # Introduction
 
-<!-- .slide: data-state="no-header no-footer" data-background-image="assets/images/hufo_image.jpg" data-background-opacity="0.55" -->
+<!-- .slide: data-state="no-header no-footer" --->
 
 Notes:
 
@@ -63,7 +63,7 @@ Notes:
         <div class="tile-description" style="height: auto; font-size: 0.6em;">
             <ul>
                 <li>Domain-independent spatial audio format</li>
-                <li>Sound field encoded on a <strong>sphere around the listener</strong></li>
+                <li>Sound field encoded using <strong>spherical harmonics</strong> / <strong>sphere around the listener</strong></li>
                 <li>Decoded to <strong>arbitrary</strong> loudspeaker layouts</li>
                 <li>Strong for <strong>diffuse and elevated</strong> 3D fields</li>
             </ul>
@@ -93,20 +93,23 @@ Notes:
 ---
 ## The Challenge of Scale
 
-- Both methods benefit from **large channel counts** — hundreds of loudspeakers
+- Both methods benefit from **large channel counts** (especially WFS)
 - Computational + organizational demands **exceed a single machine**
 - Our venues at TU Berlin and the Humboldt Forum:
 
 <div style="display: flex; gap: 24px; margin-top: 24px; font-size: 0.62em;">
-    <div class="tile" style="flex: 1; padding: 24px;">
-        <strong>Ethnological Museum<br>(Humboldt Forum)</strong><br>
+    <div class="tile" style="flex: 1; padding: 16px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+        <img src="assets/images/hufo_image.jpg" alt="Humboldt Forum listening room" style="width: 100%; height: 170px; object-fit: cover; border-radius: 8px; margin-bottom: 12px;">
+        <strong>Humboldt Forum</strong><br>
         256-channel WFS · 45-speaker HOA dome
     </div>
-    <div class="tile" style="flex: 1; padding: 24px;">
+    <div class="tile" style="flex: 1; padding: 16px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+        <img src="assets/images/small-studio.png" alt="TU Studio" style="width: 100%; height: 170px; object-fit: cover; border-radius: 8px; margin-bottom: 12px;">
         <strong>TU Studio</strong><br>
         192-channel WFS · 21-channel Ambisonics dome · 8-speaker ring
     </div>
-    <div class="tile" style="flex: 1; padding: 24px;">
+    <div class="tile" style="flex: 1; padding: 16px; display: flex; flex-direction: column; align-items: center; text-align: center;">
+        <img src="assets/images/H0104.jpg" alt="Lecture Hall H 0104" style="width: 100%; height: 170px; object-fit: cover; border-radius: 8px; margin-bottom: 12px;">
         <strong>Lecture Hall H 0104</strong><br>
         832-channel WFS · 600+ seats
     </div>
@@ -128,15 +131,15 @@ Mature systems exist — but each leaves a gap for large-scale, open, distribute
 
 | System | Open source | Linux | WFS | Distributed |
 |---|:---:|:---:|:---:|:---:|
-| IRCAM **Spat** | ✗ (free, proprietary) | ✗ | ✓ | ✗ |
+| IRCAM **Spat** | ✗ (free, proprietary) | ✗ | ✓ | ~ |
 | **Holoplot** | ✗ | embedded | ✓ | custom HW |
 | **SSR** | ✓ | ✓ | ✓ | ✗ |
-| **TASCAR** | ✓ | ✓ | ~ | ✗ |
+| **TASCAR** | ✓ | ✓ | ✗ | ✗ |
 | **IEM** / **SPARTA** plug-ins | ✓ | ✓ | ✗ | ✗ |
 | **SeamLess** | ✓ | ✓ | ✓ | ✓ |
 
 <div class="reference" style="margin-top: 20px;">
-Carpentier et al. (Spat, ICMC 2015) · Geier et al. (SSR) · Grimm et al. (TASCAR) · Rudrich et al. (IEM) · McCormack &amp; Politis (SPARTA, AES 2019)
+Carpentier et al. (Spat, ICMC 2015) · Geier et al. (SSR, AES 2008) · Grimm et al. (TASCAR, LAC 2015) · Rudrich et al. (IEM, 2016) · McCormack &amp; Politis (SPARTA, AES 2019)
 </div>
 
 Notes:
@@ -564,19 +567,19 @@ Notes:
 - That separation is what lets the same piece scale from a small studio up to our 832-channel lecture hall without the artist having to think about the cluster underneath.
 
 ---
-## The Linux Audio Stack is Ready
+## PipeWire — Spatial Audio Backend for the Future?
 
-- **JACK** — and more recently **PipeWire** — proved mature enough for demanding, high-channel-count spatial audio in production
-- PipeWire removed the previous **64-channel hardware limit**
-- **WirePlumber** scripting + native **AES67** support are a promising foundation
+- **JACK** has reliably carried demanding, high-channel-count spatial audio in production for **many years** — mature, rock solid, battle-tested
+- **PipeWire** now joins it: recently lifting the **64-channel hardware limit** makes it a viable solution going forward
+- **WirePlumber** scripting + native **AES67** support point to an even stronger foundation ahead
 
-<div class="highlight" style="margin-top: 36px;">Open, Linux-based rendering is viable for real-world, large-scale installations</div>
+<div class="highlight" style="margin-top: 36px;">Open, Linux-based rendering has long been viable for real-world, large-scale installations</div>
 
 Notes:
 
-- One of our main takeaways is that the Linux audio stack is genuinely ready for this. JACK — and now PipeWire — handle demanding, high-channel-count spatial audio reliably in production.
-- The recent PipeWire work that removed the 64-channel hardware limit was a turning point for us.
-- And looking forward, WirePlumber's scripting capabilities plus PipeWire's native AES67 support are a very promising foundation for networked audio systems.
+- I want to be clear on this: the readiness of the Linux audio stack is not a new development. JACK has been ready for this for a very long time — it has reliably carried demanding, high-channel-count spatial audio in production for years. That is the foundation SeamLess was built on.
+- What *is* recent is PipeWire: lifting the previous 64-channel hardware limit was the turning point that makes it, too, a viable solution for us going forward — alongside JACK, not replacing it.
+- And looking further ahead, WirePlumber's scripting capabilities plus PipeWire's native AES67 support are a very promising foundation for networked audio systems.
 
 ---
 ## Operational Experience
@@ -619,12 +622,31 @@ Notes:
 - Viable for **large-scale venues** *and* **smaller, budget-conscious setups**
 - The open nature invites **adoption and contribution** from other institutions
 
-<div class="highlight" style="margin-top: 40px;">Thank you! — github.com/tu-studio</div>
-
 Notes:
 
 - The bigger picture: because SeamLess is fully open-source, Linux-first, and runs on standard commodity hardware, it lowers the barrier to spatial audio — not only for large institutions but for smaller, budget-conscious setups too.
 - And being open, it invites adoption and contributions from other institutions running comparable systems.
-- All of the components — the audio matrix, OSC-Kreuz, Wonder, the plug-in suite, the configs — are on our GitHub at github.com/tu-studio. Thank you — happy to take questions.
+- All of the components — the audio matrix, OSC-Kreuz, Wonder, the plug-in suite, the configs — are on our GitHub at github.com/tu-studio.
+
+---
+## Thank You for Listening!
+
+<div style="display: flex; flex-direction: column; align-items: center; gap: 24px; margin-top: 10px;">
+    <div class="highlight" style="margin: 20px; padding: 20px;">Do you have questions?</div>
+    <img src="assets/images/seamless-docs-qr-code.svg" alt="SeamLess documentation QR code" style="width: 320px; height: 320px; background: #fff; padding: 12px; border-radius: 12px;">
+    <div style="font-size: 0.7em;"><strong>tu-studio.github.io/seamless-docs</strong></div>
+    <div style="display: flex; align-items: center; justify-content: center; gap: 48px; margin-top: 16px;">
+        <img src="assets/images/TULogo.png" alt="Technische Universität Berlin" style="height: 70px;">
+        <img src="assets/images/AKTLogo.png" alt="Audio Communication Group" style="height: 70px;">
+    </div>
+</div>
+
+<!-- .slide: data-state="no-header no-footer" -->
+
+Notes:
+
+- That's everything from us — thank you for listening!
+- The full documentation is at tu-studio.github.io/seamless-docs; the QR code on screen takes you straight there.
+- Happy to take any questions now.
 
 
